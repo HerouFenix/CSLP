@@ -1,0 +1,2 @@
+ - Game: [Diogo Silva](https://github.com/HerouFenix)
+ - ML: [Pedro Escaleira](https://github.com/oEscal)
