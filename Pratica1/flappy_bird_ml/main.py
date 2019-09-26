@@ -6,12 +6,18 @@ from training import IntelligentBird
 from genetic_algorithm import crossover
 
 
-POPULATION_SIZE = 500
-MUTATION_RATE = 0.1
-
+POPULATION_SIZE = 500 """Sample size of how many test subjects we generate"""
+MUTATION_RATE = 0.1 """Mutation rate of our populus"""
 
 class Pipe:
+	"""
+	This class pertains to creating the obstacles, allowing for the easy modification of their properties
+	"""
+
 	def __init__(self, window_height, window_width):
+		"""
+		Create a new Pipe
+		"""
 		self.x = window_width  # Current Position
 
 		self.windowHeight = window_height
@@ -35,6 +41,9 @@ class Pipe:
 
 	# Check collision with the player
 	def checkCollision(self, bird):
+		"""
+		Check if pipe has collided with the player
+		"""
 		if bird.position[1] - 15 <= self.top \
 				or bird.position[1] + 15 >= self.bottom + self.windowHeight:  # Check if bird is in the same height as either the top or bottom of the pipe
 			if bird.position[0] + 15 > self.x and bird.position[
@@ -43,6 +52,9 @@ class Pipe:
 
 	# Update the pipe position
 	def update(self, bird):
+		"""
+		Check whether the pipe's position should be updated
+		"""
 		if self.passed is False and self.checkCollision(bird):
 			return True
 
@@ -50,6 +62,9 @@ class Pipe:
 
 	# Draw both bottom and top parts of the pipe
 	def draw(self, surface):
+		"""
+		Draw the pipe
+		"""
 		self.x = self.x - int(self.speed)
 		# Bottom
 		pygame.draw.rect(surface, self.color, (self.x, self.windowHeight, self.width, self.bottom))
@@ -58,7 +73,13 @@ class Pipe:
 
 
 class Bird:
+	"""
+	This class is used to create the playable character and give it it's attributes and abilities
+	"""
 	def __init__(self, size, window_height, window_width, brain):
+		"""
+		Used to initialize the player with all of it's properties
+		"""
 		self.size = size  # Bird size
 
 		self.color = (239, 177, 49)
@@ -74,9 +95,15 @@ class Bird:
 		self.brain = brain
 
 	def handleKeys(self):
+		"""
+		Called when the player hits the jump key, moves the PC up
+		"""
 		self.velocity = self.velocity + self.lift
 
 	def update(self):
+		"""
+		Continously updates the player's position so it falls according to gravity
+		"""
 		self.velocity = self.velocity + self.gravity
 		self.velocity = self.velocity * 0.91  # Makes it so velocity increases incrementally
 		self.position[1] = self.position[1] + self.velocity
@@ -89,10 +116,16 @@ class Bird:
 
 
 	def draw(self, surface):
+		"""
+		Draw the player
+		"""
 		pygame.draw.circle(surface, self.color, (int(self.position[0]), int(self.position[1])), self.size)
 
 
 def main():
+	"""
+	Main function that initializes the game itself
+	"""
 	nn_size = 3
 	generation_number = 1
 
