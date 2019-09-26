@@ -10,7 +10,7 @@ public class HashFunction {
     private int[] randValsA, randValsB;
     private int totalHashes;
 
-    /*
+    /**
      * Universal Hash:
      *     hK(x) = ((a(K) * x + b(K)) mod p)), where p >= # of Elements in Set
      */
@@ -20,9 +20,12 @@ public class HashFunction {
      *                                         Constructors                                         *
      ************************************************************************************************/
 
-    /*
+    /**
      * Purpose:
-     *      Initializes parameters of HashFunction Class
+     *		Creates a new instance of the HashFunction
+     *
+     * Argument:
+     *      ->integer totalHashes: Total number of hashes
      */
     public HashFunction(int totalHashes) {
         this.totalHashes = totalHashes;
@@ -34,7 +37,7 @@ public class HashFunction {
      *                                       Private Methods                                       *
      ***********************************************************************************************/
 
-    /*
+    /**
      * Purpose:
      *     Checks if a given number is prime
      *
@@ -52,7 +55,7 @@ public class HashFunction {
         return true;
     }
 
-    /*
+    /**
      * Purpose:
      *      Initializes variables to use in our Universal Hash Function
      */
@@ -90,7 +93,7 @@ public class HashFunction {
      *                                             Getters                                        *
      **********************************************************************************************/
 
-    /*
+    /**
      * Purpose:
      *      Gets value of attribute prime of Class
      *
@@ -101,7 +104,7 @@ public class HashFunction {
         return prime;
     }
 
-    /*
+    /**
      * Purpose:
      *      Gets array of ints RandValsA
      *
@@ -112,7 +115,7 @@ public class HashFunction {
         return randValsA;
     }
 
-    /*
+    /**
      * Purpose:
      *      Gets array of ints RandValsB
      *
@@ -127,7 +130,7 @@ public class HashFunction {
     /***********************************************************************************************
      *                                        Public Methods                                      *
      **********************************************************************************************/
-    /*
+    /**
      * Purpose:
      *      Calculates Hash value of an integer value
      *
@@ -146,7 +149,7 @@ public class HashFunction {
         return hK;
     }
 
-    /*
+    /**
      * Purpose:
      *      Calculates Hash value of an integer value
      *

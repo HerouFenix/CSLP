@@ -1,0 +1,149 @@
+\doxysection{Modules.\+Shingles Class Reference}
+\label{class_modules_1_1_shingles}\index{Modules.Shingles@{Modules.Shingles}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Shingles} (String[$\,$] docs)
+\item 
+\textbf{ Shingles} (Hash\+Map$<$ String, String $>$ map)
+\item 
+\textbf{ Shingles} (String[$\,$] docs, int gram)
+\item 
+\textbf{ Shingles} (Hash\+Map$<$ String, String $>$ map, int gram)
+\item 
+int \textbf{ get\+Gram} ()
+\item 
+Hash\+Map$<$ String, Array\+List$<$ String $>$ $>$ \textbf{ get\+Shingles} ()
+\item 
+Hash\+Map$<$ String, Array\+List$<$ Integer $>$ $>$ \textbf{ convert\+Shingles} ()
+\item 
+int \textbf{ get\+File\+Chars} (String file)
+\item 
+void \textbf{ print\+Shingles} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 15 of file Shingles.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_modules_1_1_shingles_a366da08555292cba4650ba17c0efa194}} 
+\index{Modules.Shingles@{Modules.Shingles}!Shingles@{Shingles}}
+\index{Shingles@{Shingles}!Modules.Shingles@{Modules.Shingles}}
+\doxysubsubsection{Shingles()\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Modules.\+Shingles.\+Shingles (\begin{DoxyParamCaption}\item[{String[$\,$]}]{docs }\end{DoxyParamCaption})}
+
+Purpose\+: Creates a new instance of the \doxyref{Shingles}{p.}{class_modules_1_1_shingles} using an array of strings
+
+Argument\+: -\/$>$String[]\+: Array of content to be turned into shingles 
+
+Definition at line 36 of file Shingles.\+java.
+
+\mbox{\label{class_modules_1_1_shingles_af69b69564303b1f548c7233e6b057e66}} 
+\index{Modules.Shingles@{Modules.Shingles}!Shingles@{Shingles}}
+\index{Shingles@{Shingles}!Modules.Shingles@{Modules.Shingles}}
+\doxysubsubsection{Shingles()\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Modules.\+Shingles.\+Shingles (\begin{DoxyParamCaption}\item[{Hash\+Map$<$ String, String $>$}]{map }\end{DoxyParamCaption})}
+
+Purpose\+: Creates a new instance of the \doxyref{Shingles}{p.}{class_modules_1_1_shingles} using an Map of String-\/\+String
+
+Argument\+: -\/$>$Hash\+Map$<$\+String,\+String$>$\+: Hashmap of String-\/\+String 
+
+Definition at line 53 of file Shingles.\+java.
+
+\mbox{\label{class_modules_1_1_shingles_a30eebcbdd837cedf4905bdbe92a63db3}} 
+\index{Modules.Shingles@{Modules.Shingles}!Shingles@{Shingles}}
+\index{Shingles@{Shingles}!Modules.Shingles@{Modules.Shingles}}
+\doxysubsubsection{Shingles()\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Modules.\+Shingles.\+Shingles (\begin{DoxyParamCaption}\item[{String[$\,$]}]{docs,  }\item[{int}]{gram }\end{DoxyParamCaption})}
+
+Purpose\+: Creates a new instance of the \doxyref{Shingles}{p.}{class_modules_1_1_shingles} using an array of strings and the number of total hashes
+
+Argument\+: -\/$>$String[]\+: Array of content to be turned into shingles -\/$>$integer\+: Total number of hashes 
+
+Definition at line 74 of file Shingles.\+java.
+
+\mbox{\label{class_modules_1_1_shingles_aab5a9f82e6f0e3eca0b64c3641c70135}} 
+\index{Modules.Shingles@{Modules.Shingles}!Shingles@{Shingles}}
+\index{Shingles@{Shingles}!Modules.Shingles@{Modules.Shingles}}
+\doxysubsubsection{Shingles()\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Modules.\+Shingles.\+Shingles (\begin{DoxyParamCaption}\item[{Hash\+Map$<$ String, String $>$}]{map,  }\item[{int}]{gram }\end{DoxyParamCaption})}
+
+Purpose\+: Creates a new instance of the \doxyref{Shingles}{p.}{class_modules_1_1_shingles} using an Hashmap of String-\/\+String and the number of total hashes
+
+Argument\+: -\/$>$Hash\+Map$<$\+String,\+String$>$\+: Hashmap of String-\/\+String -\/$>$integer\+: Total number of hashes 
+
+Definition at line 92 of file Shingles.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_modules_1_1_shingles_a3c37200e7204a1d6f9499f9ba9471ad4}} 
+\index{Modules.Shingles@{Modules.Shingles}!convertShingles@{convertShingles}}
+\index{convertShingles@{convertShingles}!Modules.Shingles@{Modules.Shingles}}
+\doxysubsubsection{convertShingles()}
+{\footnotesize\ttfamily Hash\+Map$<$String, Array\+List$<$Integer$>$ $>$ Modules.\+Shingles.\+convert\+Shingles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Convert the shingles of strings to ints. Instead of a map with this structure \{String\+: Array\+List$<$\+String$>$\}, we will have a structure like this\+: \{String\+: Array\+List$<$\+Integer$>$\}
+
+Return\+: -\/$>$ Hash\+Map$<$String,Array\+List$<$\+Integer$>$$>$\+: hash\+Map with this structure\+: \{String\+: Array\+List$<$\+Integer$>$\} 
+
+Definition at line 207 of file Shingles.\+java.
+
+\mbox{\label{class_modules_1_1_shingles_a3c8a3b4a0ff6da62a20f9100b3572f7d}} 
+\index{Modules.Shingles@{Modules.Shingles}!getFileChars@{getFileChars}}
+\index{getFileChars@{getFileChars}!Modules.Shingles@{Modules.Shingles}}
+\doxysubsubsection{getFileChars()}
+{\footnotesize\ttfamily int Modules.\+Shingles.\+get\+File\+Chars (\begin{DoxyParamCaption}\item[{String}]{file }\end{DoxyParamCaption})}
+
+Purpose\+: Returns the total amount of chars in a file
+
+Argument\+: -\/$>$ String file\+: name of the file to be analysed
+
+Return\+: -\/$>$ int\+: number of chars of that file 
+
+Definition at line 247 of file Shingles.\+java.
+
+\mbox{\label{class_modules_1_1_shingles_aa55dbda59a5cd5909ee7c1373ebdd79e}} 
+\index{Modules.Shingles@{Modules.Shingles}!getGram@{getGram}}
+\index{getGram@{getGram}!Modules.Shingles@{Modules.Shingles}}
+\doxysubsubsection{getGram()}
+{\footnotesize\ttfamily int Modules.\+Shingles.\+get\+Gram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Get gram value (size of each shingle)
+
+Return\+: -\/$>$ int\+: value of gram 
+
+Definition at line 178 of file Shingles.\+java.
+
+\mbox{\label{class_modules_1_1_shingles_af9bbe4a9c7305bdde74a5ca1f59e8292}} 
+\index{Modules.Shingles@{Modules.Shingles}!getShingles@{getShingles}}
+\index{getShingles@{getShingles}!Modules.Shingles@{Modules.Shingles}}
+\doxysubsubsection{getShingles()}
+{\footnotesize\ttfamily Hash\+Map$<$String, Array\+List$<$String$>$ $>$ Modules.\+Shingles.\+get\+Shingles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Get shingles map
+
+Return\+: -\/$>$ Hash\+Map$<$String, Array\+List$<$\+String$>$$>$\+: map where he keys are the names of the docs and the respective values are Array\+Lists with the shingles of each doc 
+
+Definition at line 191 of file Shingles.\+java.
+
+\mbox{\label{class_modules_1_1_shingles_a529aec18a02b6f9b0106b46f9cd3b7aa}} 
+\index{Modules.Shingles@{Modules.Shingles}!printShingles@{printShingles}}
+\index{printShingles@{printShingles}!Modules.Shingles@{Modules.Shingles}}
+\doxysubsubsection{printShingles()}
+{\footnotesize\ttfamily void Modules.\+Shingles.\+print\+Shingles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Prints \doxyref{Shingles}{p.}{class_modules_1_1_shingles} 
+
+Definition at line 268 of file Shingles.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+C\+S\+L\+P/\+Praticas\+C\+S\+L\+P/\+Pratica1/\+M\+P\+E\+I/src/\+Modules/Shingles.\+java\end{DoxyCompactItemize}

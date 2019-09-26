@@ -21,6 +21,15 @@ public class MinHashLSH extends MinHash {
     /*************************************************************************************************
      *                                         Constructors                                         *
      ************************************************************************************************/
+    /**
+     * Purpose:
+     *		Creates a new instance of the MinHashLSH
+     *
+     * Argument:
+     * 		->HashMap<String, ArrayList<Integer>>: Hashmap of the contents used to create the MinHash via LSH
+     *      ->integer totalHashes: Total number of hashes
+     *      ->integer r: Total number of rows created
+     */
     public MinHashLSH(HashMap<String, ArrayList<Integer>> dataSet, int totalHashes, int r) {
         super(dataSet, totalHashes);
         this.rows = r;
@@ -42,7 +51,7 @@ public class MinHashLSH extends MinHash {
     /************************************************************************************************
      *                                       Private Methods                                       *
      ***********************************************************************************************/
-    /*
+    /**
      * Purpose:
      *      Calculates Hash value of a string
      *
@@ -60,7 +69,7 @@ public class MinHashLSH extends MinHash {
         return hK;
     }
 
-    /*
+    /**
      * Purpose:
      *     Creates a minHash reduced (applies LSH)
      */
@@ -92,7 +101,7 @@ public class MinHashLSH extends MinHash {
     /***********************************************************************************************
      *                                        Public Methods                                      *
      **********************************************************************************************/
-    /*
+    /**
      * Purpose:
      *      Returns total amount of intersections between two 1D arrays
      *
@@ -116,7 +125,7 @@ public class MinHashLSH extends MinHash {
     }
 
 
-    /*
+    /**
      * Purpose:
      * 		Prints all Similarities of the Initial Set taking in account a value of guidance (threshold)
      *
@@ -144,7 +153,7 @@ public class MinHashLSH extends MinHash {
         }
     }
 
-    /*
+    /**
      * Purpose:
      * 		Returns a list with all Modules.Similarities of the Initial Set taking in account a value of guidance (threshold)
      *

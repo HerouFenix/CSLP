@@ -11,7 +11,7 @@ public class StochasticCounter {
     /*************************************************************************************************
      *                                         Constructors                                         *
      ************************************************************************************************/
-    /*
+    /**
      * Purpose:
      *		Creates a new instance of the Stochastic Counter, initializing it's counting probability
      *	and counter variables;
@@ -28,7 +28,7 @@ public class StochasticCounter {
     /***********************************************************************************************
      *                                             Getters                                        *
      **********************************************************************************************/
-    /*
+    /**
      * Purpose:
      *		Returns the counting probability
      *
@@ -40,7 +40,7 @@ public class StochasticCounter {
     }
 
 
-    /*
+    /**
      * Purpose:
      *		Returns an accurate number of events that have tried to be counted up until the moment this function was called
      *
@@ -51,7 +51,7 @@ public class StochasticCounter {
         return numberOfEvents;
     }
     
-    /*
+    /**
      * Purpose:
      *		Returns an approximate number of events that have tried to be counted up until the moment this function was called
      *
@@ -62,7 +62,7 @@ public class StochasticCounter {
         return (int) (this.counter*(1/this.countingProb));
     }
 
-    /*
+    /**
      * Purpose:
      *		Returns the value of the counter
      *
@@ -77,7 +77,7 @@ public class StochasticCounter {
     /***********************************************************************************************
      *                                             Setters                                        *
      **********************************************************************************************/
-    /*
+    /**
      * Purpose:
      *		Manually changes the value of the counting probability
      *
@@ -92,7 +92,7 @@ public class StochasticCounter {
     /***********************************************************************************************
      *                                        Public Methods                                      *
      **********************************************************************************************/
-    /*
+    /**
      * Purpose:
      *		Attempts to increment a counter (equals to trying to count an event)
      *
@@ -107,7 +107,7 @@ public class StochasticCounter {
         return this.counter;
     }
 
-    /*
+    /**
      * Purpose:
      *		Resets the counter
      */
@@ -116,7 +116,7 @@ public class StochasticCounter {
         this.numberOfEvents = 0;
     }
 
-    /*
+    /**
      * Purpose:
      *		Returns the average number of events that should be counted
      *
@@ -127,7 +127,7 @@ public class StochasticCounter {
         return this.numberOfEvents * this.countingProb;
     }
 
-    /*
+    /**
      * Purpose:
      *		Returns the average variance of events that should be counted
      *
@@ -139,7 +139,7 @@ public class StochasticCounter {
         return var * this.numberOfEvents;
     }
 
-    /*
+    /**
      * Purpose:
      *		Returns the factorial of a given number 
      *		ONLY WORKS FOR SMALL n's
@@ -157,7 +157,7 @@ public class StochasticCounter {
             return (n * factorial(n - 1));
     }
 
-    /*
+    /**
      * Purpose:
      *		Returns the probability of counting n out of the total ammount of events
      *

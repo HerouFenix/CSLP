@@ -1,0 +1,111 @@
+\doxysection{Modules.\+Hash\+Function Class Reference}
+\label{class_modules_1_1_hash_function}\index{Modules.HashFunction@{Modules.HashFunction}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Hash\+Function} (int total\+Hashes)
+\item 
+int \textbf{ get\+Prime} ()
+\item 
+int[$\,$] \textbf{ get\+Rand\+ValsA} ()
+\item 
+int[$\,$] \textbf{ get\+Rand\+ValsB} ()
+\item 
+int \textbf{ get\+Hash} (int val)
+\item 
+int \textbf{ get\+Hash} (int val, int i)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 5 of file Hash\+Function.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_modules_1_1_hash_function_acc08aab55fc425939d52ba5c044483ba}} 
+\index{Modules.HashFunction@{Modules.HashFunction}!HashFunction@{HashFunction}}
+\index{HashFunction@{HashFunction}!Modules.HashFunction@{Modules.HashFunction}}
+\doxysubsubsection{HashFunction()}
+{\footnotesize\ttfamily Modules.\+Hash\+Function.\+Hash\+Function (\begin{DoxyParamCaption}\item[{int}]{total\+Hashes }\end{DoxyParamCaption})}
+
+Universal Hash\+: h\+K(x) = ((a(\+K) $\ast$ x + b(\+K)) mod p)), where p $>$= \# of Elements in Set Purpose\+: Creates a new instance of the \doxyref{Hash\+Function}{p.}{class_modules_1_1_hash_function}
+
+Argument\+: -\/$>$integer total\+Hashes\+: Total number of hashes 
+
+Definition at line 28 of file Hash\+Function.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_modules_1_1_hash_function_a5699108c5cb018013236b1e514f5a508}} 
+\index{Modules.HashFunction@{Modules.HashFunction}!getHash@{getHash}}
+\index{getHash@{getHash}!Modules.HashFunction@{Modules.HashFunction}}
+\doxysubsubsection{getHash()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Modules.\+Hash\+Function.\+get\+Hash (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+Purpose\+: Calculates Hash value of an integer value
+
+Arguments\+: -\/$>$ int val\+: integer to be hashed -\/$>$ int i\+: number of hash function to be used (it will select the correct values of arrays rand\+ValsA and rand\+ValsB
+
+Return\+: int\+: hash code (integer) of the given integer 
+
+Definition at line 140 of file Hash\+Function.\+java.
+
+\mbox{\label{class_modules_1_1_hash_function_a1a1fb3cd81eb759a6e7e6d5920fc50c7}} 
+\index{Modules.HashFunction@{Modules.HashFunction}!getHash@{getHash}}
+\index{getHash@{getHash}!Modules.HashFunction@{Modules.HashFunction}}
+\doxysubsubsection{getHash()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Modules.\+Hash\+Function.\+get\+Hash (\begin{DoxyParamCaption}\item[{int}]{val,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+Purpose\+: Calculates Hash value of an integer value
+
+Arguments\+: -\/$>$ int val\+: integer to be hashed -\/$>$ int i\+: number of hash function to be used (it will select the correct values of arrays rand\+ValsA and rand\+ValsB
+
+Return\+: int\+: hash code (integer) of the given integer 
+
+Definition at line 159 of file Hash\+Function.\+java.
+
+\mbox{\label{class_modules_1_1_hash_function_a480915e58bf6f160aba3eed63c76da58}} 
+\index{Modules.HashFunction@{Modules.HashFunction}!getPrime@{getPrime}}
+\index{getPrime@{getPrime}!Modules.HashFunction@{Modules.HashFunction}}
+\doxysubsubsection{getPrime()}
+{\footnotesize\ttfamily int Modules.\+Hash\+Function.\+get\+Prime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Gets value of attribute prime of Class
+
+Return\+: -\/$>$ int\+: value of the prime attribute 
+
+Definition at line 99 of file Hash\+Function.\+java.
+
+\mbox{\label{class_modules_1_1_hash_function_a0d08f3163e66b31680dac8a7461715f2}} 
+\index{Modules.HashFunction@{Modules.HashFunction}!getRandValsA@{getRandValsA}}
+\index{getRandValsA@{getRandValsA}!Modules.HashFunction@{Modules.HashFunction}}
+\doxysubsubsection{getRandValsA()}
+{\footnotesize\ttfamily int [$\,$] Modules.\+Hash\+Function.\+get\+Rand\+ValsA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Gets array of ints Rand\+ValsA
+
+Return\+: -\/$>$ int[]\+: array of ints with random values of A 
+
+Definition at line 110 of file Hash\+Function.\+java.
+
+\mbox{\label{class_modules_1_1_hash_function_ae926ad65d715e3aad10247c6f6aaebd9}} 
+\index{Modules.HashFunction@{Modules.HashFunction}!getRandValsB@{getRandValsB}}
+\index{getRandValsB@{getRandValsB}!Modules.HashFunction@{Modules.HashFunction}}
+\doxysubsubsection{getRandValsB()}
+{\footnotesize\ttfamily int [$\,$] Modules.\+Hash\+Function.\+get\+Rand\+ValsB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Gets array of ints Rand\+ValsB
+
+Return\+: -\/$>$ int[]\+: array of ints with random values of B 
+
+Definition at line 121 of file Hash\+Function.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+C\+S\+L\+P/\+Praticas\+C\+S\+L\+P/\+Pratica1/\+M\+P\+E\+I/src/\+Modules/Hash\+Function.\+java\end{DoxyCompactItemize}

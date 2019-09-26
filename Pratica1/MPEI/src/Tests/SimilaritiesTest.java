@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
+/**
+     * Purpose:
+     *		Test used to check if we are able to get the correct Similarities using our created classes
+*/
 public class SimilaritiesTest {
 
     public static HashMap<String, ArrayList<Integer>> getDataSet(String file) {
@@ -44,14 +47,14 @@ public class SimilaritiesTest {
     public static void main(String[] args) {
         long start, end;
 
-        // TEST A - Check Similarities with Documents/ Texts
+        /// TEST A - Check Similarities with Documents/ Texts
         System.out.println("TEST A - Check Similarities with Documents/ Texts");
         String[] docs = {"testFile1.txt", "testFile1 - Copy.txt","testFile2.txt","testOof.txt","testOof2.txt"};
         Shingles ourShingles = new Shingles(docs);
         MinHash ourMinHash2 = new MinHash(ourShingles.convertShingles(), 1000);
         ourMinHash2.printSimilarities(0.2);
 
-        //TEST B - Data Set taken from movieLens
+        /// TEST B - Data Set taken from movieLens
         HashMap<String, ArrayList<Integer>> dataSet = getDataSet("u.data");
         System.out.println("\nTEST B - Data Set taken from movieLens");
         MinHash ourMinHash = new MinHash(dataSet, 6650);

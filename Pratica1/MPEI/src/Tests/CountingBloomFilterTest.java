@@ -5,13 +5,18 @@ import Modules.CountingBloomFilter;
 import java.io.*;
 import java.util.*;
 
+/**
+     * Purpose:
+     *		Test used to check if the Counting Bloom Filter was well implemented
+*/
+
 public class CountingBloomFilterTest {
 
     public static void main(String[] args) throws IOException {
         int m = 1000;            // number of elements to insert
         double factor = 0.1;    // factor of charge of Counting Bloom Filter
 
-        /*
+        /**
          * Initializing Counting Bloom Filter
          */
         CountingBloomFilter B = new CountingBloomFilter(m, factor);
@@ -19,7 +24,7 @@ public class CountingBloomFilterTest {
 
         String[] words = new String[m];
 
-        /*
+        /**
          * Inserting elements to Counting Bloom Filter
          */
         int len = 40;                        // length of strings to be generated
@@ -37,25 +42,25 @@ public class CountingBloomFilterTest {
         }
         output.close();
 
-        /*
+        /**
          * checks false negatives
          */
         checkFalseNegatives(words, B);
         System.out.println();
 
-        /*
+        /**
          * checks false positives
          */
         checkFalsePositives(B, len);
         System.out.println();
 
-        /*
+        /**
          * checks number of words that do not belong to a certain file form other file
          */
         checkWordsNotBelong("pg26017.txt", "pg16425.txt");
         System.out.println();
 
-        /*
+        /**
          * print number of occurrences of each word in the file
          * and print the word with bigger occurrences
          */
@@ -64,7 +69,7 @@ public class CountingBloomFilterTest {
     }
 
 
-    /*
+    /**
      * Purpose:
      * 		Generates a pseudo-random string with length of len (argument passed to function)
      *
@@ -89,7 +94,7 @@ public class CountingBloomFilterTest {
     }
 
 
-    /*
+    /**
      * Purpose:
      * 		Checks if there are false negatives in Counting Bloom Filter
      *
@@ -109,7 +114,7 @@ public class CountingBloomFilterTest {
     }
 
 
-    /*
+    /**
      * Purpose:
      * 		Checks if there is false positives in Counting Bloom Filter
      *
@@ -130,7 +135,7 @@ public class CountingBloomFilterTest {
     }
 
 
-    /*
+    /**
      * Purpose:
      * 		Reads file and puts words in ArrayList
      *
@@ -148,7 +153,7 @@ public class CountingBloomFilterTest {
 
             while (input.hasNext()) {
                 word = input.next();
-                word = word.replaceAll("[.:;<>_,?!*/($)»«'']", "");
+                word = word.replaceAll("[.:;<>_,?!*/($)ï¿½ï¿½'']", "");
                 if (word.compareTo("") != 0) {
                     //System.out.println(word);
                     wordsList.add(word);
@@ -164,7 +169,7 @@ public class CountingBloomFilterTest {
     }
 
 
-    /*
+    /**
      * Purpose:
      * 		Calculates de number of words in file 2 that do not belong in file 1
      *
@@ -215,7 +220,7 @@ public class CountingBloomFilterTest {
     }
 
 
-    /*
+    /**
      * Purpose:
      * 		Prints the number of occurrences of each word.
      * 		In the end prints the word with the bigger number of occurrences

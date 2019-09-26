@@ -1,0 +1,54 @@
+\doxysection{Tests.\+Stochastic\+Counter\+Test Class Reference}
+\label{class_tests_1_1_stochastic_counter_test}\index{Tests.StochasticCounterTest@{Tests.StochasticCounterTest}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ main} (String[$\,$] args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Purpose\+: Test used to check if the Stochastic Counter is working as intended 
+
+Definition at line 9 of file Stochastic\+Counter\+Test.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_tests_1_1_stochastic_counter_test_ae2c197c11da7ae37645330080d417f47}} 
+\index{Tests.StochasticCounterTest@{Tests.StochasticCounterTest}!main@{main}}
+\index{main@{main}!Tests.StochasticCounterTest@{Tests.StochasticCounterTest}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily static void Tests.\+Stochastic\+Counter\+Test.\+main (\begin{DoxyParamCaption}\item[{String[$\,$]}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+N\+U\+M\+B\+ER OF C\+A\+S\+ES C\+O\+N\+S\+I\+D\+E\+R\+ED (counter) Theoretically, in this case we should have, in average, about 100000/2 events counted, so our counter should be at about 50 000 (give or take)
+
+M\+E\+AN OF C\+A\+S\+ES C\+O\+N\+S\+I\+D\+E\+R\+ED Theoretically, the mean of cases considered should be \#of\+Cases $\ast$ counting\+Probability. In our case, that would be 100000 $\ast$ 1/2 = 50 000
+
+V\+A\+R\+I\+A\+N\+CE OF C\+A\+S\+ES C\+O\+N\+S\+I\+D\+E\+R\+ED The formula for the Variance of Cases Counted is the same as the normal formula for the Variance of a Random Variable. In truth the counter itself could be considered a variable that takes the value 1 if a case is counted or 0 if its not !
+
+So in our case, Var(\+X) = E[X$^\wedge$2] -\/ E$^\wedge$2[X] E[X$^\wedge$2] = 1/2 $\ast$ 0 + 1/2 $\ast$ 1$^\wedge$2 = 1/2 ; E$^\wedge$2[X] = 1/4 ;Var(\+X) = 1/2-\/1/4 = 1/2 ; But we want the Variance of cases counted out of K which we can get with\+: k $\ast$ Var(\+X), and since we have 100 000 cases, we get Var(\+X) = Var(\+X1) + Var(\+X2) + ... + Var(\+X100000) = 100000/4 = 25 000
+
+T\+E\+ST B///////////////////////////////////// Imagining we have a data set with 50 elements \&\& Counting Prob. of 1/32
+
+N\+U\+M\+B\+ER OF C\+A\+S\+ES C\+O\+N\+S\+I\+D\+E\+R\+ED (counter) Theoretically, in this case we should have, in average, about 100000/2 events counted, so our counter should be at about 50 000 (give or take)
+
+M\+E\+AN OF C\+A\+S\+ES C\+O\+N\+S\+I\+D\+E\+R\+ED Theoretically, the mean of cases considered should be \#of\+Cases $\ast$ counting\+Probability. In our case, that would be 100000 $\ast$ 1/2 = 50 000
+
+V\+A\+R\+I\+A\+N\+CE OF C\+A\+S\+ES C\+O\+N\+S\+I\+D\+E\+R\+ED
+
+The formula for the Variance of Cases Counted is the same as the normal formula for the Variance of a Random Variable. In truth the counter itself could be considered a variable that takes the value 1 if a case is counted or 0 if its not !
+
+So in our case, Var(\+X) = E[X$^\wedge$2] -\/ E$^\wedge$2[X] E[X$^\wedge$2] = 1/2 $\ast$ 0 + 1/2 $\ast$ 1$^\wedge$2 = 1/2 ; E$^\wedge$2[X] = 1/4 ;Var(\+X) = 1/2-\/1/4 = 1/2 ; But we want the Variance of cases counted out of K which we can get with\+: k $\ast$ Var(\+X), and since we have 100 000 cases, we get Var(\+X) = Var(\+X1) + Var(\+X2) + ... + Var(\+X100000) = 100000/4 = 25 000
+
+P\+R\+O\+B\+A\+B\+I\+L\+I\+TY OF N C\+A\+S\+ES B\+E\+I\+NG C\+O\+U\+N\+T\+ED
+
+The formula for the probability of n cases being considered out of k, with a counting probability of p is\+: C(k,n)$\ast$p$^\wedge$n $\ast$ (1-\/p)$^\wedge$(k-\/n) In our case, the probability of counting just, for example, 1 case should be\+: 50!/1!$\ast$(50-\/1)! $\ast$ 1/64 $^\wedge$5000 $\ast$ 63/64$^\wedge$(50-\/1)
+
+Definition at line 11 of file Stochastic\+Counter\+Test.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+C\+S\+L\+P/\+Praticas\+C\+S\+L\+P/\+Pratica1/\+M\+P\+E\+I/src/\+Tests/Stochastic\+Counter\+Test.\+java\end{DoxyCompactItemize}

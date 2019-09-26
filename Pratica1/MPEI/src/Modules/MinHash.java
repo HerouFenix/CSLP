@@ -24,7 +24,7 @@ public class MinHash {
      *                                         Constructors                                         *
      ************************************************************************************************/
 
-    /*
+    /**
      * Purpose:
      *      Initializes parameters of MinHash
      *      Initializes parameters of Hash Function
@@ -45,7 +45,7 @@ public class MinHash {
      *                                       Private Methods                                       *
      ***********************************************************************************************/
 
-    /*
+    /**
      * Purpose:
      *      Returns total amount of intersections between two 1D arrays
      *
@@ -68,7 +68,7 @@ public class MinHash {
         return sum;
     }
 
-    /*
+    /**
      * Purpose:
      *     Gets minimum value from an array of Integers
      *
@@ -90,7 +90,7 @@ public class MinHash {
         return min;
     }
 
-    /*
+    /**
      * Purpose:
      *     Creates a minHash
      *
@@ -135,7 +135,7 @@ public class MinHash {
      *                                             Getters                                        *
      **********************************************************************************************/
 
-    /*
+    /**
      * Purpose:
      * 		Gets the minHash Bi-Dimensional Array
      *
@@ -147,7 +147,7 @@ public class MinHash {
     }
 
 
-    /*
+    /**
      * Purpose:
      * 		Gets the number of Hash Functions
      *
@@ -159,7 +159,7 @@ public class MinHash {
     }
 
 
-    /*
+    /**
      * Purpose:
      * 		Gets the Data SET
      *
@@ -175,7 +175,7 @@ public class MinHash {
      *                                        Public Methods                                      *
      **********************************************************************************************/
 
-    /*
+    /**
      * Purpose:
      * 		Prints the Modules.MinHash Bi-Dimensional Array
      */
@@ -192,7 +192,7 @@ public class MinHash {
     }
 
 
-    /*
+    /**
      * Purpose:
      * 		Prints all Modules.Similarities of the Initial Set taking in account a value of guidance (threshold)
      *
@@ -219,7 +219,7 @@ public class MinHash {
 
     }
     
-    /*
+    /**
      * Purpose:
      * 		Returns a list with all Modules.Similarities of the Initial Set taking in account a value of guidance (threshold)
      *

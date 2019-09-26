@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
+/**
+     * Purpose:
+     *		Test used to check if the LSH was well implemented and is capable of generating the correct similarities
+*/
 public class SimilaritiesLSHTest {
 
     public static HashMap<String, ArrayList<Integer>> getDataSet(String file) {
@@ -44,14 +47,14 @@ public class SimilaritiesLSHTest {
     public static void main(String[] args) {
         long start, end;
 
-        // TEST A - Check Similarities with Documents/ Texts
+        /// TEST A - Check Similarities with Documents/ Texts
         System.out.println("TEST A - Check Similarities with Documents/ Texts");
         String[] docs = {"testFile1.txt", "testFile1 - Copy.txt","testFile2.txt","testOof.txt","testOof2.txt"};
         Shingles ourShingles = new Shingles(docs);
         MinHashLSH ourMinHash2 = new MinHashLSH(ourShingles.convertShingles(), 1000, 10);
         ourMinHash2.printSimilarities(0.20);
 
-        //TEST B - Data Set taken from movieLens
+        /// TEST B - Data Set taken from movieLens
         HashMap<String, ArrayList<Integer>> dataSet = getDataSet("u.data");
         System.out.println("\nTEST B - Data Set taken from movieLens");
         MinHashLSH ourMinHash = new MinHashLSH(dataSet, 6650, 10);

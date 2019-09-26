@@ -28,7 +28,14 @@ public class Shingles {
     /*************************************************************************************************
      *                                         Constructors                                         *
      ************************************************************************************************/
-    public Shingles(String[] docs) {
+    /**
+     * Purpose:
+     *		Creates a new instance of the Shingles using an array of strings
+     *
+     * Argument:
+     * 		->String[]: Array of content to be turned into shingles
+     */
+     public Shingles(String[] docs) {
 
         this.shingles = new HashMap<String, ArrayList<String>>();
         ourHashFunction = new HashFunction(this.gram);
@@ -37,7 +44,14 @@ public class Shingles {
             shingles.put(key, createShingles(key));
         }
     }
-    
+
+    /**
+     * Purpose:
+     *		Creates a new instance of the Shingles using an Map of String-String
+     *
+     * Argument:
+     * 		->HashMap<String,String>: Hashmap of String-String
+     */
     public Shingles(HashMap<String,String> map) {
         this.shingles = new HashMap<String, ArrayList<String>>();
         ourHashFunction = new HashFunction(this.gram);
@@ -50,7 +64,15 @@ public class Shingles {
             shingles.put(item.getKey(), createShingles2(item.getKey(),item.getValue()));
         }
     }
-    
+
+    /**
+     * Purpose:
+     *		Creates a new instance of the Shingles using an array of strings and the number of total hashes
+     *
+     * Argument:
+     * 		->String[]: Array of content to be turned into shingles
+     *      ->integer: Total number of hashes
+     */
     public Shingles(String[] docs,int gram) {
     	this.gram = gram;
         this.shingles = new HashMap<String, ArrayList<String>>();
@@ -61,6 +83,14 @@ public class Shingles {
         }
     }
     
+    /**
+     * Purpose:
+     *		Creates a new instance of the Shingles using an Hashmap of String-String and the number of total hashes
+     *
+     * Argument:
+     * 		->HashMap<String,String>: Hashmap of String-String
+     *      ->integer: Total number of hashes
+     */
     public Shingles(HashMap<String,String> map, int gram) {
     	this.gram = gram;
         this.shingles = new HashMap<String, ArrayList<String>>();
@@ -80,7 +110,7 @@ public class Shingles {
     /************************************************************************************************
      *                                       Private Methods                                       *
      ***********************************************************************************************/
-    /*
+    /**
      * Purpose:
      * 		Converts Text from file into an ArrayList of Shingles
      *
@@ -116,7 +146,7 @@ public class Shingles {
         return shingles;
     }
 
-    /*
+    /**
      * Purpose:
      * 		Converts Text from an ArrayList of strings into an ArrayList of Shingles
      *
@@ -142,7 +172,7 @@ public class Shingles {
     /***********************************************************************************************
      *                                             Getters                                        *
      **********************************************************************************************/
-    /*
+    /**
      * Purpose:
      * 		Get gram value (size of each shingle)
      *
@@ -154,7 +184,7 @@ public class Shingles {
     }
 
 
-    /*
+    /**
      * Purpose:
      * 		Get shingles map
      *
@@ -170,7 +200,7 @@ public class Shingles {
     /***********************************************************************************************
      *                                        Public Methods                                      *
      **********************************************************************************************/
-    /*
+    /**
      * Purpose:
      * 		Convert the shingles of strings to ints.
      * 		Instead of a map with this structure {String: ArrayList<String>}, we will have
@@ -209,7 +239,7 @@ public class Shingles {
         return convertedShingles;
     }
 
-    /*
+    /**
      * Purpose:
      * 		Returns the total amount of chars in a file
      *
@@ -236,7 +266,7 @@ public class Shingles {
         }
     }
 
-    /*
+    /**
      * Purpose:
      * 		Prints Shingles
      */

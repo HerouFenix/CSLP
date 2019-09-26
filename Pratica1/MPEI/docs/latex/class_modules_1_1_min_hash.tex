@@ -1,0 +1,133 @@
+\doxysection{Modules.\+Min\+Hash Class Reference}
+\label{class_modules_1_1_min_hash}\index{Modules.MinHash@{Modules.MinHash}}
+Inheritance diagram for Modules.\+Min\+Hash\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_modules_1_1_min_hash}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Min\+Hash} (Hash\+Map$<$ String, Array\+List$<$ Integer $>$$>$ data\+Set, int total\+Hashes)
+\item 
+int[$\,$][$\,$] \textbf{ get\+Min\+Hash} ()
+\item 
+double \textbf{ get\+Total\+Hashes} ()
+\item 
+Hash\+Map$<$ String, Array\+List$<$ Integer $>$ $>$ \textbf{ get\+Data\+Set} ()
+\item 
+void \textbf{ print\+Min\+Hash} ()
+\item 
+void \textbf{ print\+Similarities} (double threshold)
+\item 
+Array\+List$<$ String $>$ \textbf{ get\+Similarities} (double threshold)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file Min\+Hash.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_modules_1_1_min_hash_a752104086697bc39351c925f220ee8bf}} 
+\index{Modules.MinHash@{Modules.MinHash}!MinHash@{MinHash}}
+\index{MinHash@{MinHash}!Modules.MinHash@{Modules.MinHash}}
+\doxysubsubsection{MinHash()}
+{\footnotesize\ttfamily Modules.\+Min\+Hash.\+Min\+Hash (\begin{DoxyParamCaption}\item[{Hash\+Map$<$ String, Array\+List$<$ Integer $>$$>$}]{data\+Set,  }\item[{int}]{total\+Hashes }\end{DoxyParamCaption})}
+
+Purpose\+: Initializes parameters of \doxyref{Min\+Hash}{p.}{class_modules_1_1_min_hash} Initializes parameters of Hash Function
+
+Arguments\+: -\/$>$ Hash\+Map$<$String,Array\+List$<$\+Integer$>$$>$ data\+Set\+: Set with the data to hash -\/$>$ int total\+Hashes\+: number of Hash Functions 
+
+Definition at line 34 of file Min\+Hash.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_modules_1_1_min_hash_a810c16aacdf4eb3dc74bc1ef6dfc49b9}} 
+\index{Modules.MinHash@{Modules.MinHash}!getDataSet@{getDataSet}}
+\index{getDataSet@{getDataSet}!Modules.MinHash@{Modules.MinHash}}
+\doxysubsubsection{getDataSet()}
+{\footnotesize\ttfamily Hash\+Map$<$String, Array\+List$<$Integer$>$ $>$ Modules.\+Min\+Hash.\+get\+Data\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Gets the Data S\+ET
+
+Return\+: -\/$>$ Hash\+Map$<$String, Array\+List$<$\+Integer$>$$>$\+: data set 
+
+Definition at line 165 of file Min\+Hash.\+java.
+
+\mbox{\label{class_modules_1_1_min_hash_a18fa487721b48b3fc07ef8f9ed339050}} 
+\index{Modules.MinHash@{Modules.MinHash}!getMinHash@{getMinHash}}
+\index{getMinHash@{getMinHash}!Modules.MinHash@{Modules.MinHash}}
+\doxysubsubsection{getMinHash()}
+{\footnotesize\ttfamily int [$\,$][$\,$] Modules.\+Min\+Hash.\+get\+Min\+Hash (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Gets the min\+Hash Bi-\/\+Dimensional Array
+
+Return\+: -\/$>$ int[][]\+: bi-\/dimensional array of integers 
+
+Definition at line 141 of file Min\+Hash.\+java.
+
+\mbox{\label{class_modules_1_1_min_hash_ae03668b98246320adc94e2cd00fd2d8d}} 
+\index{Modules.MinHash@{Modules.MinHash}!getSimilarities@{getSimilarities}}
+\index{getSimilarities@{getSimilarities}!Modules.MinHash@{Modules.MinHash}}
+\doxysubsubsection{getSimilarities()}
+{\footnotesize\ttfamily Array\+List$<$String$>$ Modules.\+Min\+Hash.\+get\+Similarities (\begin{DoxyParamCaption}\item[{double}]{threshold }\end{DoxyParamCaption})}
+
+Purpose\+: Returns a list with all Modules.\+Similarities of the Initial Set taking in account a value of guidance (threshold)
+
+Argument\+: -\/$>$ double threshold\+: value that defines if some element is Similar to another element 
+
+Reimplemented in \textbf{ Modules.\+Min\+Hash\+L\+SH} \doxyref{}{p.}{class_modules_1_1_min_hash_l_s_h_a3ea03ed59166aa4651be5d4ab3be15a3}.
+
+
+
+Definition at line 224 of file Min\+Hash.\+java.
+
+\mbox{\label{class_modules_1_1_min_hash_a130c81aebb296ddda766e65d0c1aa17c}} 
+\index{Modules.MinHash@{Modules.MinHash}!getTotalHashes@{getTotalHashes}}
+\index{getTotalHashes@{getTotalHashes}!Modules.MinHash@{Modules.MinHash}}
+\doxysubsubsection{getTotalHashes()}
+{\footnotesize\ttfamily double Modules.\+Min\+Hash.\+get\+Total\+Hashes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Gets the number of Hash Functions
+
+Return\+: -\/$>$ double\+: number of hash functions 
+
+Definition at line 153 of file Min\+Hash.\+java.
+
+\mbox{\label{class_modules_1_1_min_hash_a05de21ebddc3638122fce2fb5286887a}} 
+\index{Modules.MinHash@{Modules.MinHash}!printMinHash@{printMinHash}}
+\index{printMinHash@{printMinHash}!Modules.MinHash@{Modules.MinHash}}
+\doxysubsubsection{printMinHash()}
+{\footnotesize\ttfamily void Modules.\+Min\+Hash.\+print\+Min\+Hash (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Prints the \doxyref{Modules.\+Min\+Hash}{p.}{class_modules_1_1_min_hash} Bi-\/\+Dimensional Array 
+
+Definition at line 177 of file Min\+Hash.\+java.
+
+\mbox{\label{class_modules_1_1_min_hash_ae91c345e7c477cce51f301f43a4e8533}} 
+\index{Modules.MinHash@{Modules.MinHash}!printSimilarities@{printSimilarities}}
+\index{printSimilarities@{printSimilarities}!Modules.MinHash@{Modules.MinHash}}
+\doxysubsubsection{printSimilarities()}
+{\footnotesize\ttfamily void Modules.\+Min\+Hash.\+print\+Similarities (\begin{DoxyParamCaption}\item[{double}]{threshold }\end{DoxyParamCaption})}
+
+Purpose\+: Prints all Modules.\+Similarities of the Initial Set taking in account a value of guidance (threshold)
+
+Argument\+: -\/$>$ double threshold\+: value that defines if some element is Similar to another element 
+
+Reimplemented in \textbf{ Modules.\+Min\+Hash\+L\+SH} \doxyref{}{p.}{class_modules_1_1_min_hash_l_s_h_aecedb2640fba6fd243af2fb9f0aa31b2}.
+
+
+
+Definition at line 197 of file Min\+Hash.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+C\+S\+L\+P/\+Praticas\+C\+S\+L\+P/\+Pratica1/\+M\+P\+E\+I/src/\+Modules/Min\+Hash.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,193 @@
+\doxysection{Modules.\+Stochastic\+Counter Class Reference}
+\label{class_modules_1_1_stochastic_counter}\index{Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Stochastic\+Counter} (double counting\+Prob)
+\item 
+double \textbf{ get\+Counting\+Prob} ()
+\item 
+int \textbf{ get\+Number\+Of\+Events} ()
+\item 
+int \textbf{ get\+Aproximate\+Number\+Of\+Events} ()
+\item 
+int \textbf{ get\+Counter} ()
+\item 
+void \textbf{ set\+Counting\+Prob} (double counting\+Prob)
+\item 
+int \textbf{ increment\+Counter} ()
+\item 
+void \textbf{ reset\+Counter} ()
+\item 
+double \textbf{ get\+Mean\+Of\+Events} ()
+\item 
+double \textbf{ get\+Variance} ()
+\item 
+double \textbf{ factorial} (int n)
+\item 
+double \textbf{ prob\+Sum} (int n)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 3 of file Stochastic\+Counter.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_modules_1_1_stochastic_counter_a808752468625e89bc44a5382ed215e16}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!StochasticCounter@{StochasticCounter}}
+\index{StochasticCounter@{StochasticCounter}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{StochasticCounter()}
+{\footnotesize\ttfamily Modules.\+Stochastic\+Counter.\+Stochastic\+Counter (\begin{DoxyParamCaption}\item[{double}]{counting\+Prob }\end{DoxyParamCaption})}
+
+Purpose\+: Creates a new instance of the Stochastic Counter, initializing it\textquotesingle{}s counting probability and counter variables;
+
+Argument\+: -\/$>$ double counting\+Prob 
+
+Definition at line 20 of file Stochastic\+Counter.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_modules_1_1_stochastic_counter_a7b032a8c2443873ffef8e92865f02749}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!factorial@{factorial}}
+\index{factorial@{factorial}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{factorial()}
+{\footnotesize\ttfamily double Modules.\+Stochastic\+Counter.\+factorial (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+Purpose\+: Returns the factorial of a given number O\+N\+LY W\+O\+R\+KS F\+OR S\+M\+A\+LL n\textquotesingle{}s
+
+Argument\+: -\/$>$ int n\+:
+
+Return\+: -\/$>$ double\+: 
+
+Definition at line 148 of file Stochastic\+Counter.\+java.
+
+\mbox{\label{class_modules_1_1_stochastic_counter_a09720d4839b8eb771bcd95427d75e0b1}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!getAproximateNumberOfEvents@{getAproximateNumberOfEvents}}
+\index{getAproximateNumberOfEvents@{getAproximateNumberOfEvents}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{getAproximateNumberOfEvents()}
+{\footnotesize\ttfamily int Modules.\+Stochastic\+Counter.\+get\+Aproximate\+Number\+Of\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Returns an approximate number of events that have tried to be counted up until the moment this function was called
+
+Return\+: -\/$>$ int\+: 
+
+Definition at line 58 of file Stochastic\+Counter.\+java.
+
+\mbox{\label{class_modules_1_1_stochastic_counter_a982ab378e76132aa79aea18265365241}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!getCounter@{getCounter}}
+\index{getCounter@{getCounter}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{getCounter()}
+{\footnotesize\ttfamily int Modules.\+Stochastic\+Counter.\+get\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Returns the value of the counter
+
+Return\+: -\/$>$ int\+: 
+
+Definition at line 69 of file Stochastic\+Counter.\+java.
+
+\mbox{\label{class_modules_1_1_stochastic_counter_afdc3dcc9031cd5c0b1d0d7df6a832a15}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!getCountingProb@{getCountingProb}}
+\index{getCountingProb@{getCountingProb}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{getCountingProb()}
+{\footnotesize\ttfamily double Modules.\+Stochastic\+Counter.\+get\+Counting\+Prob (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Returns the counting probability
+
+Return\+: -\/$>$ double\+: 
+
+Definition at line 35 of file Stochastic\+Counter.\+java.
+
+\mbox{\label{class_modules_1_1_stochastic_counter_a799245cd223e68cb30e03ec8d1df8e92}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!getMeanOfEvents@{getMeanOfEvents}}
+\index{getMeanOfEvents@{getMeanOfEvents}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{getMeanOfEvents()}
+{\footnotesize\ttfamily double Modules.\+Stochastic\+Counter.\+get\+Mean\+Of\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Returns the average number of events that should be counted
+
+Return\+: -\/$>$ double\+: 
+
+Definition at line 121 of file Stochastic\+Counter.\+java.
+
+\mbox{\label{class_modules_1_1_stochastic_counter_ab1ccbbb46a133db80d61b65054efbe0d}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!getNumberOfEvents@{getNumberOfEvents}}
+\index{getNumberOfEvents@{getNumberOfEvents}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{getNumberOfEvents()}
+{\footnotesize\ttfamily int Modules.\+Stochastic\+Counter.\+get\+Number\+Of\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Returns an accurate number of events that have tried to be counted up until the moment this function was called
+
+Return\+: -\/$>$ int\+: 
+
+Definition at line 47 of file Stochastic\+Counter.\+java.
+
+\mbox{\label{class_modules_1_1_stochastic_counter_a111e8dc2c13546b253debf3e19085b47}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!getVariance@{getVariance}}
+\index{getVariance@{getVariance}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{getVariance()}
+{\footnotesize\ttfamily double Modules.\+Stochastic\+Counter.\+get\+Variance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Returns the average variance of events that should be counted
+
+Return\+: -\/$>$ double\+: 
+
+Definition at line 132 of file Stochastic\+Counter.\+java.
+
+\mbox{\label{class_modules_1_1_stochastic_counter_a95d3effde314e1e5975ad2501cf5c090}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!incrementCounter@{incrementCounter}}
+\index{incrementCounter@{incrementCounter}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{incrementCounter()}
+{\footnotesize\ttfamily int Modules.\+Stochastic\+Counter.\+increment\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Attempts to increment a counter (equals to trying to count an event)
+
+Return\+: -\/$>$ int\+: 
+
+Definition at line 97 of file Stochastic\+Counter.\+java.
+
+\mbox{\label{class_modules_1_1_stochastic_counter_a32c537d0f14b952404ec9e62b12014d8}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!probSum@{probSum}}
+\index{probSum@{probSum}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{probSum()}
+{\footnotesize\ttfamily double Modules.\+Stochastic\+Counter.\+prob\+Sum (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+Purpose\+: Returns the probability of counting n out of the total ammount of events
+
+Argument\+: -\/$>$ int n\+:
+
+Return\+: -\/$>$ double\+: 
+
+Definition at line 165 of file Stochastic\+Counter.\+java.
+
+\mbox{\label{class_modules_1_1_stochastic_counter_a955dcc5ea4993b8a9fd2ad79b28747e0}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!resetCounter@{resetCounter}}
+\index{resetCounter@{resetCounter}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{resetCounter()}
+{\footnotesize\ttfamily void Modules.\+Stochastic\+Counter.\+reset\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purpose\+: Resets the counter 
+
+Definition at line 109 of file Stochastic\+Counter.\+java.
+
+\mbox{\label{class_modules_1_1_stochastic_counter_a859696818301899aa7abf1db7962ef33}} 
+\index{Modules.StochasticCounter@{Modules.StochasticCounter}!setCountingProb@{setCountingProb}}
+\index{setCountingProb@{setCountingProb}!Modules.StochasticCounter@{Modules.StochasticCounter}}
+\doxysubsubsection{setCountingProb()}
+{\footnotesize\ttfamily void Modules.\+Stochastic\+Counter.\+set\+Counting\+Prob (\begin{DoxyParamCaption}\item[{double}]{counting\+Prob }\end{DoxyParamCaption})}
+
+Purpose\+: Manually changes the value of the counting probability
+
+Argument\+: -\/$>$ double counting\+Prob\+: 
+
+Definition at line 83 of file Stochastic\+Counter.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+C\+S\+L\+P/\+Praticas\+C\+S\+L\+P/\+Pratica1/\+M\+P\+E\+I/src/\+Modules/Stochastic\+Counter.\+java\end{DoxyCompactItemize}

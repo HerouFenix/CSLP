@@ -1,0 +1,95 @@
+\doxysection{Modules.\+Min\+Hash\+L\+SH Class Reference}
+\label{class_modules_1_1_min_hash_l_s_h}\index{Modules.MinHashLSH@{Modules.MinHashLSH}}
+Inheritance diagram for Modules.\+Min\+Hash\+L\+SH\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_modules_1_1_min_hash_l_s_h}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Min\+Hash\+L\+SH} (Hash\+Map$<$ String, Array\+List$<$ Integer $>$$>$ data\+Set, int total\+Hashes, int r)
+\item 
+int \textbf{ intersections\+L\+SH} (int[$\,$] a, int[$\,$] b)
+\item 
+void \textbf{ print\+Similarities} (double threshold)
+\item 
+Array\+List$<$ String $>$ \textbf{ get\+Similarities} (double threshold)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 7 of file Min\+Hash\+L\+S\+H.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_modules_1_1_min_hash_l_s_h_a7d9130bf428071bdda18b21cfb43d4cb}} 
+\index{Modules.MinHashLSH@{Modules.MinHashLSH}!MinHashLSH@{MinHashLSH}}
+\index{MinHashLSH@{MinHashLSH}!Modules.MinHashLSH@{Modules.MinHashLSH}}
+\doxysubsubsection{MinHashLSH()}
+{\footnotesize\ttfamily Modules.\+Min\+Hash\+L\+S\+H.\+Min\+Hash\+L\+SH (\begin{DoxyParamCaption}\item[{Hash\+Map$<$ String, Array\+List$<$ Integer $>$$>$}]{data\+Set,  }\item[{int}]{total\+Hashes,  }\item[{int}]{r }\end{DoxyParamCaption})}
+
+Purpose\+: Creates a new instance of the \doxyref{Min\+Hash\+L\+SH}{p.}{class_modules_1_1_min_hash_l_s_h}
+
+Argument\+: -\/$>$Hash\+Map$<$String, Array\+List$<$\+Integer$>$$>$\+: Hashmap of the contents used to create the \doxyref{Min\+Hash}{p.}{class_modules_1_1_min_hash} via L\+SH -\/$>$integer total\+Hashes\+: Total number of hashes -\/$>$integer r\+: Total number of rows created 
+
+Definition at line 31 of file Min\+Hash\+L\+S\+H.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_modules_1_1_min_hash_l_s_h_a3ea03ed59166aa4651be5d4ab3be15a3}} 
+\index{Modules.MinHashLSH@{Modules.MinHashLSH}!getSimilarities@{getSimilarities}}
+\index{getSimilarities@{getSimilarities}!Modules.MinHashLSH@{Modules.MinHashLSH}}
+\doxysubsubsection{getSimilarities()}
+{\footnotesize\ttfamily Array\+List$<$String$>$ Modules.\+Min\+Hash\+L\+S\+H.\+get\+Similarities (\begin{DoxyParamCaption}\item[{double}]{threshold }\end{DoxyParamCaption})}
+
+Purpose\+: Returns a list with all Modules.\+Similarities of the Initial Set taking in account a value of guidance (threshold)
+
+Argument\+: -\/$>$ double threshold\+: value that defines if some element is Similar to another element 
+
+Reimplemented from \textbf{ Modules.\+Min\+Hash} \doxyref{}{p.}{class_modules_1_1_min_hash_ae03668b98246320adc94e2cd00fd2d8d}.
+
+
+
+Definition at line 159 of file Min\+Hash\+L\+S\+H.\+java.
+
+\mbox{\label{class_modules_1_1_min_hash_l_s_h_ae1422662997016d8b970d25be564cec2}} 
+\index{Modules.MinHashLSH@{Modules.MinHashLSH}!intersectionsLSH@{intersectionsLSH}}
+\index{intersectionsLSH@{intersectionsLSH}!Modules.MinHashLSH@{Modules.MinHashLSH}}
+\doxysubsubsection{intersectionsLSH()}
+{\footnotesize\ttfamily int Modules.\+Min\+Hash\+L\+S\+H.\+intersections\+L\+SH (\begin{DoxyParamCaption}\item[{int[$\,$]}]{a,  }\item[{int[$\,$]}]{b }\end{DoxyParamCaption})}
+
+Purpose\+: Returns total amount of intersections between two 1D arrays
+
+Arguments\+: -\/$>$ int[\} a\+: array of integers a to be evaluated -\/$>$ int[\} b\+: array of integers b to be evaluated
+
+Return\+: -\/$>$ int\+: value of the intersection, i.\+e, number of equal \char`\"{}rows\char`\"{} 
+
+Definition at line 111 of file Min\+Hash\+L\+S\+H.\+java.
+
+\mbox{\label{class_modules_1_1_min_hash_l_s_h_aecedb2640fba6fd243af2fb9f0aa31b2}} 
+\index{Modules.MinHashLSH@{Modules.MinHashLSH}!printSimilarities@{printSimilarities}}
+\index{printSimilarities@{printSimilarities}!Modules.MinHashLSH@{Modules.MinHashLSH}}
+\doxysubsubsection{printSimilarities()}
+{\footnotesize\ttfamily void Modules.\+Min\+Hash\+L\+S\+H.\+print\+Similarities (\begin{DoxyParamCaption}\item[{double}]{threshold }\end{DoxyParamCaption})}
+
+Purpose\+: Prints all Similarities of the Initial Set taking in account a value of guidance (threshold)
+
+Argument\+: -\/$>$ double threshold\+: value that defines if some element is Similar to another element 
+
+Reimplemented from \textbf{ Modules.\+Min\+Hash} \doxyref{}{p.}{class_modules_1_1_min_hash_ae91c345e7c477cce51f301f43a4e8533}.
+
+
+
+Definition at line 132 of file Min\+Hash\+L\+S\+H.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+C\+S\+L\+P/\+Praticas\+C\+S\+L\+P/\+Pratica1/\+M\+P\+E\+I/src/\+Modules/Min\+Hash\+L\+S\+H.\+java\end{DoxyCompactItemize}

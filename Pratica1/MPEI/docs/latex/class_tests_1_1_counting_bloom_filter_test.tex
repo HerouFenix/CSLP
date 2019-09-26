@@ -1,0 +1,130 @@
+\doxysection{Tests.\+Counting\+Bloom\+Filter\+Test Class Reference}
+\label{class_tests_1_1_counting_bloom_filter_test}\index{Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ main} (String[$\,$] args)  throws I\+O\+Exception 
+\item 
+static String \textbf{ string\+Gen} (int len)
+\item 
+static void \textbf{ check\+False\+Negatives} (String[$\,$] words, \textbf{ Counting\+Bloom\+Filter} B)
+\item 
+static void \textbf{ check\+False\+Positives} (\textbf{ Counting\+Bloom\+Filter} B, int len)
+\item 
+static Array\+List$<$ String $>$ \textbf{ read\+File} (String file\+Name)
+\item 
+static void \textbf{ check\+Words\+Not\+Belong} (String file\+Name1, String file\+Name2)
+\item 
+static void \textbf{ print\+Number\+Of\+Occurrences} (String file\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Purpose\+: Test used to check if the Counting Bloom Filter was well implemented 
+
+Definition at line 13 of file Counting\+Bloom\+Filter\+Test.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_tests_1_1_counting_bloom_filter_test_a39e7e27a35df7a24afcc0aae90a2d9e6}} 
+\index{Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}!checkFalseNegatives@{checkFalseNegatives}}
+\index{checkFalseNegatives@{checkFalseNegatives}!Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}}
+\doxysubsubsection{checkFalseNegatives()}
+{\footnotesize\ttfamily static void Tests.\+Counting\+Bloom\+Filter\+Test.\+check\+False\+Negatives (\begin{DoxyParamCaption}\item[{String[$\,$]}]{words,  }\item[{\textbf{ Counting\+Bloom\+Filter}}]{B }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Purpose\+: Checks if there are false negatives in Counting Bloom Filter
+
+Arguments\+: -\/$>$ String[] words\+: array of strings to be checked -\/$>$ \doxyref{Modules.\+Counting\+Bloom\+Filter}{p.}{class_modules_1_1_counting_bloom_filter} B\+: the Counting Bloom Filter used 
+
+Definition at line 105 of file Counting\+Bloom\+Filter\+Test.\+java.
+
+\mbox{\label{class_tests_1_1_counting_bloom_filter_test_adafaab65be3b4ab62f6b4e97668fc541}} 
+\index{Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}!checkFalsePositives@{checkFalsePositives}}
+\index{checkFalsePositives@{checkFalsePositives}!Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}}
+\doxysubsubsection{checkFalsePositives()}
+{\footnotesize\ttfamily static void Tests.\+Counting\+Bloom\+Filter\+Test.\+check\+False\+Positives (\begin{DoxyParamCaption}\item[{\textbf{ Counting\+Bloom\+Filter}}]{B,  }\item[{int}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Purpose\+: Checks if there is false positives in Counting Bloom Filter
+
+Arguments\+: -\/$>$ \doxyref{Modules.\+Counting\+Bloom\+Filter}{p.}{class_modules_1_1_counting_bloom_filter} B\+: the Counting Bloom Filter used -\/$>$ int len\+: length of the pseudo-\/random words to be generated 
+
+Definition at line 125 of file Counting\+Bloom\+Filter\+Test.\+java.
+
+\mbox{\label{class_tests_1_1_counting_bloom_filter_test_a904f241c1ae72efb6e42170847f8fa93}} 
+\index{Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}!checkWordsNotBelong@{checkWordsNotBelong}}
+\index{checkWordsNotBelong@{checkWordsNotBelong}!Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}}
+\doxysubsubsection{checkWordsNotBelong()}
+{\footnotesize\ttfamily static void Tests.\+Counting\+Bloom\+Filter\+Test.\+check\+Words\+Not\+Belong (\begin{DoxyParamCaption}\item[{String}]{file\+Name1,  }\item[{String}]{file\+Name2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Purpose\+: Calculates de number of words in file 2 that do not belong in file 1
+
+Arguments\+: -\/$>$ String file\+Name1\+: name of the first file to be read -\/$>$ String file\+Name2\+: name of the second file to be read 
+
+Definition at line 180 of file Counting\+Bloom\+Filter\+Test.\+java.
+
+\mbox{\label{class_tests_1_1_counting_bloom_filter_test_a95e667a4282b15fecf1ad0a45867e335}} 
+\index{Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}!main@{main}}
+\index{main@{main}!Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily static void Tests.\+Counting\+Bloom\+Filter\+Test.\+main (\begin{DoxyParamCaption}\item[{String[$\,$]}]{args }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [static]}}
+
+Initializing Counting Bloom Filter
+
+Inserting elements to Counting Bloom Filter
+
+checks false negatives
+
+checks false positives
+
+checks number of words that do not belong to a certain file form other file
+
+print number of occurrences of each word in the file and print the word with bigger occurrences
+
+Definition at line 15 of file Counting\+Bloom\+Filter\+Test.\+java.
+
+\mbox{\label{class_tests_1_1_counting_bloom_filter_test_ae231e3663ce123733f66f67ad0128243}} 
+\index{Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}!printNumberOfOccurrences@{printNumberOfOccurrences}}
+\index{printNumberOfOccurrences@{printNumberOfOccurrences}!Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}}
+\doxysubsubsection{printNumberOfOccurrences()}
+{\footnotesize\ttfamily static void Tests.\+Counting\+Bloom\+Filter\+Test.\+print\+Number\+Of\+Occurrences (\begin{DoxyParamCaption}\item[{String}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Purpose\+: Prints the number of occurrences of each word. In the end prints the word with the bigger number of occurrences and it\textquotesingle{}s respective occurrence
+
+Argument\+: -\/$>$ String file\+Name\+: name of the file to be read 
+
+Definition at line 232 of file Counting\+Bloom\+Filter\+Test.\+java.
+
+\mbox{\label{class_tests_1_1_counting_bloom_filter_test_aece0278ea508bc8080521b7c877cf873}} 
+\index{Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}!readFile@{readFile}}
+\index{readFile@{readFile}!Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}}
+\doxysubsubsection{readFile()}
+{\footnotesize\ttfamily static Array\+List$<$String$>$ Tests.\+Counting\+Bloom\+Filter\+Test.\+read\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Purpose\+: Reads file and puts words in Array\+List
+
+Argument\+: -\/$>$ String file\+Name\+: name of the file to be read
+
+Return\+: -\/$>$ Array\+List$<$\+String$>$\+: Array\+List of Strings with all words of the file read 
+
+Definition at line 148 of file Counting\+Bloom\+Filter\+Test.\+java.
+
+\mbox{\label{class_tests_1_1_counting_bloom_filter_test_aacfa9b3fe575ff3b3609f7085fe85855}} 
+\index{Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}!stringGen@{stringGen}}
+\index{stringGen@{stringGen}!Tests.CountingBloomFilterTest@{Tests.CountingBloomFilterTest}}
+\doxysubsubsection{stringGen()}
+{\footnotesize\ttfamily static String Tests.\+Counting\+Bloom\+Filter\+Test.\+string\+Gen (\begin{DoxyParamCaption}\item[{int}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Purpose\+: Generates a pseudo-\/random string with length of len (argument passed to function)
+
+Argument\+: -\/$>$ int len\+: length of word to be generated
+
+Return\+: -\/$>$ String\+: string generated 
+
+Definition at line 82 of file Counting\+Bloom\+Filter\+Test.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Work/\+C\+S\+L\+P/\+Praticas\+C\+S\+L\+P/\+Pratica1/\+M\+P\+E\+I/src/\+Tests/Counting\+Bloom\+Filter\+Test.\+java\end{DoxyCompactItemize}

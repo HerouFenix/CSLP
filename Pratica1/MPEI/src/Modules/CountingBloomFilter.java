@@ -20,7 +20,7 @@ public class CountingBloomFilter {
      *                                         Constructors                                         *
      ************************************************************************************************/
 
-    /*
+    /** 
      * Purpose:
      *      Initializes parameters of Counting BLoom Filter
      *
@@ -39,7 +39,7 @@ public class CountingBloomFilter {
      *                                       Private Methods                                       *
      ***********************************************************************************************/
 
-    /*
+    /**
      * Purpose:
      *     Checks if a given number is prime
      *
@@ -57,7 +57,7 @@ public class CountingBloomFilter {
         return true;
     }
 
-    /*
+    /**
      * Purpose:
      *      Calculates Hash value of a string
      *
@@ -83,7 +83,7 @@ public class CountingBloomFilter {
      *                                             Getters                                        *
      **********************************************************************************************/
 
-    /*
+    /**
      * Purpose:
      *      Gets the size of Counting Bloom Filter Array
      *
@@ -95,7 +95,7 @@ public class CountingBloomFilter {
     }
 
 
-    /*
+    /**
      * Purpose:
      *      Gets the Counting Bloom Filter Array
      *
@@ -111,7 +111,7 @@ public class CountingBloomFilter {
      *                                        Public Methods                                      *
      **********************************************************************************************/
 
-    /*
+    /**
      * Purpose:
      *      Initializes variables to use in our Universal Hash Function
      *
@@ -148,7 +148,7 @@ public class CountingBloomFilter {
         }
     }
 
-    /*
+    /**
      * Purpose:
      *      Initializes Counting BLoom Filter
      */
@@ -159,7 +159,7 @@ public class CountingBloomFilter {
     }
 
 
-    /*
+    /**
      * Purpose:
      *      Insert element to Counting Bloom FIlter
      *
@@ -175,7 +175,7 @@ public class CountingBloomFilter {
     }
 
 
-    /*
+    /**
      * Purpose:
      *      Check if element belongs to Counting Bloom Filter
      *
@@ -204,7 +204,7 @@ public class CountingBloomFilter {
     }
 
 
-    /*
+    /**
      * Purpose:
      *      Gets the count of the element in Counting Bloom Filter
      *
@@ -226,7 +226,7 @@ public class CountingBloomFilter {
     }
 
 
-    /*
+    /**
      * Purpose:
      *      Deletes a element of the Counting Bloom Filter if element truly belongs to it
      *

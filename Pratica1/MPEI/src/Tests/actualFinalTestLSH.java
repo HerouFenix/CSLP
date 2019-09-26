@@ -12,15 +12,19 @@ import java.util.Set;
 
 import Modules.*;
 
+/**
+     * Purpose:
+     *		Final test used to find Spambot reviews from the given dataset of GOG.com reviews using the LSH METHOD
+*/
 public class actualFinalTestLSH {
     public static void main(String[] args) throws IOException{
         BufferedReader br;
 
-        StochasticCounter thisCounterNoReviews = new StochasticCounter(0.5);  //Use to determine how many games have no reviews
-        StochasticCounter thisCounterTotal = new StochasticCounter(0.3); //Determine how many total games we're dealing with
+        StochasticCounter thisCounterNoReviews = new StochasticCounter(0.5);  ///Used to determine how many games have no reviews
+        StochasticCounter thisCounterTotal = new StochasticCounter(0.3); ///Determine how many total games we're dealing with
 
-        ArrayList<String> gameDevs = new ArrayList<String>();	//DataSet: Developers
-        HashMap<String, HashMap<String,String>> gameReviews = new HashMap<String,  HashMap<String,String>>();	//DataSet: Name of Game - [User - Review]
+        ArrayList<String> gameDevs = new ArrayList<String>();	///DataSet: Developers
+        HashMap<String, HashMap<String,String>> gameReviews = new HashMap<String,  HashMap<String,String>>();	///DataSet: Name of Game - [User - Review]
 
         String line;
         String[] cutLine,reviews;
@@ -46,21 +50,21 @@ public class actualFinalTestLSH {
                 return ;
         }
 
-        //PART 1 - Determine how many games havent been reviewed (And initialize the dataSet Maps)
+        ///PART 1 - Determine how many games havent been reviewed (And initialize the dataSet Maps)
         while((line = br.readLine()) != null) {
             thisCounterTotal.incrementCounter();
             cutLine = line.split(",;,");
 
-            //Ignore games that have no reviews
+            ///Ignore games that have no reviews
             if(cutLine.length<10) {
                 thisCounterNoReviews.incrementCounter();
                 continue;
             }
 
-            //Add to gameDevs List
+            ///Add to gameDevs List
             gameDevs.add(cutLine[4]);
 
-            //Add to gameReviews hash map
+            ///Add to gameReviews hash map
             temp = new HashMap<String,String>();
             reviews = cutLine[9].split(",-,");
             String user,review;
@@ -81,7 +85,7 @@ public class actualFinalTestLSH {
 
         System.out.println();
 
-        //PART 2 - Determine how many games are made by the same developer (and check by false positives)
+        ///PART 2 - Determine how many games are made by the same developer (and check by false positives)
         CountingBloomFilter ourFilter = new CountingBloomFilter(thisCounterTotal.getNumberOfEvents(),0.2);
         ourFilter.init();
         ourFilter.initHashFunction(60);
@@ -90,14 +94,14 @@ public class actualFinalTestLSH {
             ourFilter.insert(gameDevs.get(i));
         }
 
-        //External list of companies that we KNOW FOR SURE aren't in the developer's list that we have
+        ///External list of companies that we KNOW FOR SURE aren't in the developer's list that we have
         ArrayList<String> companies = new ArrayList<String>();	//DataSet: Developers
         br = new BufferedReader(new FileReader("companiesList.txt"));
         while((line = br.readLine()) != null) {
             companies.add(line);
         }
 
-        //Check for false positives
+        ///Check for false positives
         int fp = 0;
         boolean r;
         for (int i = 0 ; i < companies.size() ; i++) {
@@ -111,7 +115,7 @@ public class actualFinalTestLSH {
         System.out.println("=========Number of games made by each developer:==========");
         System.out.println("==========================================================");
 
-        //Count number of games produced by each company
+        ///Count number of games produced by each company
         Set<String> devsSet = new HashSet<String>(gameDevs);
         String[] uniqueDevs = new String[devsSet.size()];
         int i = 0;
@@ -125,7 +129,7 @@ public class actualFinalTestLSH {
             System.out.printf("%s developed: %d games\n", uniqueDevs[i], values[i]);
         }
 
-        //Determine which company made the most games
+        ///Determine which company made the most games
         int iMax = 0, max = 0;
         for (i = 0; i < uniqueDevs.length; i++) {
             if (values[i] > max) {
@@ -140,14 +144,14 @@ public class actualFinalTestLSH {
 
 
 
-        //PART 3 - For each game check for similar reviews for Spammers/Plagiarists/Same person with diferent username
+        ///PART 3 - For each game check for similar reviews for Spammers/Plagiarists/Same person with diferent username
 
         Shingles shingles;
         MinHashLSH minHashLSH;
         HashMap<String,Integer> bannableUsers = new HashMap<String,Integer>();
         HashMap<String,ArrayList<String>> allSimilarities = new HashMap<String,ArrayList<String>>();
 
-        //Iterate over every game
+        ///Iterate over every game
         for (Entry<String, HashMap<String,String>> item : gameReviews.entrySet()) {
             String game = item.getKey();
             System.out.printf("Checking %s for similar reviews...\n",game);

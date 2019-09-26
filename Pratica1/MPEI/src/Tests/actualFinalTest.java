@@ -12,15 +12,20 @@ import java.util.Set;
 
 import Modules.*;
 
+/**
+     * Purpose:
+     *		Final test used to find Spambot reviews from the given dataset of GOG.com reviews
+*/
+
 public class actualFinalTest {
     public static void main(String[] args) throws IOException{
     	BufferedReader br;
  
-    	StochasticCounter thisCounterNoReviews = new StochasticCounter(0.5);  //Use to determine how many games have no reviews
-    	StochasticCounter thisCounterTotal = new StochasticCounter(0.3); //Determine how many total games we're dealing with
+    	StochasticCounter thisCounterNoReviews = new StochasticCounter(0.5);  ///Use to determine how many games have no reviews
+    	StochasticCounter thisCounterTotal = new StochasticCounter(0.3); ///Determine how many total games we're dealing with
     	
-        ArrayList<String> gameDevs = new ArrayList<String>();	//DataSet: Developers
-        HashMap<String, HashMap<String,String>> gameReviews = new HashMap<String,  HashMap<String,String>>();	//DataSet: Name of Game - [User - Review]
+        ArrayList<String> gameDevs = new ArrayList<String>();	///DataSet: Developers
+        HashMap<String, HashMap<String,String>> gameReviews = new HashMap<String,  HashMap<String,String>>();	///DataSet: Name of Game - [User - Review]
 
         String line;
         String[] cutLine,reviews;
@@ -45,26 +50,26 @@ public class actualFinalTest {
 	        	System.out.println("Invalid Option! Terminating program");
 	        	return ;
         }
-   //PART 1 - Determine how many games havent been reviewed (And initialize the dataSet Maps)
+   ///PART 1 - Determine how many games havent been reviewed (And initialize the dataSet Maps)
         while((line = br.readLine()) != null) {
         	thisCounterTotal.incrementCounter();
         	cutLine = line.split(",;,");
 
-        	if(cutLine.length<10) { //Ignore games that have no reviews
+        	if(cutLine.length<10) { ///Ignore games that have no reviews
         		thisCounterNoReviews.incrementCounter();
             	continue;
         	}
         	        	
-        	//Add to gameDevs List
+        	///Add to gameDevs List
         	gameDevs.add(cutLine[4]);
         	    
-        	//Add to gameReviews hash map
+        	///Add to gameReviews hash map
             temp = new HashMap<String,String>();
             reviews = cutLine[9].split(",-,");
             String user,review;
             for(int i = 0 ; i < reviews.length ; i++) {
-            	if(reviews[i].split("--.--").length == 2)	//Some reviews are incomplete in our data set so they contain only the name of the user and whether their verified or not
-                    continue;								//therefore we should ignore these
+            	if(reviews[i].split("--.--").length == 2)	///Some reviews are incomplete in our data set so they contain only the name of the user and whether their verified or not therefore we should ignore these
+                    continue;								
             	user = reviews[i].split("--.--")[0];
             	review = reviews[i].split("--.--")[2];
             	temp.put(user, review);
@@ -79,7 +84,7 @@ public class actualFinalTest {
         
         System.out.println();
         
-   //PART 2 - Determine how many games are made by the same developer (and check by false positives)
+   ///PART 2 - Determine how many games are made by the same developer (and check by false positives)
         CountingBloomFilter ourFilter = new CountingBloomFilter(thisCounterTotal.getNumberOfEvents(),0.2);
         ourFilter.init();
         ourFilter.initHashFunction(60);
@@ -88,14 +93,14 @@ public class actualFinalTest {
 			ourFilter.insert(gameDevs.get(i));
 		}
 		
-		//External list of companies that we KNOW FOR SURE aren't in the developer's list that we have
+		///External list of companies that we KNOW FOR SURE aren't in the developer's list that we have
         ArrayList<String> companies = new ArrayList<String>();	//DataSet: Developers
     	br = new BufferedReader(new FileReader("companiesList.txt"));
         while((line = br.readLine()) != null) {
         	companies.add(line);
         }
         
-        //Check for false positives
+        ///Check for false positives
         int fp = 0;
         boolean r;
         for (int i = 0 ; i < companies.size() ; i++) {
@@ -123,7 +128,7 @@ public class actualFinalTest {
             System.out.printf("%s developed: %d out of %d games\n", uniqueDevs[i], values[i],thisCounterTotal.getNumberOfEvents());
         }
         
-        //Determine which company made the most games
+        ///Determine which company made the most games
         int iMax = 0, max = 0;
         for (i = 0; i < uniqueDevs.length; i++) {
             if (values[i] > max) {
@@ -138,14 +143,14 @@ public class actualFinalTest {
         
         
 		
-   //PART 3 - For each game check for similar reviews for Spammers/Plagiarists/Same person with diferent username
+   ///PART 3 - For each game check for similar reviews for Spammers/Plagiarists/Same person with diferent username
         
 	    Shingles shingles;
 	    MinHash minHash; 
 	    HashMap<String,Integer> bannableUsers = new HashMap<String,Integer>();
 	    HashMap<String,ArrayList<String>> allSimilarities = new HashMap<String,ArrayList<String>>();
 	
-	    //Iterate over every game
+	    ///Iterate over every game
 		for (Entry<String, HashMap<String,String>> item : gameReviews.entrySet()) {
 		    String game = item.getKey();
 	        System.out.printf("Checking %s for similar reviews...\n",game);
