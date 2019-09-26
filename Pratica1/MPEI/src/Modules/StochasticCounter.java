@@ -1,5 +1,6 @@
 package Modules;
 
+
 public class StochasticCounter {
     /***************************************************************************************************
      *                                           Attributes                                           *
