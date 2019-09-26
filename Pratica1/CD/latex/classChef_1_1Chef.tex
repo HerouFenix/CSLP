@@ -1,0 +1,123 @@
+\hypertarget{classChef_1_1Chef}{}\doxysection{Chef.\+Chef Class Reference}
+\label{classChef_1_1Chef}\index{Chef.Chef@{Chef.Chef}}
+
+
+Documentation for a class.  
+
+
+Inheritance diagram for Chef.\+Chef\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classChef_1_1Chef}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classChef_1_1Chef_aaec47853f1058aa774bf27c3f94757cb}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, n\+Of\+Entity=0, port=5002, id=2, name=\char`\"{}C\+H\+EF\char`\"{}, timeout=3, TG=0, ring=5000, ring\+Size=4, EG=0, black\+List=\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classChef_1_1Chef_a926cce5cc378301133d6689d1318308b}{recv}} (self)
+\begin{DoxyCompactList}\small\item\em Receive function. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classChef_1_1Chef_a4c3d7d4d10230054972a154a044ba4d8}{send}} (self, address, o)
+\begin{DoxyCompactList}\small\item\em Send function. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classChef_1_1Chef_afebb96ee46ad45ccc278d011c539b808}{run}} (self)
+\begin{DoxyCompactList}\small\item\em Run thread Function. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classChef_1_1Chef_a26eeb3a932127e3a7cedba86384435f0}{chef\+\_\+work}} (self, comm, port, timeout)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classChef_1_1Chef}{Chef}}\textquotesingle{}s work Function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChef_1_1Chef_a555509e8d717015b0a615ca001f68597}\label{classChef_1_1Chef_a555509e8d717015b0a615ca001f68597}} 
+{\bfseries logger}
+\item 
+\mbox{\Hypertarget{classChef_1_1Chef_a2dde4d3ef1b13eece7e2e0e2276ffea0}\label{classChef_1_1Chef_a2dde4d3ef1b13eece7e2e0e2276ffea0}} 
+{\bfseries client\+\_\+socket}
+\item 
+\mbox{\Hypertarget{classChef_1_1Chef_a815002de2f6c29ddc32c92ca2ec46d6e}\label{classChef_1_1Chef_a815002de2f6c29ddc32c92ca2ec46d6e}} 
+{\bfseries comm\+\_\+chef}
+\item 
+\mbox{\Hypertarget{classChef_1_1Chef_a056b5ed8d03a190f85b62bfb9fba9044}\label{classChef_1_1Chef_a056b5ed8d03a190f85b62bfb9fba9044}} 
+{\bfseries port}
+\item 
+\mbox{\Hypertarget{classChef_1_1Chef_a2d28c7fb73eea48e5dbe24d98f0e31fb}\label{classChef_1_1Chef_a2d28c7fb73eea48e5dbe24d98f0e31fb}} 
+{\bfseries timeout}
+\item 
+\mbox{\Hypertarget{classChef_1_1Chef_a6a00c0333891013032462e458743d4f0}\label{classChef_1_1Chef_a6a00c0333891013032462e458743d4f0}} 
+{\bfseries request\+List}
+\item 
+\mbox{\Hypertarget{classChef_1_1Chef_af6edda9c15d4e2c3ce250f27fe7faba0}\label{classChef_1_1Chef_af6edda9c15d4e2c3ce250f27fe7faba0}} 
+{\bfseries ordersQ}
+\item 
+\mbox{\Hypertarget{classChef_1_1Chef_a655686f43b8bdf99bf42bd6a0ba31bbb}\label{classChef_1_1Chef_a655686f43b8bdf99bf42bd6a0ba31bbb}} 
+{\bfseries current\+Order}
+\item 
+\mbox{\Hypertarget{classChef_1_1Chef_aa906a35db159a31ed45d8c389e4903c6}\label{classChef_1_1Chef_aa906a35db159a31ed45d8c389e4903c6}} 
+{\bfseries discovery\+\_\+table}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Documentation for a class. 
+
+The \mbox{\hyperlink{classChef_1_1Chef}{Chef}} class is the one responsible to ~\newline
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChef_1_1Chef_aaec47853f1058aa774bf27c3f94757cb}\label{classChef_1_1Chef_aaec47853f1058aa774bf27c3f94757cb}} 
+\index{Chef.Chef@{Chef.Chef}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!Chef.Chef@{Chef.Chef}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Chef.\+Chef.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{n\+Of\+Entity = {\ttfamily 0},  }\item[{}]{port = {\ttfamily 5002},  }\item[{}]{id = {\ttfamily 2},  }\item[{}]{name = {\ttfamily \char`\"{}CHEF\char`\"{}},  }\item[{}]{timeout = {\ttfamily 3},  }\item[{}]{TG = {\ttfamily 0},  }\item[{}]{ring = {\ttfamily 5000},  }\item[{}]{ring\+Size = {\ttfamily 4},  }\item[{}]{EG = {\ttfamily 0},  }\item[{}]{black\+List = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+More details. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChef_1_1Chef_a26eeb3a932127e3a7cedba86384435f0}\label{classChef_1_1Chef_a26eeb3a932127e3a7cedba86384435f0}} 
+\index{Chef.Chef@{Chef.Chef}!chef\_work@{chef\_work}}
+\index{chef\_work@{chef\_work}!Chef.Chef@{Chef.Chef}}
+\doxysubsubsection{\texorpdfstring{chef\_work()}{chef\_work()}}
+{\footnotesize\ttfamily def Chef.\+Chef.\+chef\+\_\+work (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{comm,  }\item[{}]{port,  }\item[{}]{timeout }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classChef_1_1Chef}{Chef}}\textquotesingle{}s work Function. 
+
+More details. \mbox{\Hypertarget{classChef_1_1Chef_a926cce5cc378301133d6689d1318308b}\label{classChef_1_1Chef_a926cce5cc378301133d6689d1318308b}} 
+\index{Chef.Chef@{Chef.Chef}!recv@{recv}}
+\index{recv@{recv}!Chef.Chef@{Chef.Chef}}
+\doxysubsubsection{\texorpdfstring{recv()}{recv()}}
+{\footnotesize\ttfamily def Chef.\+Chef.\+recv (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Receive function. 
+
+More details. \mbox{\Hypertarget{classChef_1_1Chef_afebb96ee46ad45ccc278d011c539b808}\label{classChef_1_1Chef_afebb96ee46ad45ccc278d011c539b808}} 
+\index{Chef.Chef@{Chef.Chef}!run@{run}}
+\index{run@{run}!Chef.Chef@{Chef.Chef}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def Chef.\+Chef.\+run (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Run thread Function. 
+
+More details. \mbox{\Hypertarget{classChef_1_1Chef_a4c3d7d4d10230054972a154a044ba4d8}\label{classChef_1_1Chef_a4c3d7d4d10230054972a154a044ba4d8}} 
+\index{Chef.Chef@{Chef.Chef}!send@{send}}
+\index{send@{send}!Chef.Chef@{Chef.Chef}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily def Chef.\+Chef.\+send (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{o }\end{DoxyParamCaption})}
+
+
+
+Send function. 
+
+More details. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Chef.\+py\end{DoxyCompactItemize}

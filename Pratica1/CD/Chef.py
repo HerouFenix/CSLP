@@ -1,3 +1,4 @@
+# @package CD
 # coding: utf-8
 
 import time
@@ -22,8 +23,13 @@ logging.basicConfig(level=logging.INFO,
 config = configparser.ConfigParser()
 config.read("conf.ini")
 
-
+## Documentation for a class.
+#
+#  The Chef class is the one responsible to  
 class Chef(threading.Thread):
+    ## Constructor
+    #
+    # More details.
     def __init__(self, nOfEntity=0, port=5002, id=2, name="CHEF", timeout=3, TG=0, ring=5000, ringSize=4, EG=0, blackList=[]):
         threading.Thread.__init__(self)
 
@@ -51,6 +57,9 @@ class Chef(threading.Thread):
         self.currentOrder = {'client': None, 'orderID': None,
                              'order': None, 'grill': 0, 'frier': 0, 'drinks': 0}
 
+    ## Receive function
+    #
+    # More details.
     def recv(self):
         try:
             p, addr = self.client_socket.recvfrom(1024)
@@ -62,10 +71,16 @@ class Chef(threading.Thread):
             else:
                 return p, addr
 
+    ## Send function
+    #
+    # More details.
     def send(self, address, o):
         p = pickle.dumps(o)
         self.client_socket.sendto(p, address)
 
+    ## Run thread Function
+    #
+    # More details.
     def run(self):
         self.logger.info("CREATING CHEF")
         self.comm_chef.start()
@@ -73,6 +88,9 @@ class Chef(threading.Thread):
         self.logger.debug("#Threads: %s", threading.active_count())
         self.chef_work(self.comm_chef, self.port, self.timeout)
 
+    ## Chef's work Function
+    #
+    # More details.
     def chef_work(self, comm, port, timeout):
         # get discovery table
         self.discovery_table = comm.get_ringIDs()
