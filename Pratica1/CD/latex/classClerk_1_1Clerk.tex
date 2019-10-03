@@ -1,5 +1,10 @@
 \hypertarget{classClerk_1_1Clerk}{}\doxysection{Clerk.\+Clerk Class Reference}
 \label{classClerk_1_1Clerk}\index{Clerk.Clerk@{Clerk.Clerk}}
+
+
+Documentation for \mbox{\hyperlink{classClerk_1_1Clerk}{Clerk}} Class O Rececionista é quem recebe os clientes Ao receber um pedido do cliente, o rececionista deve entregar um Ticket, feito pela biblioteca uuid Isto fará com que seja possivel, ao longo da simulacao, relacionar o pedido do cliente com o cliente em si.  
+
+
 Inheritance diagram for Clerk.\+Clerk\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,39 +14,38 @@ Inheritance diagram for Clerk.\+Clerk\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classClerk_1_1Clerk_af10ea88d3dbe7a9025bf6911f8c78ec8}\label{classClerk_1_1Clerk_af10ea88d3dbe7a9025bf6911f8c78ec8}} 
-def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, n\+Of\+Entity=0, port=5001, id=1, name=\char`\"{}C\+L\+E\+RK\char`\"{}, timeout=3, TG=0, ring=5000, ring\+Size=4)
-\item 
+def \mbox{\hyperlink{classClerk_1_1Clerk_af10ea88d3dbe7a9025bf6911f8c78ec8}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, n\+Of\+Entity=0, \mbox{\hyperlink{classClerk_1_1Clerk_af00e548fc4db02c1963617ede0569ead}{port}}=5001, id=1, name=\char`\"{}C\+L\+E\+RK\char`\"{}, timeout=3, TG=0, ring=5000, ring\+Size=4)
+\begin{DoxyCompactList}\small\item\em Constructor Starts with pre-\/set values, the right ones for the current project. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classClerk_1_1Clerk_af12cb09009fee32ac9f464a6b11d8a4f}\label{classClerk_1_1Clerk_af12cb09009fee32ac9f464a6b11d8a4f}} 
-def {\bfseries recv} (self)
-\item 
+def \mbox{\hyperlink{classClerk_1_1Clerk_af12cb09009fee32ac9f464a6b11d8a4f}{recv}} (self)
+\begin{DoxyCompactList}\small\item\em Receive function Simple communication function that receives messages from outside Returns pickle message and incoming address. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classClerk_1_1Clerk_a4d1c125c2831748a24f7bab68a45e7fd}\label{classClerk_1_1Clerk_a4d1c125c2831748a24f7bab68a45e7fd}} 
-def {\bfseries send} (self, address, o)
-\item 
+def \mbox{\hyperlink{classClerk_1_1Clerk_a4d1c125c2831748a24f7bab68a45e7fd}{send}} (self, address, o)
+\begin{DoxyCompactList}\small\item\em Send function Sends a message to the outside Needs an object to pickle and an address. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classClerk_1_1Clerk_a4b31da7f1e51f64aedc99bad1b734e91}\label{classClerk_1_1Clerk_a4b31da7f1e51f64aedc99bad1b734e91}} 
-def {\bfseries run} (self)
-\item 
+def \mbox{\hyperlink{classClerk_1_1Clerk_a4b31da7f1e51f64aedc99bad1b734e91}{run}} (self)
+\begin{DoxyCompactList}\small\item\em Run function Starts the communication node and its own work function. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classClerk_1_1Clerk_a7722d45581393e4c5b1109a601702422}\label{classClerk_1_1Clerk_a7722d45581393e4c5b1109a601702422}} 
-def {\bfseries clk\+\_\+work} (self, comm, port, timeout)
-\end{DoxyCompactItemize}
+def \mbox{\hyperlink{classClerk_1_1Clerk_a7722d45581393e4c5b1109a601702422}{clk\+\_\+work}} (self, comm, \mbox{\hyperlink{classClerk_1_1Clerk_af00e548fc4db02c1963617ede0569ead}{port}}, \mbox{\hyperlink{classClerk_1_1Clerk_a2c1f7b2a93ae900ab7fdc38c6c05ce48}{timeout}})
+\begin{DoxyCompactList}\small\item\em Work function Starts by filling out the discovery table Once he gets a request from a client, he will forward it to the cook(s) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classClerk_1_1Clerk_a6a0b1c42f4c5832afb1bf994b8170876}\label{classClerk_1_1Clerk_a6a0b1c42f4c5832afb1bf994b8170876}} 
-{\bfseries logger}
-\item 
+\mbox{\hyperlink{classClerk_1_1Clerk_a6a0b1c42f4c5832afb1bf994b8170876}{logger}}
+\begin{DoxyCompactList}\small\item\em Logger to print out the information throughout the execution of the programme. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classClerk_1_1Clerk_abf7416bd10d731d4bf7559930059c97b}\label{classClerk_1_1Clerk_abf7416bd10d731d4bf7559930059c97b}} 
 {\bfseries client\+\_\+socket}
 \item 
 \mbox{\Hypertarget{classClerk_1_1Clerk_aac2886c929c76428f570e8fe6ef976be}\label{classClerk_1_1Clerk_aac2886c929c76428f570e8fe6ef976be}} 
-{\bfseries comm\+\_\+clerk}
-\item 
+\mbox{\hyperlink{classClerk_1_1Clerk_aac2886c929c76428f570e8fe6ef976be}{comm\+\_\+clerk}}
+\begin{DoxyCompactList}\small\item\em Communication thread. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classClerk_1_1Clerk_af00e548fc4db02c1963617ede0569ead}\label{classClerk_1_1Clerk_af00e548fc4db02c1963617ede0569ead}} 
-{\bfseries port}
-\item 
+\mbox{\hyperlink{classClerk_1_1Clerk_af00e548fc4db02c1963617ede0569ead}{port}}
+\begin{DoxyCompactList}\small\item\em Communication port. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classClerk_1_1Clerk_a2c1f7b2a93ae900ab7fdc38c6c05ce48}\label{classClerk_1_1Clerk_a2c1f7b2a93ae900ab7fdc38c6c05ce48}} 
-{\bfseries timeout}
-\item 
+\mbox{\hyperlink{classClerk_1_1Clerk_a2c1f7b2a93ae900ab7fdc38c6c05ce48}{timeout}}
+\begin{DoxyCompactList}\small\item\em Communication timeout. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classClerk_1_1Clerk_a09c1983a7838ccdf6af0e56dda216161}\label{classClerk_1_1Clerk_a09c1983a7838ccdf6af0e56dda216161}} 
 {\bfseries count}
 \item 
@@ -49,6 +53,22 @@ def {\bfseries clk\+\_\+work} (self, comm, port, timeout)
 {\bfseries discovery\+\_\+table}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Documentation for \mbox{\hyperlink{classClerk_1_1Clerk}{Clerk}} Class O Rececionista é quem recebe os clientes Ao receber um pedido do cliente, o rececionista deve entregar um Ticket, feito pela biblioteca uuid Isto fará com que seja possivel, ao longo da simulacao, relacionar o pedido do cliente com o cliente em si. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClerk_1_1Clerk_af10ea88d3dbe7a9025bf6911f8c78ec8}\label{classClerk_1_1Clerk_af10ea88d3dbe7a9025bf6911f8c78ec8}} 
+\index{Clerk.Clerk@{Clerk.Clerk}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!Clerk.Clerk@{Clerk.Clerk}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Clerk.\+Clerk.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{n\+Of\+Entity = {\ttfamily 0},  }\item[{}]{port = {\ttfamily 5001},  }\item[{}]{id = {\ttfamily 1},  }\item[{}]{name = {\ttfamily \char`\"{}CLERK\char`\"{}},  }\item[{}]{timeout = {\ttfamily 3},  }\item[{}]{TG = {\ttfamily 0},  }\item[{}]{ring = {\ttfamily 5000},  }\item[{}]{ring\+Size = {\ttfamily 4} }\end{DoxyParamCaption})}
+
+
+
+Constructor Starts with pre-\/set values, the right ones for the current project. 
+
+Number of Entity\+: Simply for identification purposes, in the case there are more than one C\+H\+EF Port\+: Port number from which it can communicate to the other objects id\+: Needed to construct the token ring, to be able to get the right order in the circle Name\+: General name of object Timeout\+: Time until it gives up on receiving a message Ring\+: Port where the initial coordinator is 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

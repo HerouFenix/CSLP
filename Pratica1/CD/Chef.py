@@ -23,43 +23,58 @@ logging.basicConfig(level=logging.INFO,
 config = configparser.ConfigParser()
 config.read("conf.ini")
 
-## Documentation for a class.
-#
-#  The Chef class is the one responsible to  
+
+## Documentation for Chief Class.
+#    Chief Class, responsible for:
+#        Receive requests from a Receptionist Object,
+#        Cook whatever is necessary,
+#        Resend the request to a Waiter Object
 class Chef(threading.Thread):
-    ## Constructor
-    #
-    # More details.
+    ##  Constructor 
+    #    Starts with pre-set values, the right ones for the current project.
+    #        Number of Entity: Simply for identification purposes, in the case there are more than one CHEF
+    #        Port: Port number from which it can communicate to the other objects
+    #        id: Needed to construct the token ring, to be able to get the right order in the circle
+    #        Name: General name of object
+    #        Timeout: Time until it gives up on receiving a message
+    #        Ring: Port where the initial coordinator is
     def __init__(self, nOfEntity=0, port=5002, id=2, name="CHEF", timeout=3, TG=0, ring=5000, ringSize=4, EG=0, blackList=[]):
+    
         threading.Thread.__init__(self)
 
         if nOfEntity == 0:
             loggerName = name
         else:
             loggerName = name+"-"+str(nOfEntity)
+        ## A logger to print to terminal throughout the execution of the program
         self.logger = logging.getLogger(loggerName)
 
-        # Creating special socket for receiving clients' requests
+        ## A special socket for receiving clients' requests
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.client_socket.settimeout(timeout)
         self.client_socket.bind(('localhost', port-50))
 
+        ## communication thread
         self.comm_chef = RingNode(loggerName, id, ('localhost', port), name, timeout, TG, (
-            'localhost', ring), ringSize, EG, blackList)  # communication thread
+            'localhost', ring), ringSize, EG, blackList)  
 
+        ## Communication port
         self.port = port
+        ## Communication timeout
         self.timeout = timeout
 
-        # Control variables for equipments (0-doesnt have it ; 1-has it/doesnt need it)
+        ## Control variables for equipments (0-doesnt have it ; 1-has it/doesnt need it)
         self.requestList = []
 
+        ## Queue that stores the orders to chef
         self.ordersQ = Queue()
+        ## Dictionary that stores the orders from clients to make the meals
         self.currentOrder = {'client': None, 'orderID': None,
                              'order': None, 'grill': 0, 'frier': 0, 'drinks': 0}
 
     ## Receive function
     #
-    # More details.
+    # Simple receive function, it will listen to the socket created in the Constructor until it receives a message
     def recv(self):
         try:
             p, addr = self.client_socket.recvfrom(1024)
@@ -73,14 +88,16 @@ class Chef(threading.Thread):
 
     ## Send function
     #
-    # More details.
+    # Using the socket previously created, it will send whatever Object o is passed through the argument
+    # and send it to the Address given
     def send(self, address, o):
         p = pickle.dumps(o)
         self.client_socket.sendto(p, address)
 
     ## Run thread Function
     #
-    # More details.
+    # Run function to start thread, will simply initialize the RingNode object created in the Constructor
+    # And start its own work as Chef
     def run(self):
         self.logger.info("CREATING CHEF")
         self.comm_chef.start()
@@ -88,11 +105,18 @@ class Chef(threading.Thread):
         self.logger.debug("#Threads: %s", threading.active_count())
         self.chef_work(self.comm_chef, self.port, self.timeout)
 
-    ## Chef's work Function
-    #
-    # More details.
+    ## Chef's Work Function
+        
+    #    It will be waiting to receive messages from its RingNode object
+    #    It may receive four different types of messages:
+    #        COOK: Means it has received an order, for instance, 1 Burger, 1 Fries, 1 Drink,
+    #            it will add these to the Work Queue 
+    #       Grill_token, Fry_token, Drink_token: These three messages mean the cook has authorization to use the Grill, the Fry, or the Drinks machine
+    #    These authorizations are important, as it means the cook can work on the next object from its queue
     def chef_work(self, comm, port, timeout):
+        
         # get discovery table
+        ## Discovery table with all the other works' ID
         self.discovery_table = comm.get_ringIDs()
         while self.discovery_table == None:
             self.discovery_table = comm.get_ringIDs()

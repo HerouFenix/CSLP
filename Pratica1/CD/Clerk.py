@@ -1,3 +1,4 @@
+# @package CD
 # coding: utf-8
 
 import pickle
@@ -19,8 +20,19 @@ logging.basicConfig(level=logging.INFO,
 config = configparser.ConfigParser()
 config.read("conf.ini")
 
-
+## Documentation for Clerk Class
+#   O Rececionista é quem recebe os clientes
+#   Ao receber um pedido do cliente, o rececionista deve entregar um Ticket, feito pela biblioteca uuid
+#   Isto fará com que seja possivel, ao longo da simulacao, relacionar o pedido do cliente com o cliente em si 
 class Clerk(threading.Thread):
+    ##  Constructor 
+    #    Starts with pre-set values, the right ones for the current project.
+    #        Number of Entity: Simply for identification purposes, in the case there are more than one CHEF
+    #        Port: Port number from which it can communicate to the other objects
+    #        id: Needed to construct the token ring, to be able to get the right order in the circle
+    #        Name: General name of object
+    #        Timeout: Time until it gives up on receiving a message
+    #        Ring: Port where the initial coordinator is
     def __init__(self, nOfEntity=0, port=5001, id=1, name="CLERK", timeout=3, TG=0, ring=5000, ringSize=4):
         threading.Thread.__init__(self)
 
@@ -28,6 +40,7 @@ class Clerk(threading.Thread):
             loggerName = name
         else:
             loggerName = name+"-"+str(nOfEntity)
+        ## Logger to print out the information throughout the execution of the programme
         self.logger = logging.getLogger(loggerName)
 
         # Creating special socket for receiving clients' requests
@@ -35,13 +48,20 @@ class Clerk(threading.Thread):
         self.client_socket.settimeout(timeout)
         self.client_socket.bind(('localhost', port-50))
 
+        ## Communication thread
         self.comm_clerk = RingNode(loggerName, id, ('localhost', port), name,
-                                   timeout, TG, ('localhost', ring), ringSize)  # communication thread
+                                   timeout, TG, ('localhost', ring), ringSize) 
 
+        ## Communication port
         self.port = port
+        ## Communication timeout
         self.timeout = timeout
+        ##
         self.count = 0
 
+    ## Receive function
+    # Simple communication function that receives messages from outside
+    # Returns pickle message and incoming address
     def recv(self):
         try:
             p, addr = self.client_socket.recvfrom(1024)
@@ -53,10 +73,15 @@ class Clerk(threading.Thread):
             else:
                 return p, addr
 
+    ## Send function
+    # Sends a message to the outside
+    # Needs an object to pickle and an address
     def send(self, address, o):
         p = pickle.dumps(o)
         self.client_socket.sendto(p, address)
 
+    ## Run function
+    # Starts the communication node and its own work function
     def run(self):
         self.logger.info("CREATING CLERK")
         self.comm_clerk.start()
@@ -64,6 +89,9 @@ class Clerk(threading.Thread):
         self.logger.debug("#Threads: %s", threading.active_count())
         self.clk_work(self.comm_clerk, self.port, self.timeout)
 
+    ## Work function
+    # Starts by filling out the discovery table
+    # Once he gets a request from a client, he will forward it to the cook(s)
     def clk_work(self, comm, port, timeout):
 
         # get discovery table

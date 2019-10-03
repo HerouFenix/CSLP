@@ -1,3 +1,4 @@
+# @package CD
 # coding: utf-8
 
 import time
@@ -20,8 +21,19 @@ logging.basicConfig(level=logging.INFO,
 config = configparser.ConfigParser()
 config.read("conf.ini")
 
-
+## Documentation of the Restaurant Class
+#    Must be the firts to be initialized
+#    Even though the order of the number of IDs doesn't matter, every class is defaulted to have the Restaurant address
+#    It's possible to have another entry point, but it has to be specified in each one
 class Restaurant(threading.Thread):
+    ##  Constructor 
+    #    Starts with pre-set values, the right ones for the current project.
+    #        Number of Entity: Simply for identification purposes, in the case there are more than one CHEF
+    #        Port: Port number from which it can communicate to the other objects
+    #        id: Needed to construct the token ring, to be able to get the right order in the circle
+    #        Name: General name of object
+    #        Timeout: Time until it gives up on receiving a message
+    #        Ring: Port where the initial coordinator is
     def __init__(self, nOfEntity=0, port=5000, id=0, name="RESTAURANT", timeout=3, TG=0, ring=None, ringSize=4, EG=0, blackList=[]):
         threading.Thread.__init__(self)  # worker thread
 
@@ -42,6 +54,9 @@ class Restaurant(threading.Thread):
         self.port = port
         self.timeout = timeout
 
+    ## Receive function
+    # Simple communication function that receives messages from outside
+    # Returns pickle message and incoming address
     def recv(self):
         try:
             p, addr = self.client_socket.recvfrom(1024)
@@ -53,10 +68,15 @@ class Restaurant(threading.Thread):
             else:
                 return p, addr
 
+    ## Send function
+    # Sends a message to the outside
+    # Needs an object to pickle and an address
     def send(self, address, o):
         p = pickle.dumps(o)
         self.client_socket.sendto(p, address)
 
+    ## Run function
+    # Starts the communication node and its own work function
     def run(self):
         self.logger.info("CREATING RESTAURANT")
         self.comm_restaurant.start()
@@ -64,6 +84,9 @@ class Restaurant(threading.Thread):
         self.logger.debug("#Threads: %s", threading.active_count())
         self.rest_work(self.comm_restaurant, self.port, self.timeout)
 
+    ## Work function
+    # Starts by filling out the discovery table
+    # 
     def rest_work(self, comm, port, timeout):
         # get discovery table
         self.discovery_table = comm.get_ringIDs()
