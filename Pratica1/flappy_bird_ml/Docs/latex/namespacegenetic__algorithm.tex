@@ -1,0 +1,23 @@
+\doxysection{genetic\+\_\+algorithm Namespace Reference}
+\label{namespacegenetic__algorithm}\index{genetic\_algorithm@{genetic\_algorithm}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \textbf{ crossover} (brains, nn\+\_\+size, window\+\_\+width, window\+\_\+height, mutation\+\_\+rate)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{namespacegenetic__algorithm_a8d529c5f4baf3303e2c470e1da111130}} 
+\index{genetic\_algorithm@{genetic\_algorithm}!crossover@{crossover}}
+\index{crossover@{crossover}!genetic\_algorithm@{genetic\_algorithm}}
+\doxysubsubsection{crossover()}
+{\footnotesize\ttfamily def genetic\+\_\+algorithm.\+crossover (\begin{DoxyParamCaption}\item[{}]{brains,  }\item[{}]{nn\+\_\+size,  }\item[{}]{window\+\_\+width,  }\item[{}]{window\+\_\+height,  }\item[{}]{mutation\+\_\+rate }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Gathers data from all players' neural networks, evaluates how well they did and attributes a random probability of being matched with another
+player in order to create a new descendant with their combined characteristics - This random probability is influenced by the overall score of the player
+(i.e how well the player did).
+Aditionally, the mutation_rate variable gives the descendent the probability of developing a mutation in their weights. This mutation causes that weight to take on
+a random value rather than the parent's combined weights in order to produce a more varied generation that may (or may not) lead to quicker or better developments
+\end{DoxyVerb}
+ 
