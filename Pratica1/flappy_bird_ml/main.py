@@ -6,8 +6,8 @@ from training import IntelligentBird
 from genetic_algorithm import crossover
 
 
-POPULATION_SIZE = 500 """Sample size of how many test subjects we generate"""
-MUTATION_RATE = 0.1 """Mutation rate of our populus"""
+POPULATION_SIZE = 500 
+MUTATION_RATE = 0.1 
 
 class Pipe:
 	"""
