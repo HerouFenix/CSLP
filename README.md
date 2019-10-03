@@ -3,7 +3,7 @@
 ## Authors
 
 -   **Diogo Silva (nmec 89348)** - [HerouFenix](https://github.com/HerouFenix)
--   **Pedro Oliveira (nmec 89156)** - [HerouFenix](https://github.com/DrPunpun)
+-   **Pedro Oliveira (nmec 89156)** - [DrPunpun](https://github.com/DrPunpun)
 
 ## License
 
