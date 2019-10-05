@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['timeout_44',['timeout',['../classChef_1_1Chef.html#a2d28c7fb73eea48e5dbe24d98f0e31fb',1,'Chef.Chef.timeout()'],['../classClerk_1_1Clerk.html#a2c1f7b2a93ae900ab7fdc38c6c05ce48',1,'Clerk.Clerk.timeout()']]]
+  ['socket_64',['socket',['../classEntity_1_1Entity.html#ada38160c19d4162b15449995e2336da4',1,'Entity::Entity']]],
+  ['successor_65',['successor',['../classEntity_1_1Entity.html#a88846a5f64c80ebbd68a72120f884e1a',1,'Entity::Entity']]]
 ];

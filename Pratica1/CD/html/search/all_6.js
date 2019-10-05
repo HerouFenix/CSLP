@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['port_14',['port',['../classChef_1_1Chef.html#a056b5ed8d03a190f85b62bfb9fba9044',1,'Chef.Chef.port()'],['../classClerk_1_1Clerk.html#af00e548fc4db02c1963617ede0569ead',1,'Clerk.Clerk.port()']]]
+  ['inside_5fring_12',['inside_ring',['../classEntity_1_1Entity.html#a20261bf277315b3e40bf26e4837aa07b',1,'Entity::Entity']]]
 ];

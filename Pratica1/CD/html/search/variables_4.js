@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['port_42',['port',['../classChef_1_1Chef.html#a056b5ed8d03a190f85b62bfb9fba9044',1,'Chef.Chef.port()'],['../classClerk_1_1Clerk.html#af00e548fc4db02c1963617ede0569ead',1,'Clerk.Clerk.port()']]]
+  ['queue_5fin_61',['queue_in',['../classEntity_1_1Entity.html#a2c51457da24b9fd0714fae34fdf7a3d4',1,'Entity::Entity']]],
+  ['queue_5fout_62',['queue_out',['../classEntity_1_1Entity.html#a602e6dc7bc6fb96c3d8891b086c64756',1,'Entity::Entity']]]
 ];

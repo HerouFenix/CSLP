@@ -2,7 +2,7 @@
 \label{classChef_1_1Chef}\index{Chef.Chef@{Chef.Chef}}
 
 
-Documentation for Chief Class.  
+\mbox{\hyperlink{classChef_1_1Chef}{Chef}} Class Responsible for receiving incoming requests from Receptionist Cook whatever is necessary Send the prepared order to the waiter.  
 
 
 Inheritance diagram for Chef.\+Chef\+:\begin{figure}[H]
@@ -14,99 +14,68 @@ Inheritance diagram for Chef.\+Chef\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-def \mbox{\hyperlink{classChef_1_1Chef_aaec47853f1058aa774bf27c3f94757cb}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, n\+Of\+Entity=0, \mbox{\hyperlink{classChef_1_1Chef_a056b5ed8d03a190f85b62bfb9fba9044}{port}}=5002, id=2, name=\char`\"{}C\+H\+EF\char`\"{}, timeout=3, TG=0, ring=5000, ring\+Size=4, EG=0, black\+List=\mbox{[}$\,$\mbox{]})
-\begin{DoxyCompactList}\small\item\em Constructor Starts with pre-\/set values, the right ones for the current project. \end{DoxyCompactList}\item 
-def \mbox{\hyperlink{classChef_1_1Chef_a926cce5cc378301133d6689d1318308b}{recv}} (self)
-\begin{DoxyCompactList}\small\item\em Receive function. \end{DoxyCompactList}\item 
-def \mbox{\hyperlink{classChef_1_1Chef_a4c3d7d4d10230054972a154a044ba4d8}{send}} (self, address, o)
-\begin{DoxyCompactList}\small\item\em Send function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChef_1_1Chef_a26d800a1fe7b25fd36f6e9ad7eab33a0}\label{classChef_1_1Chef_a26d800a1fe7b25fd36f6e9ad7eab33a0}} 
+def \mbox{\hyperlink{classChef_1_1Chef_a26d800a1fe7b25fd36f6e9ad7eab33a0}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, port=5002, ide=C\+O\+OK, init\+\_\+port=5000)
+\begin{DoxyCompactList}\small\item\em Constructor Function Has all the necessary arguments with a default value This includes the communication port, the special ID and the default port to enter the Token Ring. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classChef_1_1Chef_ac420cd20b7244f3e3a4afed7c8a14642}{completed}} (self, \mbox{\hyperlink{classChef_1_1Chef_a134d367f0feae2a01dd97dfa82f74a3c}{req}})
+\begin{DoxyCompactList}\small\item\em Completed Function Check if the cook has finished the first request in line. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classChef_1_1Chef_a65fcdd7b947a207b83487e0f5cc9b628}{add\+\_\+to\+\_\+do}} (self, args)
+\begin{DoxyCompactList}\small\item\em Add to\+\_\+do Function Add a list of foods to the to\+\_\+do list of the cook, for him to prepare. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChef_1_1Chef_afebb96ee46ad45ccc278d011c539b808}\label{classChef_1_1Chef_afebb96ee46ad45ccc278d011c539b808}} 
 def \mbox{\hyperlink{classChef_1_1Chef_afebb96ee46ad45ccc278d011c539b808}{run}} (self)
-\begin{DoxyCompactList}\small\item\em Run thread Function. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classChef_1_1Chef_a26eeb3a932127e3a7cedba86384435f0}\label{classChef_1_1Chef_a26eeb3a932127e3a7cedba86384435f0}} 
-def \mbox{\hyperlink{classChef_1_1Chef_a26eeb3a932127e3a7cedba86384435f0}{chef\+\_\+work}} (self, comm, \mbox{\hyperlink{classChef_1_1Chef_a056b5ed8d03a190f85b62bfb9fba9044}{port}}, \mbox{\hyperlink{classChef_1_1Chef_a2d28c7fb73eea48e5dbe24d98f0e31fb}{timeout}})
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classChef_1_1Chef}{Chef}}\textquotesingle{}s Work Function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Run Function Starts the thread run\+: When a requests comes from the Receptionist, it will add it to the request\textquotesingle{}s list and the to\+\_\+do list; Once it has items on the to\+\_\+do list, it will start confectionating these items, having to ask for permission to use the needed cookingware from the Restaurant To simulate the cooking process, the \mbox{\hyperlink{classChef_1_1Chef}{Chef}} has a sleep function builtin to it After it finishes cooking anything, it will check if the first order has been completed\+: if so, it will be sent to the waiter, if not it will simply move on It will also send a request for the next food item on the to\+\_\+do list, to check if the cookingware is available. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classChef_1_1Chef_abad28c7eefe2e406989533e6010042d1}\label{classChef_1_1Chef_abad28c7eefe2e406989533e6010042d1}} 
+\mbox{\hyperlink{classChef_1_1Chef_abad28c7eefe2e406989533e6010042d1}{node\+\_\+entity}}
+\begin{DoxyCompactList}\small\item\em Node in the Ring that will establish the communication. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classChef_1_1Chef_a555509e8d717015b0a615ca001f68597}\label{classChef_1_1Chef_a555509e8d717015b0a615ca001f68597}} 
 \mbox{\hyperlink{classChef_1_1Chef_a555509e8d717015b0a615ca001f68597}{logger}}
-\begin{DoxyCompactList}\small\item\em A logger to print to terminal throughout the execution of the program. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classChef_1_1Chef_a2dde4d3ef1b13eece7e2e0e2276ffea0}\label{classChef_1_1Chef_a2dde4d3ef1b13eece7e2e0e2276ffea0}} 
-\mbox{\hyperlink{classChef_1_1Chef_a2dde4d3ef1b13eece7e2e0e2276ffea0}{client\+\_\+socket}}
-\begin{DoxyCompactList}\small\item\em A special socket for receiving clients\textquotesingle{} requests. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classChef_1_1Chef_a815002de2f6c29ddc32c92ca2ec46d6e}\label{classChef_1_1Chef_a815002de2f6c29ddc32c92ca2ec46d6e}} 
-\mbox{\hyperlink{classChef_1_1Chef_a815002de2f6c29ddc32c92ca2ec46d6e}{comm\+\_\+chef}}
-\begin{DoxyCompactList}\small\item\em communication thread \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classChef_1_1Chef_a056b5ed8d03a190f85b62bfb9fba9044}\label{classChef_1_1Chef_a056b5ed8d03a190f85b62bfb9fba9044}} 
-\mbox{\hyperlink{classChef_1_1Chef_a056b5ed8d03a190f85b62bfb9fba9044}{port}}
-\begin{DoxyCompactList}\small\item\em Communication port. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classChef_1_1Chef_a2d28c7fb73eea48e5dbe24d98f0e31fb}\label{classChef_1_1Chef_a2d28c7fb73eea48e5dbe24d98f0e31fb}} 
-\mbox{\hyperlink{classChef_1_1Chef_a2d28c7fb73eea48e5dbe24d98f0e31fb}{timeout}}
-\begin{DoxyCompactList}\small\item\em Communication timeout. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classChef_1_1Chef_a6a00c0333891013032462e458743d4f0}\label{classChef_1_1Chef_a6a00c0333891013032462e458743d4f0}} 
-\mbox{\hyperlink{classChef_1_1Chef_a6a00c0333891013032462e458743d4f0}{request\+List}}
-\begin{DoxyCompactList}\small\item\em Control variables for equipments (0-\/doesnt have it ; 1-\/has it/doesnt need it) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classChef_1_1Chef_af6edda9c15d4e2c3ce250f27fe7faba0}\label{classChef_1_1Chef_af6edda9c15d4e2c3ce250f27fe7faba0}} 
-\mbox{\hyperlink{classChef_1_1Chef_af6edda9c15d4e2c3ce250f27fe7faba0}{ordersQ}}
-\begin{DoxyCompactList}\small\item\em Queue that stores the orders to chef. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classChef_1_1Chef_a655686f43b8bdf99bf42bd6a0ba31bbb}\label{classChef_1_1Chef_a655686f43b8bdf99bf42bd6a0ba31bbb}} 
-\mbox{\hyperlink{classChef_1_1Chef_a655686f43b8bdf99bf42bd6a0ba31bbb}{current\+Order}}
-\begin{DoxyCompactList}\small\item\em Dictionary that stores the orders from clients to make the meals. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classChef_1_1Chef_aa906a35db159a31ed45d8c389e4903c6}\label{classChef_1_1Chef_aa906a35db159a31ed45d8c389e4903c6}} 
-\mbox{\hyperlink{classChef_1_1Chef_aa906a35db159a31ed45d8c389e4903c6}{discovery\+\_\+table}}
-\begin{DoxyCompactList}\small\item\em Discovery table with all the other works\textquotesingle{} ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Logger to print out information throughout the simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChef_1_1Chef_a134d367f0feae2a01dd97dfa82f74a3c}\label{classChef_1_1Chef_a134d367f0feae2a01dd97dfa82f74a3c}} 
+\mbox{\hyperlink{classChef_1_1Chef_a134d367f0feae2a01dd97dfa82f74a3c}{req}}
+\begin{DoxyCompactList}\small\item\em List of requests received. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChef_1_1Chef_acd1b4643a4d45cfd7bb71e6a59ff74d4}\label{classChef_1_1Chef_acd1b4643a4d45cfd7bb71e6a59ff74d4}} 
+\mbox{\hyperlink{classChef_1_1Chef_acd1b4643a4d45cfd7bb71e6a59ff74d4}{to\+\_\+do}}
+\begin{DoxyCompactList}\small\item\em List of foods to prepare. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Documentation for Chief Class. 
-
-Chief Class, responsible for\+: Receive requests from a Receptionist Object, Cook whatever is necessary, Resend the request to a Waiter Object 
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classChef_1_1Chef_aaec47853f1058aa774bf27c3f94757cb}\label{classChef_1_1Chef_aaec47853f1058aa774bf27c3f94757cb}} 
-\index{Chef.Chef@{Chef.Chef}!\_\_init\_\_@{\_\_init\_\_}}
-\index{\_\_init\_\_@{\_\_init\_\_}!Chef.Chef@{Chef.Chef}}
-\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
-{\footnotesize\ttfamily def Chef.\+Chef.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{n\+Of\+Entity = {\ttfamily 0},  }\item[{}]{port = {\ttfamily 5002},  }\item[{}]{id = {\ttfamily 2},  }\item[{}]{name = {\ttfamily \char`\"{}CHEF\char`\"{}},  }\item[{}]{timeout = {\ttfamily 3},  }\item[{}]{TG = {\ttfamily 0},  }\item[{}]{ring = {\ttfamily 5000},  }\item[{}]{ring\+Size = {\ttfamily 4},  }\item[{}]{EG = {\ttfamily 0},  }\item[{}]{black\+List = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
-
-
-
-Constructor Starts with pre-\/set values, the right ones for the current project. 
-
-Number of Entity\+: Simply for identification purposes, in the case there are more than one C\+H\+EF Port\+: Port number from which it can communicate to the other objects id\+: Needed to construct the token ring, to be able to get the right order in the circle Name\+: General name of object Timeout\+: Time until it gives up on receiving a message Ring\+: Port where the initial coordinator is 
+\mbox{\hyperlink{classChef_1_1Chef}{Chef}} Class Responsible for receiving incoming requests from Receptionist Cook whatever is necessary Send the prepared order to the waiter. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classChef_1_1Chef_a926cce5cc378301133d6689d1318308b}\label{classChef_1_1Chef_a926cce5cc378301133d6689d1318308b}} 
-\index{Chef.Chef@{Chef.Chef}!recv@{recv}}
-\index{recv@{recv}!Chef.Chef@{Chef.Chef}}
-\doxysubsubsection{\texorpdfstring{recv()}{recv()}}
-{\footnotesize\ttfamily def Chef.\+Chef.\+recv (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classChef_1_1Chef_a65fcdd7b947a207b83487e0f5cc9b628}\label{classChef_1_1Chef_a65fcdd7b947a207b83487e0f5cc9b628}} 
+\index{Chef.Chef@{Chef.Chef}!add\_to\_do@{add\_to\_do}}
+\index{add\_to\_do@{add\_to\_do}!Chef.Chef@{Chef.Chef}}
+\doxysubsubsection{\texorpdfstring{add\_to\_do()}{add\_to\_do()}}
+{\footnotesize\ttfamily def Chef.\+Chef.\+add\+\_\+to\+\_\+do (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{args }\end{DoxyParamCaption})}
 
 
 
-Receive function. 
-
-Simple receive function, it will listen to the socket created in the Constructor until it receives a message \mbox{\Hypertarget{classChef_1_1Chef_afebb96ee46ad45ccc278d011c539b808}\label{classChef_1_1Chef_afebb96ee46ad45ccc278d011c539b808}} 
-\index{Chef.Chef@{Chef.Chef}!run@{run}}
-\index{run@{run}!Chef.Chef@{Chef.Chef}}
-\doxysubsubsection{\texorpdfstring{run()}{run()}}
-{\footnotesize\ttfamily def Chef.\+Chef.\+run (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+Add to\+\_\+do Function Add a list of foods to the to\+\_\+do list of the cook, for him to prepare. 
 
 
-
-Run thread Function. 
-
-Run function to start thread, will simply initialize the Ring\+Node object created in the Constructor And start its own work as \mbox{\hyperlink{classChef_1_1Chef}{Chef}} \mbox{\Hypertarget{classChef_1_1Chef_a4c3d7d4d10230054972a154a044ba4d8}\label{classChef_1_1Chef_a4c3d7d4d10230054972a154a044ba4d8}} 
-\index{Chef.Chef@{Chef.Chef}!send@{send}}
-\index{send@{send}!Chef.Chef@{Chef.Chef}}
-\doxysubsubsection{\texorpdfstring{send()}{send()}}
-{\footnotesize\ttfamily def Chef.\+Chef.\+send (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{o }\end{DoxyParamCaption})}
+\begin{DoxyParams}{Parameters}
+{\em args} & a dictionary with what food to make and in what quantities \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChef_1_1Chef_ac420cd20b7244f3e3a4afed7c8a14642}\label{classChef_1_1Chef_ac420cd20b7244f3e3a4afed7c8a14642}} 
+\index{Chef.Chef@{Chef.Chef}!completed@{completed}}
+\index{completed@{completed}!Chef.Chef@{Chef.Chef}}
+\doxysubsubsection{\texorpdfstring{completed()}{completed()}}
+{\footnotesize\ttfamily def Chef.\+Chef.\+completed (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{req }\end{DoxyParamCaption})}
 
 
 
-Send function. 
+Completed Function Check if the cook has finished the first request in line. 
 
-Using the socket previously created, it will send whatever Object o is passed through the argument and send it to the Address given 
+
+\begin{DoxyParams}{Parameters}
+{\em req} & a record of all the different foods currently done \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

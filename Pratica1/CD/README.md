@@ -7,20 +7,13 @@
 ## How to run
 Open two terminals:
 
-simulation:
+restaurant:
 ```console
-$ python simulation.py
+$ python restaurant.py
 ```
 client:
 ```console
 $ python client.py
-```
-
-## How to run (other option)
-We created a run script in bash that executes 20 clients, so that is another way to execute and test the program:
-
-```console
-$ ./run.sh
 ```
 
 ## Git Upstream
@@ -36,9 +29,7 @@ $ git merge upstream/master
 
 ## Authors
 
-* **Vasco Ramos (nmec  88931)** - [BlasphemyCoder](https://github.com/BlasphemyCoder)
-* **Diogo Silva (nmec 89348)** - [HerouFenix](https://github.com/HerouFenix)
-
+* **Mário Antunes** - [mariolpantunes](https://github.com/mariolpantunes)
 
 ## License
 

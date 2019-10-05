@@ -1,0 +1,119 @@
+\hypertarget{classEntity_1_1Entity}{}\doxysection{Entity.\+Entity Class Reference}
+\label{classEntity_1_1Entity}\index{Entity.Entity@{Entity.Entity}}
+
+
+\mbox{\hyperlink{classEntity_1_1Entity}{Entity}} Class Made for communication between the Actors in the simulation To have a distinction between the entites in a ring, an ID and a Name are needed.  
+
+
+Inheritance diagram for Entity.\+Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classEntity_1_1Entity}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classEntity_1_1Entity_a77102d044eac46761f742ec68f691d35}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, id, addr, name, in\+\_\+ring=None, size=4, timeout=3)
+\begin{DoxyCompactList}\small\item\em Constructor Has some default values, i.\+e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_aaacbfaa56fa8c558484f05f16f426b6a}\label{classEntity_1_1Entity_aaacbfaa56fa8c558484f05f16f426b6a}} 
+def \mbox{\hyperlink{classEntity_1_1Entity_aaacbfaa56fa8c558484f05f16f426b6a}{send}} (self, address, o)
+\begin{DoxyCompactList}\small\item\em Send function Simple send function that will pickle an object and send it through the socket. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_ae4a9787bcb1cf8502de1864ebcf2f842}\label{classEntity_1_1Entity_ae4a9787bcb1cf8502de1864ebcf2f842}} 
+def \mbox{\hyperlink{classEntity_1_1Entity_ae4a9787bcb1cf8502de1864ebcf2f842}{recv}} (self)
+\begin{DoxyCompactList}\small\item\em Receive function Simple receive functoin that will receive a message from the socket and return the message and address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_ac6505d77c1b2ce1794e53f5bfd50aad5}\label{classEntity_1_1Entity_ac6505d77c1b2ce1794e53f5bfd50aad5}} 
+def \mbox{\hyperlink{classEntity_1_1Entity_ac6505d77c1b2ce1794e53f5bfd50aad5}{connect}} (self, args)
+\begin{DoxyCompactList}\small\item\em Connect function Function that allows for an entity to join the ring It needs the entity\textquotesingle{}s information\+: its id and address There are three alternatives to be explored\+: If there\textquotesingle{}s only one \mbox{\hyperlink{classEntity_1_1Entity}{Entity}} on the ring, in which case the candidate will join without further complications If the candidate entity\textquotesingle{}s id is between the receiver\textquotesingle{}s ID and its successor\textquotesingle{}s, in which case the successor\textquotesingle{}s ID will be sent to the candidate entity, and the receiver\textquotesingle{}s successor will change to candidate\textquotesingle{}s If none of these apply, it message will just be forward to the successor. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classEntity_1_1Entity_a956f3cdd8a6b6eb08e02e3c45d10ea31}{broadcast}} (self, args)
+\begin{DoxyCompactList}\small\item\em Broadcast Function Simple function that uses the ring\textquotesingle{}s size introduced in the constructor to check if the ring is complete Starts just sending a message that will go to all entities present in the ring; The one who started the message will use its ID as the Final ID, i.\+e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_aaaa47528a1b1ee7d7c978a9a64070dc3}\label{classEntity_1_1Entity_aaaa47528a1b1ee7d7c978a9a64070dc3}} 
+def \mbox{\hyperlink{classEntity_1_1Entity_aaaa47528a1b1ee7d7c978a9a64070dc3}{start\+\_\+token}} (self, args)
+\begin{DoxyCompactList}\small\item\em Start token function Function that works simply as a warning to all entites inside the ring that a Token will be launched Who sends it is the one defined in the discovery function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_a5c8280e4527333d6425681c76f28f65e}\label{classEntity_1_1Entity_a5c8280e4527333d6425681c76f28f65e}} 
+def \mbox{\hyperlink{classEntity_1_1Entity_a5c8280e4527333d6425681c76f28f65e}{discovery}} (self, args)
+\begin{DoxyCompactList}\small\item\em Discover function First function to run after the ring is complete Will fill out each entities\textquotesingle{} discovery table, that connects the name of the entity with its address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_a5cfb3721d55cff2d6506072f62ea1143}\label{classEntity_1_1Entity_a5cfb3721d55cff2d6506072f62ea1143}} 
+def {\bfseries run} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_ab072eb55b5783eec41c1d6dff6cdad99}\label{classEntity_1_1Entity_ab072eb55b5783eec41c1d6dff6cdad99}} 
+{\bfseries id}
+\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_a6cb81c5ac4f7474841aa35ea59544bef}\label{classEntity_1_1Entity_a6cb81c5ac4f7474841aa35ea59544bef}} 
+{\bfseries addr}
+\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_af29104336651119310041189e0471e69}\label{classEntity_1_1Entity_af29104336651119310041189e0471e69}} 
+{\bfseries name}
+\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_a88846a5f64c80ebbd68a72120f884e1a}\label{classEntity_1_1Entity_a88846a5f64c80ebbd68a72120f884e1a}} 
+\mbox{\hyperlink{classEntity_1_1Entity_a88846a5f64c80ebbd68a72120f884e1a}{successor}}
+\begin{DoxyCompactList}\small\item\em The successor\textquotesingle{}s identification and address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_aeb32ae8e2cec9665aa2cfbe133a9ba4f}\label{classEntity_1_1Entity_aeb32ae8e2cec9665aa2cfbe133a9ba4f}} 
+{\bfseries succ\+\_\+addr}
+\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_a20261bf277315b3e40bf26e4837aa07b}\label{classEntity_1_1Entity_a20261bf277315b3e40bf26e4837aa07b}} 
+\mbox{\hyperlink{classEntity_1_1Entity_a20261bf277315b3e40bf26e4837aa07b}{inside\+\_\+ring}}
+\begin{DoxyCompactList}\small\item\em Whether or not it\textquotesingle{}s inside the ring. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_a5c157184702ff16d14c1892c5e1ee656}\label{classEntity_1_1Entity_a5c157184702ff16d14c1892c5e1ee656}} 
+{\bfseries in\+\_\+ring}
+\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_a5bc67046c6d037d19152fc9a75d4def9}\label{classEntity_1_1Entity_a5bc67046c6d037d19152fc9a75d4def9}} 
+\mbox{\hyperlink{classEntity_1_1Entity_a5bc67046c6d037d19152fc9a75d4def9}{table}}
+\begin{DoxyCompactList}\small\item\em Identification Table, to corresponde each entity\textquotesingle{}s identification to its address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_a274102b8ee28569e2888018eb63ff47d}\label{classEntity_1_1Entity_a274102b8ee28569e2888018eb63ff47d}} 
+\mbox{\hyperlink{classEntity_1_1Entity_a274102b8ee28569e2888018eb63ff47d}{complete\+\_\+ring}}
+\begin{DoxyCompactList}\small\item\em Boolean variable to check if the ring is complete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_a2c51457da24b9fd0714fae34fdf7a3d4}\label{classEntity_1_1Entity_a2c51457da24b9fd0714fae34fdf7a3d4}} 
+\mbox{\hyperlink{classEntity_1_1Entity_a2c51457da24b9fd0714fae34fdf7a3d4}{queue\+\_\+in}}
+\begin{DoxyCompactList}\small\item\em Queue in, with messages from the entity to circulate inside the ring. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_a602e6dc7bc6fb96c3d8891b086c64756}\label{classEntity_1_1Entity_a602e6dc7bc6fb96c3d8891b086c64756}} 
+\mbox{\hyperlink{classEntity_1_1Entity_a602e6dc7bc6fb96c3d8891b086c64756}{queue\+\_\+out}}
+\begin{DoxyCompactList}\small\item\em Queue out, with messages from the ring that are meant for the object\textquotesingle{}s corresponding Actor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_afbafb31a8ac4cdd998c73786d9e1e35f}\label{classEntity_1_1Entity_afbafb31a8ac4cdd998c73786d9e1e35f}} 
+{\bfseries size}
+\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_ada38160c19d4162b15449995e2336da4}\label{classEntity_1_1Entity_ada38160c19d4162b15449995e2336da4}} 
+\mbox{\hyperlink{classEntity_1_1Entity_ada38160c19d4162b15449995e2336da4}{socket}}
+\begin{DoxyCompactList}\small\item\em Socket for communication. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_1_1Entity_acdc56239001da01ce5c493dd63249c9e}\label{classEntity_1_1Entity_acdc56239001da01ce5c493dd63249c9e}} 
+\mbox{\hyperlink{classEntity_1_1Entity_acdc56239001da01ce5c493dd63249c9e}{logger}}
+\begin{DoxyCompactList}\small\item\em Logger to print out information to the console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classEntity_1_1Entity}{Entity}} Class Made for communication between the Actors in the simulation To have a distinction between the entites in a ring, an ID and a Name are needed. 
+
+These identification is needed to specify who an entity wants to send a message to To build the ring itself, each entity will have a successor, based on the ID. This ring is done in such a way that the successor\textquotesingle{}s ID will be greather than it\textquotesingle{}s own Unless, it has the biggest ID in the ring, so it\textquotesingle{}s successor will be the smallest ID in the ring. Finally, in order for the objects to unite in a ring, it\textquotesingle{}s needed to introduce one address of someone already inside the ring. If none is give, it\textquotesingle{}s assumed that the entity wants to start the ring, making one with itself and having itself as a successor. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEntity_1_1Entity_a77102d044eac46761f742ec68f691d35}\label{classEntity_1_1Entity_a77102d044eac46761f742ec68f691d35}} 
+\index{Entity.Entity@{Entity.Entity}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!Entity.Entity@{Entity.Entity}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Entity.\+Entity.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{id,  }\item[{}]{addr,  }\item[{}]{name,  }\item[{}]{in\+\_\+ring = {\ttfamily None},  }\item[{}]{size = {\ttfamily 4},  }\item[{}]{timeout = {\ttfamily 3} }\end{DoxyParamCaption})}
+
+
+
+Constructor Has some default values, i.\+e. 
+
+the port of a node in a ring (in\+\_\+ring), the ring\textquotesingle{}s size, and the timeout for the messages Other paramenters include the name and ID, as said before, to identify the entity itself And the address, for communication purposes 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEntity_1_1Entity_a956f3cdd8a6b6eb08e02e3c45d10ea31}\label{classEntity_1_1Entity_a956f3cdd8a6b6eb08e02e3c45d10ea31}} 
+\index{Entity.Entity@{Entity.Entity}!broadcast@{broadcast}}
+\index{broadcast@{broadcast}!Entity.Entity@{Entity.Entity}}
+\doxysubsubsection{\texorpdfstring{broadcast()}{broadcast()}}
+{\footnotesize\ttfamily def Entity.\+Entity.\+broadcast (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+Broadcast Function Simple function that uses the ring\textquotesingle{}s size introduced in the constructor to check if the ring is complete Starts just sending a message that will go to all entities present in the ring; The one who started the message will use its ID as the Final ID, i.\+e. 
+
+the ending condition The message will circulate in the ring, each incrementing a counter within the message by 1 Once it has reached the entity from which the message was sent, the count will be checked to see if it matches the ring\+\_\+size If so, the start token function will be called This function also serves the purpose of finding who must start sending the token, in this implementation the one with the lowest ID will be picked 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Entity.\+py\end{DoxyCompactItemize}

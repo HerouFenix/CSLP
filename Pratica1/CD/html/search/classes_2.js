@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['waiter_27',['Waiter',['../classWaiter_1_1Waiter.html',1,'Waiter']]]
+  ['receptionist_39',['Receptionist',['../classReceptionist_1_1Receptionist.html',1,'Receptionist']]],
+  ['restaurant_40',['Restaurant',['../classRestaurant_1_1Restaurant.html',1,'Restaurant']]]
 ];

@@ -2,7 +2,7 @@
 \label{classRestaurant_1_1Restaurant}\index{Restaurant.Restaurant@{Restaurant.Restaurant}}
 
 
-Documentation of the \mbox{\hyperlink{classRestaurant_1_1Restaurant}{Restaurant}} Class Must be the firts to be initialized Even though the order of the number of I\+Ds doesn\textquotesingle{}t matter, every class is defaulted to have the \mbox{\hyperlink{classRestaurant_1_1Restaurant}{Restaurant}} address It\textquotesingle{}s possible to have another entry point, but it has to be specified in each one.  
+\mbox{\hyperlink{classRestaurant_1_1Restaurant}{Restaurant}} Class The restaurant class must be the first one to be initialized While the order of the I\+Ds itself doesn\textquotesingle{}t matter, the default values for each classes is designed to communicate to the \mbox{\hyperlink{classRestaurant_1_1Restaurant}{Restaurant}}\textquotesingle{}s port So in order to change the order for whatever reason, you must change all the default values in every class so that it can remain in accordance.  
 
 
 Inheritance diagram for Restaurant.\+Restaurant\+:\begin{figure}[H]
@@ -14,46 +14,34 @@ Inheritance diagram for Restaurant.\+Restaurant\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classRestaurant_1_1Restaurant_a73cd8d8ccc875c878fd67d6214cde7b1}\label{classRestaurant_1_1Restaurant_a73cd8d8ccc875c878fd67d6214cde7b1}} 
-def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, n\+Of\+Entity=0, port=5000, id=0, name=\char`\"{}R\+E\+S\+T\+A\+U\+R\+A\+NT\char`\"{}, timeout=3, TG=0, ring=None, ring\+Size=4, EG=0, black\+List=\mbox{[}$\,$\mbox{]})
-\item 
-\mbox{\Hypertarget{classRestaurant_1_1Restaurant_afee4e87921d0b6dff6e736278b7b6ee1}\label{classRestaurant_1_1Restaurant_afee4e87921d0b6dff6e736278b7b6ee1}} 
-def {\bfseries recv} (self)
-\item 
-\mbox{\Hypertarget{classRestaurant_1_1Restaurant_adeb425f6eab3cb0205201ba75868ce94}\label{classRestaurant_1_1Restaurant_adeb425f6eab3cb0205201ba75868ce94}} 
-def {\bfseries send} (self, address, o)
-\item 
+\mbox{\Hypertarget{classRestaurant_1_1Restaurant_a5a471a0e01a47d33937cde82716dc331}\label{classRestaurant_1_1Restaurant_a5a471a0e01a47d33937cde82716dc331}} 
+def \mbox{\hyperlink{classRestaurant_1_1Restaurant_a5a471a0e01a47d33937cde82716dc331}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, port=5000, ide=R\+E\+ST)
+\begin{DoxyCompactList}\small\item\em Constructor function Has all the necessary arguments with a default value This includes the communication port and the special ID. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classRestaurant_1_1Restaurant_aa8faf5a2eeb9ce5d75c34d66b0f68575}\label{classRestaurant_1_1Restaurant_aa8faf5a2eeb9ce5d75c34d66b0f68575}} 
-def {\bfseries run} (self)
-\item 
-\mbox{\Hypertarget{classRestaurant_1_1Restaurant_ae07ced8a2a38f0ea0ce380dc429c24e3}\label{classRestaurant_1_1Restaurant_ae07ced8a2a38f0ea0ce380dc429c24e3}} 
-def {\bfseries rest\+\_\+work} (self, comm, port, timeout)
-\end{DoxyCompactItemize}
+def \mbox{\hyperlink{classRestaurant_1_1Restaurant_aa8faf5a2eeb9ce5d75c34d66b0f68575}{run}} (self)
+\begin{DoxyCompactList}\small\item\em Run function Uses mostly the boolean variables defined in the constructor If a request from a chef comes to use a certain equipment, the restaurant will send it the corresponding variable If a request comes saying the chef will use the equipment, the restaurant will change the corresponding variable to True Once it\textquotesingle{}s done cooking, and the chef sends a request saying he has stopped using it, the restaurant will change the variable to False. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classRestaurant_1_1Restaurant_a5870b2db1dc3eb1920c02bf91084f226}\label{classRestaurant_1_1Restaurant_a5870b2db1dc3eb1920c02bf91084f226}} 
+\mbox{\hyperlink{classRestaurant_1_1Restaurant_a5870b2db1dc3eb1920c02bf91084f226}{node\+\_\+entity}}
+\begin{DoxyCompactList}\small\item\em Communication node. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classRestaurant_1_1Restaurant_ab45160cad732f09956fe76854fe70e4f}\label{classRestaurant_1_1Restaurant_ab45160cad732f09956fe76854fe70e4f}} 
-{\bfseries logger}
-\item 
-\mbox{\Hypertarget{classRestaurant_1_1Restaurant_aed527c5c46341ab92ca20af02c38bf63}\label{classRestaurant_1_1Restaurant_aed527c5c46341ab92ca20af02c38bf63}} 
-{\bfseries client\+\_\+socket}
-\item 
-\mbox{\Hypertarget{classRestaurant_1_1Restaurant_ab8fb232d4ea46f453d5fdc55b515a107}\label{classRestaurant_1_1Restaurant_ab8fb232d4ea46f453d5fdc55b515a107}} 
-{\bfseries comm\+\_\+restaurant}
-\item 
-\mbox{\Hypertarget{classRestaurant_1_1Restaurant_a043f6e8689607728eae1df71f9545d64}\label{classRestaurant_1_1Restaurant_a043f6e8689607728eae1df71f9545d64}} 
-{\bfseries port}
-\item 
-\mbox{\Hypertarget{classRestaurant_1_1Restaurant_a744612c28b7a89c1b9d65763c0863b6d}\label{classRestaurant_1_1Restaurant_a744612c28b7a89c1b9d65763c0863b6d}} 
-{\bfseries timeout}
-\item 
-\mbox{\Hypertarget{classRestaurant_1_1Restaurant_a61bbc8f4bdaa0b969b2c0ac32adaa03f}\label{classRestaurant_1_1Restaurant_a61bbc8f4bdaa0b969b2c0ac32adaa03f}} 
-{\bfseries discovery\+\_\+table}
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classRestaurant_1_1Restaurant_ab45160cad732f09956fe76854fe70e4f}{logger}}
+\begin{DoxyCompactList}\small\item\em Logger to write on console. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRestaurant_1_1Restaurant_a3e92a2fef07ade7605150a6c29b76b5f}\label{classRestaurant_1_1Restaurant_a3e92a2fef07ade7605150a6c29b76b5f}} 
+\mbox{\hyperlink{classRestaurant_1_1Restaurant_a3e92a2fef07ade7605150a6c29b76b5f}{used\+\_\+grill}}
+\begin{DoxyCompactList}\small\item\em Boolean variable to check if grill is being used. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRestaurant_1_1Restaurant_a3c3f103a0334a94f0d27a75ad196ac6d}\label{classRestaurant_1_1Restaurant_a3c3f103a0334a94f0d27a75ad196ac6d}} 
+\mbox{\hyperlink{classRestaurant_1_1Restaurant_a3c3f103a0334a94f0d27a75ad196ac6d}{used\+\_\+fry}}
+\begin{DoxyCompactList}\small\item\em Boolean variable to check if frier is being used. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRestaurant_1_1Restaurant_a7ed0adecaf281abc0070f8c57af8163b}\label{classRestaurant_1_1Restaurant_a7ed0adecaf281abc0070f8c57af8163b}} 
+\mbox{\hyperlink{classRestaurant_1_1Restaurant_a7ed0adecaf281abc0070f8c57af8163b}{used\+\_\+drink}}
+\begin{DoxyCompactList}\small\item\em Boolean variable to check if drink machine is being used. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Documentation of the \mbox{\hyperlink{classRestaurant_1_1Restaurant}{Restaurant}} Class Must be the firts to be initialized Even though the order of the number of I\+Ds doesn\textquotesingle{}t matter, every class is defaulted to have the \mbox{\hyperlink{classRestaurant_1_1Restaurant}{Restaurant}} address It\textquotesingle{}s possible to have another entry point, but it has to be specified in each one. 
+\mbox{\hyperlink{classRestaurant_1_1Restaurant}{Restaurant}} Class The restaurant class must be the first one to be initialized While the order of the I\+Ds itself doesn\textquotesingle{}t matter, the default values for each classes is designed to communicate to the \mbox{\hyperlink{classRestaurant_1_1Restaurant}{Restaurant}}\textquotesingle{}s port So in order to change the order for whatever reason, you must change all the default values in every class so that it can remain in accordance. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
