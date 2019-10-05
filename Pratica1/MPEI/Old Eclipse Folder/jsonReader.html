@@ -1,0 +1,70 @@
+ <!DOCTYPE html>
+<html>
+<title>HTML Tutorial</title>
+ <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head> 
+<body>
+	<p id="oof">
+
+	</p>
+
+</body>
+<script>
+	$.getJSON("games.json", function(json) {
+		 		console.log(json);
+
+	   for(var i = 0 ; i<json.length/2 ; i++){
+			//Format: NAME ; PRICE ; RATING ; PUBLISHER ; DEVELOPER ; hasSINGLEPLAYER ; hasMULTIPLAYER ; hasCOOP ; GENRE ; REVIEWS
+
+	    	str=json[i].name+",;,"+json[i].price+",;,"+json[i].player_rating+",;,"+json[i].publisher+",;,"+json[i].developer+",;,"+json[i].single_player+",;,"+json[i].multi_player+",;,"+json[i].coop+",;,";
+
+	    	genre="";
+	    	for(var j = 0 ; j < json[i].genres.length/4 ; j++){
+	    		genre+=json[i].genres[j];
+	    		if(j!=json[i].genres.length-1){
+	    			genre+=",-,";
+	    		}
+	    	}
+	    	str+=genre+",;,";
+
+	    	reviews="";
+	    	for(var j = 0 ; j < json[i].reviews.length ; j++){
+				reviews+=json[i].reviews[j].name + "--.--";
+				reviews+=json[i].reviews[j].verified_owner + "--.--";
+
+	    		reviews+=json[i].reviews[j].content;
+	    		if(j!=json[i].reviews.length-1){
+	    			reviews+=",-,";
+	    		}
+	    	}
+	    	str+=reviews;
+	    	$("#oof").append( str +"<br/>");
+
+	    	//console.log(json[i].name);
+	    }	  
+
+	   	//console.log(file);
+		console.log("Done");
+ 		
+ 		/*var min = 0;
+ 		var minName = "";
+ 		var index;
+ 		for(var i = 0 ; i<json.length ; i++){
+ 			if(min<json[i].reviews.length){
+ 				min = json[i].reviews.length;
+ 				minName = json[i].name;
+ 				index = i
+ 			}
+ 		}
+ 		var i = index;
+ 		for(var j = 0 ; j < json[i].reviews.length ; j++){
+ 			 	str = "";
+ 			 	str += json[i].reviews[j].name + ",-," +json[i].reviews[j].rating + ",-," + json[i].reviews[j].verified_owner + ",-," + json[i].reviews[j].content;
+	    		$("#oof").append( str +"<br/>");
+	   	}
+ 		console.log(minName + ";" + min)*/
+	});
+
+</script>
+</html> 
