@@ -6,12 +6,6 @@ import socket
 import random
 import logging
 import argparse
- 
-
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
-                    datefmt='%m-%d %H:%M:%S')
-
 
 def main(port, ring, timeout):
     # Create a logger for the client
@@ -63,6 +57,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Pi HTTP server')
     parser.add_argument('-p', dest='port', type=int, help='client port', default=5004)
     parser.add_argument('-r', dest='ring', type=int, help='ring ports ', default=5000)
+    parser.add_argument('-c', dest='client_number', type=int, help='client number', default=0)
     parser.add_argument('-t', dest='timeout', type=int, help='socket timeout', default=30)
     args = parser.parse_args()
+    logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                    datefmt='%m-%d %H:%M:%S',
+                    filename="client#" + str(args.client_number) + ".log",
+                    filemode="w")
     main(args.port, ('localhost', args.ring), args.timeout)
