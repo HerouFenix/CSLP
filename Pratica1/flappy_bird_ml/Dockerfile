@@ -1,5 +1,5 @@
-# Use an official Ubuntu runtime as a parent image
-FROM pygame/manylinux1_base_i686
+# Use an official Debian runtime as a parent image
+FROM debian:buster
 
 # Set the working directory to /game
 WORKDIR /game
@@ -8,10 +8,13 @@ WORKDIR /game
 COPY . /game
 
 # Install pip
-RUN sudo apt-get update && sudo apt install python3-pip
+RUN apt-get update && apt install -y python3-pip
 
 # Install numPy
-RUN pip install numpy
+RUN pip3 install numpy
+
+# Install pyGame
+RUN pip3 install pygame
 
 # Run the game
 CMD ["python3", "main.py"]
