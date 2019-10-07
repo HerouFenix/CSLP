@@ -1,9 +1,21 @@
 #!/bin/bash
 
-gnome-terminal --title="Simulation" --geometry 60x25+0+0 -e "python3 simulation.py"
+python3 simulation.py &
 
-for i in {1..10} 
+for i in {1..4} 
 do
 	port=$((5010+$i))
-	gnome-terminal --title="Cliente $i" -e "python3 client.py -p $port -t 420"
+	python3 client.py -p $port -t 600 -c $i &
 done
+
+while :
+do
+	num_python_processes=$(ps a | grep -c "python3 client.py")
+	if [ $num_python_processes -le 1 ]; then
+		break;
+	fi
+	sleep 1
+	echo $num_python_processes
+done
+
+ps a | grep -i simulation.py | awk {'print $1'} | xargs kill
