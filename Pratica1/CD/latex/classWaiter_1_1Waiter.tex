@@ -1,0 +1,51 @@
+\hypertarget{classWaiter_1_1Waiter}{}\doxysection{Waiter.\+Waiter Class Reference}
+\label{classWaiter_1_1Waiter}\index{Waiter.Waiter@{Waiter.Waiter}}
+
+
+\mbox{\hyperlink{classWaiter_1_1Waiter}{Waiter}} Class The waiter is the last one to communicate in a simulation He receives the orders from the chef, and will forward them to the respective clients.  
+
+
+Inheritance diagram for Waiter.\+Waiter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classWaiter_1_1Waiter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWaiter_1_1Waiter_af197ab774160e45215c887897af15c38}\label{classWaiter_1_1Waiter_af197ab774160e45215c887897af15c38}} 
+def \mbox{\hyperlink{classWaiter_1_1Waiter_af197ab774160e45215c887897af15c38}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, port=5003, id=E\+MP, init\+\_\+port=5000)
+\begin{DoxyCompactList}\small\item\em Constructor Function Has all the necessary arguments with a default value This includes the communication port, the special ID and the default port to enter the Token Ring. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWaiter_1_1Waiter_a7cdb3065b78cfef77744c7c11c2a36f3}\label{classWaiter_1_1Waiter_a7cdb3065b78cfef77744c7c11c2a36f3}} 
+def \mbox{\hyperlink{classWaiter_1_1Waiter_a7cdb3065b78cfef77744c7c11c2a36f3}{pickup}} (self, client, ticket)
+\begin{DoxyCompactList}\small\item\em Pickup function When the client shows up to get food, two things may happen\+: Either it\textquotesingle{}s already completed, so the waiter can just send the request to the client It\textquotesingle{}s not completed yet, so client will simply be noted on the list of tickets. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWaiter_1_1Waiter_a9a571557401766564fe7df5c7fab29d7}\label{classWaiter_1_1Waiter_a9a571557401766564fe7df5c7fab29d7}} 
+def \mbox{\hyperlink{classWaiter_1_1Waiter_a9a571557401766564fe7df5c7fab29d7}{send\+\_\+req}} (self, ticket, req)
+\begin{DoxyCompactList}\small\item\em Send request function When the chef delivers the completed request to the waiter\+: If the client has already arrived to get his food, it will be sent straight away If not, then it will just be added to the list of completed requests. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWaiter_1_1Waiter_abe0e5a647f3bccf8512495ad3e23717e}\label{classWaiter_1_1Waiter_abe0e5a647f3bccf8512495ad3e23717e}} 
+def \mbox{\hyperlink{classWaiter_1_1Waiter_abe0e5a647f3bccf8512495ad3e23717e}{run}} (self)
+\begin{DoxyCompactList}\small\item\em Run function Fairly simple function, it can only receive two orders\+: A pick up from a client, that will call the pick up function A completed request from a chef, that will call the send request function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWaiter_1_1Waiter_a4fbb89dc8e012ac41d687359707327d0}\label{classWaiter_1_1Waiter_a4fbb89dc8e012ac41d687359707327d0}} 
+\mbox{\hyperlink{classWaiter_1_1Waiter_a4fbb89dc8e012ac41d687359707327d0}{node\+\_\+entity}}
+\begin{DoxyCompactList}\small\item\em Communication node. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWaiter_1_1Waiter_ae0e507c83aacb3383d15d88b3807e18f}\label{classWaiter_1_1Waiter_ae0e507c83aacb3383d15d88b3807e18f}} 
+\mbox{\hyperlink{classWaiter_1_1Waiter_ae0e507c83aacb3383d15d88b3807e18f}{logger}}
+\begin{DoxyCompactList}\small\item\em Logger to write information on console throughout simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWaiter_1_1Waiter_a5c6d51ca1d92eee25cf8d1be75ed494b}\label{classWaiter_1_1Waiter_a5c6d51ca1d92eee25cf8d1be75ed494b}} 
+\mbox{\hyperlink{classWaiter_1_1Waiter_a5c6d51ca1d92eee25cf8d1be75ed494b}{tickets}}
+\begin{DoxyCompactList}\small\item\em List of clients currently waiting for orders. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWaiter_1_1Waiter_ac61bcd308d1b2715f2d5c994c6fa491c}\label{classWaiter_1_1Waiter_ac61bcd308d1b2715f2d5c994c6fa491c}} 
+\mbox{\hyperlink{classWaiter_1_1Waiter_ac61bcd308d1b2715f2d5c994c6fa491c}{completed\+\_\+req}}
+\begin{DoxyCompactList}\small\item\em List of requests that have yet to be requested from the clients. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classWaiter_1_1Waiter}{Waiter}} Class The waiter is the last one to communicate in a simulation He receives the orders from the chef, and will forward them to the respective clients. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Waiter.\+py\end{DoxyCompactItemize}

@@ -1,97 +1,68 @@
+## @package CD
 # coding: utf-8
 
-import pickle
-import socket
-import random
 import logging
-import configparser
+from Entity import Entity
 import threading
-from RingNode import RingNode
-from utils import work
-
-# configure the log with INFO level
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
-                    datefmt='%m-%d %H:%M:%S')
-
-# get configuration file values with work times for each equipment
-config = configparser.ConfigParser()
-config.read("conf.ini")
+from utils import EMP, work
 
 
+## Waiter Class
+# The waiter is the last one to communicate in a simulation
+# He receives the orders from the chef, and will forward them to the respective clients
 class Waiter(threading.Thread):
-    def __init__(self, nOfEntity=0, port=5003, id=3, name="WAITER", timeout=3, TG=0, ring=5000, ringSize=4):
+    ## Constructor Function
+    # Has all the necessary arguments with a default value
+    # This includes the communication port, the special ID and the default port to enter the Token Ring
+    def __init__(self, port=5003, id=EMP, init_port=5000):
         threading.Thread.__init__(self)
+        ##Communication node
+        self.node_entity = Entity(id, ('localhost', port), 'Waiter', ('localhost', init_port))
+        self.node_entity.start()
+        ##Logger to write information on console throughout simulation
+        self.logger = logging.getLogger("Waiter")
+        ##List of clients currently waiting for orders
+        self.tickets = {}
+        ##List of requests that have yet to be requested from the clients
+        self.completed_req = {}
 
-        if nOfEntity == 0:
-            loggerName = name
+    ## Pickup function
+    # When the client shows up to get food, two things may happen:
+    # Either it's already completed, so the waiter can just send the request to the client
+    # It's not completed yet, so client will simply be noted on the list of tickets
+    def pickup(self, client, ticket):
+        if ticket in self.completed_req:
+            self.node_entity.send(client, {'args': self.completed_req[ticket]})
         else:
-            loggerName = name+"-"+str(nOfEntity)
-        self.logger = logging.getLogger(loggerName)
+            self.tickets[ticket] = client
 
-        # Creating special socket for receiving clients' requests
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.client_socket.settimeout(timeout)
-        self.client_socket.bind(('localhost', port-50))
-
-        self.comm_waiter = RingNode(loggerName, id, ('localhost', port), name,
-                                    timeout, TG, ('localhost', ring), ringSize)  # communication thread
-
-        self.port = port
-        self.timeout = timeout
-        self.clients_tickets = []
-
-    def recv(self):
-        try:
-            p, addr = self.client_socket.recvfrom(1024)
-        except socket.timeout:
-            return None, None
+    ## Send request function
+    # When the chef delivers the completed request to the waiter:
+    # If the client has already arrived to get his food, it will be sent straight away
+    # If not, then it will just be added to the list of completed requests
+    def send_req(self, ticket, req):
+        self.logger.info("Send request to %s", ticket)
+        if ticket in self.tickets:
+            self.node_entity.send(self.tickets[ticket], {'args': req})
         else:
-            if len(p) == 0:
-                return None, addr
-            else:
-                return p, addr
+            self.completed_req[ticket] = req
 
-    def send(self, address, o):
-        p = pickle.dumps(o)
-        self.client_socket.sendto(p, address)
-
+    ## Run function
+    # Fairly simple function, it can only receive two orders:
+    # A pick up from a client, that will call the pick up function
+    # A completed request from a chef, that will call the send request function
     def run(self):
-        self.logger.info("CREATING WAITER")
-        self.comm_waiter.start()
-        self.logger.debug("CREATED WAITER SUCCESSFULLY")
-        self.logger.debug("#Threads: %s", threading.active_count())
-        self.waiter_work(self.comm_waiter, self.port, self.timeout)
-
-    def waiter_work(self, comm, port, timeout):
-        # get discovery table
-        self.discovery_table = comm.get_ringIDs()
-        while self.discovery_table == None:
-            self.discovery_table = comm.get_ringIDs()
-            work(0.5)
-        self.logger.info("Discovery Table from Comm thread: %s",
-                         self.discovery_table)
 
         while True:
-            request = comm.get_in_queue()
-            if request is not None:
-                self.logger.info("Request from queue: %s", request)
+            o = self.node_entity.queue_out.get()
 
-                # Wait for a random time
-                delta = random.gauss(int(config['ACTION']['MEAN']), float(
-                    config['ACTION']['STD_DEVIATION']))
-                self.logger.info('Wait for %f seconds', delta)
-                work(delta)
+            self.logger.info("Waiter: %s", o)
 
-                if request['method'] == 'CLIENT_PICKUP':
-                    # Add to ticket queue
-                    self.clients_tickets.append(request['args']['TICKET'])
-                    self.logger.debug("Tickets: %s", self.clients_tickets)
+            if o['method'] == 'PICKUP':
+                work()
+                self.pickup(o['client_addr'], o['args'])
 
-                elif request['method'] == 'DELIVER':
-                    ticket_id = request['args']['TICKET']
-                    if ticket_id in self.clients_tickets:
-                        self.clients_tickets.remove(ticket_id)
-                        client_addr = request['args']['CLIENT_ADDR']
-                        msg = {'method': 'ORDER_DELIVER', 'args': ticket_id}
-                        self.send(client_addr, msg)  # send ticket to client
+            if o['method'] == 'COMPLETED_REQ':
+                work()
+                self.send_req(o['ticket'], o['args'])
+

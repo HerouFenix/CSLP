@@ -1,197 +1,118 @@
+## @package CD
 # coding: utf-8
 
-import time
-import pickle
-import socket
-import random
 import logging
-import configparser
+from Entity import Entity
 import threading
-import uuid
-from RingNode import RingNode
-from utils import work
+from utils import COOK, work
 from queue import Queue
 
-
-# configure the log with INFO level
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
-                    datefmt='%m-%d %H:%M:%S')
-
-# get configuration file values with work times for each equipment
-config = configparser.ConfigParser()
-config.read("conf.ini")
-
-
+## Chef Class
+#   Responsible for receiving incoming requests from Receptionist
+#   Cook whatever is necessary
+#   Send the prepared order to the waiter
 class Chef(threading.Thread):
-    def __init__(self, nOfEntity=0, port=5002, id=2, name="CHEF", timeout=3, TG=0, ring=5000, ringSize=4, EG=0, blackList=[]):
+    ## Constructor Function
+    # Has all the necessary arguments with a default value
+    # This includes the communication port, the special ID and the default port to enter the Token Ring
+    def __init__(self, port=5002, ide=COOK, init_port=5000):
         threading.Thread.__init__(self)
+        ## Node in the Ring that will establish the communication
+        self.node_entity = Entity(ide, ('localhost', port), 'Chef', ('localhost', init_port))
+        self.node_entity.start()
+        ##Logger to print out information throughout the simulation
+        self.logger = logging.getLogger("Chef")
+        ##List of requests received
+        self.req = []
+        ##List of foods to prepare
+        self.to_do = []
 
-        if nOfEntity == 0:
-            loggerName = name
-        else:
-            loggerName = name+"-"+str(nOfEntity)
-        self.logger = logging.getLogger(loggerName)
+    ##Completed Function
+    # Check if the cook has finished the first request in line
+    ## @param req: a record of all the different foods currently done
+    def completed(self, req):
+        if len(self.req) <= 0:
+            return False
+        temp = self.req[0][1]
+        for food in req:
+            if req[food] < temp[food]:
+                return False
+        return True
 
-        # Creating special socket for receiving clients' requests
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.client_socket.settimeout(timeout)
-        self.client_socket.bind(('localhost', port-50))
-
-        self.comm_chef = RingNode(loggerName, id, ('localhost', port), name, timeout, TG, (
-            'localhost', ring), ringSize, EG, blackList)  # communication thread
-
-        self.port = port
-        self.timeout = timeout
-
-        # Control variables for equipments (0-doesnt have it ; 1-has it/doesnt need it)
-        self.requestList = []
-
-        self.ordersQ = Queue()
-        self.currentOrder = {'client': None, 'orderID': None,
-                             'order': None, 'grill': 0, 'frier': 0, 'drinks': 0}
-
-    def recv(self):
-        try:
-            p, addr = self.client_socket.recvfrom(1024)
-        except socket.timeout:
-            return None, None
-        else:
-            if len(p) == 0:
-                return None, addr
-            else:
-                return p, addr
-
-    def send(self, address, o):
-        p = pickle.dumps(o)
-        self.client_socket.sendto(p, address)
-
+    ##Add to_do Function
+    # Add a list of foods to the to_do list of the cook, for him to prepare
+    ## @param args: a dictionary with what food to make and in what quantities
+    def add_to_do(self, args):
+        for key, val in args.items():
+            for i in range(val):
+                self.to_do.append(key)
+        return self.to_do[0]
+        
+    ## Run Function
+    # Starts the thread run:
+    # When a requests comes from the Receptionist, it will add it to the request's list and the to_do list;
+    # Once it has items on the to_do list, it will start confectionating these items, having to ask
+    # for permission to use the needed cookingware from the Restaurant
+    # To simulate the cooking process, the Chef has a sleep function builtin to it
+    # After it finishes cooking anything, it will check if the first order has been completed: if so, it will be sent to the waiter, if not it will simply move on
+    # It will also send a request for the next food item on the to_do list, to check if the cookingware is available
     def run(self):
-        self.logger.info("CREATING CHEF")
-        self.comm_chef.start()
-        self.logger.debug("CREATED CHEF SUCCESSFULLY")
-        self.logger.debug("#Threads: %s", threading.active_count())
-        self.chef_work(self.comm_chef, self.port, self.timeout)
+        food_done = dict.fromkeys(['hamburger', 'fries', 'drink'], 0)
+        cooking_item = False
+        item_index = 0
 
-    def chef_work(self, comm, port, timeout):
-        # get discovery table
-        self.discovery_table = comm.get_ringIDs()
-        while self.discovery_table == None:
-            self.discovery_table = comm.get_ringIDs()
-            work(0.5)
-        self.logger.info("Discovery Table from Comm thread: %s",
-                         self.discovery_table)
+        while True:
+            o = self.node_entity.queue_out.get()
+            self.logger.info("O: %s", o)
 
-        done = False
-        while not done:
-            request = comm.get_in_queue()
+            if o['method'] == 'SEND_ORDER':
+                self.req.append((o['ticket'], o['args']))
+                self.add_to_do(o['args'])
 
-            if request is not None:
-                if request['method'] == 'COOK':
-                    order = {'client': request['args']['CLIENT_ADDR'], 'orderID': request['args']['TICKET'], 'order': request['args']['order'],
-                             'grill': 1, 'drinks': 1, 'frier': 1}
-                    order['client'] = request['args']['CLIENT_ADDR']
-                    order['orderID'] = request['args']['TICKET']
-                    order['order'] = request['args']['order']
+            if o['method'] == 'USE_FRIES':
+                if not o['args']:
+                    self.node_entity.queue_in.put({'entity': 'Restaurant','args': None, 'method': 'USING_FRY'})
+                    work(5, 0.5)
+                    self.to_do.pop(item_index)
+                    item_index = 0
+                    food_done['fries'] += 1
+                    self.node_entity.queue_in.put({'entity': 'Restaurant','args': None, 'method': 'STOPPED_FRY'})
+                else:
+                    item_index+=1
+                cooking_item = False
+            
+            if o['method'] == 'USE_GRILL':
+                if not o['args']:
+                    self.node_entity.queue_in.put({'entity': 'Restaurant','args': None, 'method': 'USING_GRILL'})
+                    work(3, 0.5)
+                    self.to_do.pop(item_index)
+                    item_index = 0
+                    food_done['hamburger'] += 1
+                    self.node_entity.queue_in.put({'entity': 'Restaurant','args': None, 'method': 'STOPPED_GRILL'})
+                else:
+                    item_index+=1
+                cooking_item = False
+            if o['method'] == 'USE_DRINK':
+                if not o['args']:
+                    self.node_entity.queue_in.put({'entity': 'Restaurant','args': None, 'method': 'USING_DRINK'})
+                    work(1, 0.5)
+                    self.to_do.pop(item_index)
+                    item_index = 0
+                    food_done['drink'] += 1
+                    self.node_entity.queue_in.put({'entity': 'Restaurant','args': None, 'method': 'STOPPED_DRINK'})
+                else:
+                    item_index+=1
+                cooking_item = False
 
-                    # Check which equipments we'll need (f.ex if we need 3 hamburgers, well store grill = -2 and then increment it by 1 each time we get the grill, noting that well be done when grill = 1)
-                    for i in request['args']['order']:
-                        if i == 'hamburger':
-                            order['grill'] -= request['args']['order']['hamburger']
+            if self.completed(food_done):
+                ticket, completed_req = self.req.pop()
+                for key in food_done:
+                    food_done[key] -= completed_req[key]
+                self.node_entity.queue_in.put({'entity': 'Waiter', 'method': 'COMPLETED_REQ', 'args': completed_req, 'ticket': ticket})
 
-                        if i == 'drinks':
-                            order['drinks'] -= request['args']['order']['drinks']
+            if not cooking_item:
+                if len(self.to_do) > 0:
+                    item = self.to_do[item_index]
+                    cooking_item = True
+                    self.node_entity.queue_in.put({'entity': 'Restaurant', 'args': None, 'method': 'ask_'+item})
 
-                        if i == 'fries':
-                            order['frier'] -= request['args']['order']['fries']
-
-                    # Add to queue
-                    self.ordersQ.put(order)
-                    self.logger.info("Order added to Queue : %d - %d - %d",
-                                     order['grill'], order['frier'], order['drinks'])
-
-                elif request['method'] == 'GRILL_TOKEN':
-                    self.logger.debug("GRILL ACQUIRED")
-
-                    if "grill" in self.requestList:
-
-                        # Grill
-                        delta = random.gauss(int(config['GRILL']['MEAN']), float(
-                            config['GRILL']['STD_DEVIATION']))
-                        self.logger.info('Grilling for %f seconds', delta)
-                        work(delta)
-
-                        self.requestList.remove('grill')
-                        self.currentOrder['grill'] += 1
-
-                    self.logger.debug("GRILL RELEASED")
-                    comm.put_out_queue(request)
-
-                elif request['method'] == 'FRIER_TOKEN':
-                    self.logger.debug("FRIER ACQUIRED")
-
-                    if "frier" in self.requestList:
-
-                        # Fry
-                        delta = random.gauss(int(config['FRYER']['MEAN']), float(
-                            config['FRYER']['STD_DEVIATION']))
-                        self.logger.info('Frying for %f seconds', delta)
-                        work(delta)
-                        self.requestList.remove('frier')
-                        self.currentOrder['frier'] += 1
-
-                    self.logger.debug("FRIER RELEASED")
-                    comm.put_out_queue(request)
-
-                elif request['method'] == 'DRINKS_TOKEN':
-                    self.logger.debug("DRINKS ACQUIRED")
-                    if "drinks" in self.requestList:
-
-                        # Grill
-                        delta = random.gauss(int(config['DRINKS_BAR']['MEAN']), float(
-                            config['DRINKS_BAR']['STD_DEVIATION']))
-                        self.logger.info('Pouring for %f seconds', delta)
-                        work(delta)
-
-                        self.requestList.remove('drinks')
-                        self.currentOrder['drinks'] += 1
-
-                    self.logger.debug("DRINKS RELEASED")
-                    comm.put_out_queue(request)
-
-            else:
-                # If we're not cooking anything right now
-                if self.currentOrder['client'] == None:
-                    if self.ordersQ.qsize() == 0:  # If we have no orders continue the loop
-                        continue
-                    else:
-                        self.currentOrder = self.ordersQ.get()  # Get cook order from queue
-                        self.logger.info(
-                            "Working on order %s", self.currentOrder)
-
-                # If order is ready
-                if self.currentOrder['grill'] == 1 and self.currentOrder['frier'] == 1 and self.currentOrder['drinks'] == 1:
-                    msg = {'method': 'TOKEN', 'args': {'method': 'DELIVER', 'args': {
-                        'id': self.discovery_table['WAITER'], 'order': self.currentOrder['order'],
-                        'CLIENT_ADDR': self.currentOrder['client'], 'TICKET': self.currentOrder['orderID']}}}
-
-                    self.logger.info("ORDER READY - %s",self.currentOrder['client'])
-                    self.currentOrder = {'client': None, 'orderID': None, 'order': None,
-                                         'grill': 0, 'frier': 0, 'drinks': 0}  # Reset current order
-                    comm.put_out_queue(msg)
-
-                elif len(self.requestList) == 0:  # Register and Request equipments necessary
-                    self.requestList = []
-
-                    # Check which equipments we need
-                    if self.currentOrder['grill'] != 1:
-                        for i in range(1-self.currentOrder['grill']):
-                            self.requestList.append('grill')
-
-                    if self.currentOrder['drinks'] != 1:
-                        for i in range(1-self.currentOrder['drinks']):
-                            self.requestList.append('drinks')
-
-                    if self.currentOrder['frier'] != 1:
-                        for i in range(1-self.currentOrder['frier']):
-                            self.requestList.append('frier')

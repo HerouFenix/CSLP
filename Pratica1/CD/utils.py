@@ -1,13 +1,22 @@
 import time
+import random
+
+REST = 0
+RECEP = 1
+COOK = 2
+EMP = 3
 
 
-def work(seconds):
-    time.sleep(abs(seconds))
-
-
-def contains_successor(identification, successor, node):
-    if identification < node <= successor:
+def contain_successor(id, succ, candidate):
+    if id < candidate < succ:
         return True
-    elif successor < identification and (node > identification or node < successor):
+    if succ < id and candidate > id:
         return True
     return False
+
+
+def work(seconds=2, sigma=.5):
+    delta = 0
+    while delta <= 0:
+        delta = random.gauss(seconds, sigma)
+    time.sleep(delta)

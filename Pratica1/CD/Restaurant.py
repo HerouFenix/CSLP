@@ -1,107 +1,67 @@
+## @package CD
 # coding: utf-8
 
-import time
-import pickle
-import socket
-import random
 import logging
-import configparser
+from Entity import Entity
 import threading
-from RingNode import RingNode
-from utils import work
-from queue import Queue
+from utils import REST, work
 
-# configure the log with INFO level
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
-                    datefmt='%m-%d %H:%M:%S')
-
-# get configuration file values with work times for each equipment
-config = configparser.ConfigParser()
-config.read("conf.ini")
-
-
+## Restaurant Class
+# The restaurant class must be the first one to be initialized
+# While the order of the IDs itself doesn't matter, the default values for each classes is designed to communicate to the Restaurant's port
+# So in order to change the order for whatever reason, you must change all the default values in every class so that it can remain in accordance
 class Restaurant(threading.Thread):
-    def __init__(self, nOfEntity=0, port=5000, id=0, name="RESTAURANT", timeout=3, TG=0, ring=None, ringSize=4, EG=0, blackList=[]):
-        threading.Thread.__init__(self)  # worker thread
+    ##Constructor function
+    # Has all the necessary arguments with a default value
+    # This includes the communication port and the special ID
+    def __init__(self, port=5000, ide=REST):
+        threading.Thread.__init__(self)
+        ## Communication node
+        self.node_entity = Entity(ide, ('localhost', port), "Restaurant")
+        self.node_entity.start()
+        ## Logger to write on console
+        self.logger = logging.getLogger("Restaurant")
+        ## Boolean variable to check if grill is being used
+        self.used_grill = False
+        ## Boolean variable to check if frier is being used
+        self.used_fry = False
+        ## Boolean variable to check if drink machine is being used
+        self.used_drink = False
 
-        if nOfEntity == 0:
-            loggerName = name
-        else:
-            loggerName = name+"-"+str(nOfEntity)
-        self.logger = logging.getLogger(loggerName)
-
-        # Creating special socket for receiving clients' requests
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.client_socket.settimeout(timeout)
-        self.client_socket.bind(('localhost', port-50))
-
-        self.comm_restaurant = RingNode(loggerName, id, ('localhost', port), name,
-                                        timeout, TG, ring, ringSize, EG, blackList)  # communication thread
-
-        self.port = port
-        self.timeout = timeout
-
-    def recv(self):
-        try:
-            p, addr = self.client_socket.recvfrom(1024)
-        except socket.timeout:
-            return None, None
-        else:
-            if len(p) == 0:
-                return None, addr
-            else:
-                return p, addr
-
-    def send(self, address, o):
-        p = pickle.dumps(o)
-        self.client_socket.sendto(p, address)
-
+    ## Run function
+    # Uses mostly the boolean variables defined in the constructor
+    # If a request from a chef comes to use a certain equipment, the restaurant will send it the corresponding variable
+    # If a request comes saying the chef will use the equipment, the restaurant will change the corresponding variable to True
+    # Once it's done cooking, and the chef sends a request saying he has stopped using it, the restaurant will change the variable to False
     def run(self):
-        self.logger.info("CREATING RESTAURANT")
-        self.comm_restaurant.start()
-        self.logger.debug("CREATED RESTAURANT SUCCESSFULLY")
-        self.logger.debug("#Threads: %s", threading.active_count())
-        self.rest_work(self.comm_restaurant, self.port, self.timeout)
 
-    def rest_work(self, comm, port, timeout):
-        # get discovery table
-        self.discovery_table = comm.get_ringIDs()
-        while self.discovery_table == None:
-            self.discovery_table = comm.get_ringIDs()
-            work(0.5)
-        self.logger.info("Discovery Table from Comm thread: %s",
-                         self.discovery_table)
+    	while True:
+            o = self.node_entity.queue_out.get()
+            self.logger.info("O: %s", o)
 
-        done = False
-        while not done:
-            p, addr = self.recv()
+            if o['method'] == 'ask_hamburger':
+                self.node_entity.queue_in.put({'entity': 'Chef', 'method': 'USE_GRILL', 'args': self.used_grill})
 
-            if p is not None:
-                o = pickle.loads(p)
-                self.logger.info("Request received: %s", o)
+            if o['method'] == 'ask_fries':
+                self.node_entity.queue_in.put({'entity': 'Chef', 'method': 'USE_FRIES', 'args': self.used_fry})
 
-                if o['method'] == 'ORDER':
-                    msg = {'method': 'TOKEN', 'args': {'method': 'CLIENT_ORDER', 'args': {
-                        'id': self.discovery_table['CLERK'], 'order': o['args'], 'CLIENT_ADDR': addr}}}
-                    comm.put_out_queue(msg)
+            if o['method'] == 'ask_drink':
+                self.node_entity.queue_in.put({'entity': 'Chef', 'method': 'USE_DRINK', 'args': self.used_drink})
 
-                elif o['method'] == 'PICKUP':
-                    msg = {'method': 'TOKEN', 'args': {'method': 'CLIENT_PICKUP', 'args': {
-                        'id': self.discovery_table['WAITER'], 'CLIENT_ADDR': addr, 'TICKET': o['args']}}}
-                    comm.put_out_queue(msg)
+            if o['method'] == 'USING_GRILL':
+                self.used_grill = True
 
-            else:
-                request = comm.get_in_queue()
-                if request is not None:
-                    if request['method'] == 'GRILL_TOKEN':
-                        self.logger.debug("GRILL KEEPALIVE")
-                        comm.put_out_queue(request)
+            if o['method'] == 'STOPPED_GRILL':
+                self.used_grill = False
 
-                    elif request['method'] == 'FRIER_TOKEN':
-                        self.logger.debug("FRIER KEEPALIVE")
-                        comm.put_out_queue(request)
+            if o['method'] == 'USING_FRY':
+                self.used_fry = True
 
-                    elif request['method'] == 'DRINKS_TOKEN':
-                        self.logger.debug("DRINKS KEEPALIVE")
-                        comm.put_out_queue(request)
+            if o['method'] == 'STOPPED_FRY':
+                self.used_fry = False
+
+            if o['method'] == 'USING_DRINK':
+                self.used_drink = True
+
+            if o['method'] == 'STOPPED_DRINK':
+                self.used_drink = False
