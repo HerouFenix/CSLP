@@ -1,4 +1,8 @@
-FROM python:3.7.4-slim-buster
+FROM ubuntu
+
+#Get python3
+RUN apt-get update && apt-get install -y python3 \
+                                        procps
 
 WORKDIR /project
 COPY . /project
