@@ -1,0 +1,130 @@
+\hypertarget{process__rgb_8h}{}\section{src/process\+\_\+rgb.h File Reference}
+\label{process__rgb_8h}\index{src/process\+\_\+rgb.\+h@{src/process\+\_\+rgb.\+h}}
+
+
+File containing R\+GB related methods and structures.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structColour}{Colour}
+\begin{DoxyCompactList}\small\item\em Structure used to represent R\+GB pixels. \end{DoxyCompactList}\item 
+struct \hyperlink{structRGBImage}{R\+G\+B\+Image}
+\begin{DoxyCompactList}\small\item\em Structure used to represent an R\+GB image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{process__rgb_8h_a19cfda41a1a4b94bedc5dc08f4dfb56d}{save\+\_\+rgb\+\_\+to\+\_\+file} (char $\ast$file\+\_\+name, \hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$image)
+\item 
+\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$ \hyperlink{process__rgb_8h_a7901184e16b2068b10aff25e9a2eda97}{load\+\_\+rgb\+\_\+file} (char $\ast$file\+\_\+name)
+\item 
+\hyperlink{structColour}{Colour} \hyperlink{process__rgb_8h_a0c4cb3de6a102b1bc7ca10810f09fe77}{get\+\_\+rgb\+\_\+pixel} (\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$image, int line, int col)
+\item 
+\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$ \hyperlink{process__rgb_8h_aa539bea4683797df768648cba4ecbaa5}{get\+\_\+rgb\+\_\+subsection} (\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$image, int pos\+\_\+start\mbox{[}2\mbox{]}, int pos\+\_\+end\mbox{[}2\mbox{]})
+\item 
+\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$ \hyperlink{process__rgb_8h_aec2bb38090bf5571dbb7c0a23c568937}{copy\+\_\+rgb\+\_\+image} (\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$image)
+\item 
+void \hyperlink{process__rgb_8h_a64dff00e033695e7a476ae1bd199fdba}{change\+\_\+rgb\+\_\+intensity} (\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$image, int $\ast$pixel\+\_\+intensity)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing R\+GB related methods and structures. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{process__rgb_8h_a64dff00e033695e7a476ae1bd199fdba}\label{process__rgb_8h_a64dff00e033695e7a476ae1bd199fdba}} 
+\index{process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}!change\+\_\+rgb\+\_\+intensity@{change\+\_\+rgb\+\_\+intensity}}
+\index{change\+\_\+rgb\+\_\+intensity@{change\+\_\+rgb\+\_\+intensity}!process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}}
+\subsubsection{\texorpdfstring{change\+\_\+rgb\+\_\+intensity()}{change\_rgb\_intensity()}}
+{\footnotesize\ttfamily void change\+\_\+rgb\+\_\+intensity (\begin{DoxyParamCaption}\item[{\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$}]{image,  }\item[{int $\ast$}]{pixel\+\_\+intensity }\end{DoxyParamCaption})}
+
+Function used to change an R\+GB Image\textquotesingle{}s R, G and B intensities
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & The Image we want to change the intensity of \\
+\hline
+{\em pixel\+\_\+intensity} & An array with an R,G and B intensity modifier \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{process__rgb_8h_aec2bb38090bf5571dbb7c0a23c568937}\label{process__rgb_8h_aec2bb38090bf5571dbb7c0a23c568937}} 
+\index{process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}!copy\+\_\+rgb\+\_\+image@{copy\+\_\+rgb\+\_\+image}}
+\index{copy\+\_\+rgb\+\_\+image@{copy\+\_\+rgb\+\_\+image}!process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}}
+\subsubsection{\texorpdfstring{copy\+\_\+rgb\+\_\+image()}{copy\_rgb\_image()}}
+{\footnotesize\ttfamily \hyperlink{structRGBImage}{R\+G\+B\+Image}$\ast$ copy\+\_\+rgb\+\_\+image (\begin{DoxyParamCaption}\item[{\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$}]{image }\end{DoxyParamCaption})}
+
+Function used to clone an image
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & The Image we want to clone \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{process__rgb_8h_a0c4cb3de6a102b1bc7ca10810f09fe77}\label{process__rgb_8h_a0c4cb3de6a102b1bc7ca10810f09fe77}} 
+\index{process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}!get\+\_\+rgb\+\_\+pixel@{get\+\_\+rgb\+\_\+pixel}}
+\index{get\+\_\+rgb\+\_\+pixel@{get\+\_\+rgb\+\_\+pixel}!process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}}
+\subsubsection{\texorpdfstring{get\+\_\+rgb\+\_\+pixel()}{get\_rgb\_pixel()}}
+{\footnotesize\ttfamily \hyperlink{structColour}{Colour} get\+\_\+rgb\+\_\+pixel (\begin{DoxyParamCaption}\item[{\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$}]{image,  }\item[{int}]{line,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+Function used to access a specific pixel within an R\+GB image If a row or col that goes outside the image\textquotesingle{}s bounds is given, the function returns a Null\+\_\+\+Pixel (an R\+GB Pixel with all it\textquotesingle{}s values set to 0)
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & The R\+GB Image we want to save \\
+\hline
+{\em row} & The pixel\textquotesingle{}s row \\
+\hline
+{\em col} & The pixel\textquotesingle{}s column \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{process__rgb_8h_aa539bea4683797df768648cba4ecbaa5}\label{process__rgb_8h_aa539bea4683797df768648cba4ecbaa5}} 
+\index{process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}!get\+\_\+rgb\+\_\+subsection@{get\+\_\+rgb\+\_\+subsection}}
+\index{get\+\_\+rgb\+\_\+subsection@{get\+\_\+rgb\+\_\+subsection}!process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}}
+\subsubsection{\texorpdfstring{get\+\_\+rgb\+\_\+subsection()}{get\_rgb\_subsection()}}
+{\footnotesize\ttfamily \hyperlink{structRGBImage}{R\+G\+B\+Image}$\ast$ get\+\_\+rgb\+\_\+subsection (\begin{DoxyParamCaption}\item[{\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$}]{image,  }\item[{int}]{pos\+\_\+start\mbox{[}2\mbox{]},  }\item[{int}]{pos\+\_\+end\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+Function used to access a subsection of image
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & The R\+GB image we want to subsect \\
+\hline
+{\em pos\+\_\+start} & An array containing the subsection\textquotesingle{}s starting starting (left-\/top corner of subsection) row number and col number \\
+\hline
+{\em pos\+\_\+end} & An array containing the subsection\textquotesingle{}s ending (bottom-\/right corner of subsection) row number and col number \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{process__rgb_8h_a7901184e16b2068b10aff25e9a2eda97}\label{process__rgb_8h_a7901184e16b2068b10aff25e9a2eda97}} 
+\index{process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}!load\+\_\+rgb\+\_\+file@{load\+\_\+rgb\+\_\+file}}
+\index{load\+\_\+rgb\+\_\+file@{load\+\_\+rgb\+\_\+file}!process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}}
+\subsubsection{\texorpdfstring{load\+\_\+rgb\+\_\+file()}{load\_rgb\_file()}}
+{\footnotesize\ttfamily \hyperlink{structRGBImage}{R\+G\+B\+Image}$\ast$ load\+\_\+rgb\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+Function used to load an R\+GB image from a file
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The File\textquotesingle{}s path on which we\textquotesingle{}ll be saving the image \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{process__rgb_8h_a19cfda41a1a4b94bedc5dc08f4dfb56d}\label{process__rgb_8h_a19cfda41a1a4b94bedc5dc08f4dfb56d}} 
+\index{process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}!save\+\_\+rgb\+\_\+to\+\_\+file@{save\+\_\+rgb\+\_\+to\+\_\+file}}
+\index{save\+\_\+rgb\+\_\+to\+\_\+file@{save\+\_\+rgb\+\_\+to\+\_\+file}!process\+\_\+rgb.\+h@{process\+\_\+rgb.\+h}}
+\subsubsection{\texorpdfstring{save\+\_\+rgb\+\_\+to\+\_\+file()}{save\_rgb\_to\_file()}}
+{\footnotesize\ttfamily int save\+\_\+rgb\+\_\+to\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+\_\+name,  }\item[{\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$}]{image }\end{DoxyParamCaption})}
+
+Function used to save an R\+GB image to a file
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The File\textquotesingle{}s path on which we\textquotesingle{}ll be saving the image \\
+\hline
+{\em image} & The R\+GB Image we want to save\\
+\hline
+\end{DoxyParams}
+F\+U\+N\+C\+T\+I\+ON D\+E\+F\+I\+N\+I\+T\+I\+ON 

@@ -1,0 +1,114 @@
+\hypertarget{main_8c}{}\section{src/main.c File Reference}
+\label{main_8c}\index{src/main.\+c@{src/main.\+c}}
+
+
+File containing a Text-\/based Test interface for all of our modules\textquotesingle{} operations.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}process\+\_\+rgb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}process\+\_\+grayscale.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}process\+\_\+binary.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}image\+\_\+processing.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_ad6d94ce273637446121c9cbd16b6077f}\label{main_8c_ad6d94ce273637446121c9cbd16b6077f}} 
+\#define {\bfseries S\+T\+R\+I\+N\+G\+\_\+\+L\+EN}~10
+\item 
+\mbox{\Hypertarget{main_8c_abad72099b157a2f43a5b8351c43d4048}\label{main_8c_abad72099b157a2f43a5b8351c43d4048}} 
+\#define {\bfseries M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+NS}~100
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a0dad7710acca5cfbb3f0694acdfb1ebe}\label{main_8c_a0dad7710acca5cfbb3f0694acdfb1ebe}} 
+void {\bfseries increment\+\_\+rgb\+\_\+operations} (char $\ast$operation)
+\item 
+\mbox{\Hypertarget{main_8c_a6e310a216c545036105b8fed88c933c7}\label{main_8c_a6e310a216c545036105b8fed88c933c7}} 
+void {\bfseries increment\+\_\+gray\+\_\+operations} (char $\ast$operation)
+\item 
+\mbox{\Hypertarget{main_8c_a0d4cd2541030db55e5ea5209d975c22f}\label{main_8c_a0d4cd2541030db55e5ea5209d975c22f}} 
+void {\bfseries increment\+\_\+binary\+\_\+operations} (char $\ast$operation)
+\item 
+\mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a5d8d6a03ef4451c099314ad25860c292}\label{main_8c_a5d8d6a03ef4451c099314ad25860c292}} 
+\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$ {\bfseries R\+G\+B\+\_\+\+I\+M\+A\+GE}
+\item 
+\mbox{\Hypertarget{main_8c_ae2c21d9de20e7c5febe95a45a9fa53f6}\label{main_8c_ae2c21d9de20e7c5febe95a45a9fa53f6}} 
+\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$ {\bfseries R\+G\+B\+\_\+\+OG}
+\item 
+\mbox{\Hypertarget{main_8c_a397c40e54b955da5f2c0a75a77b9b9f4}\label{main_8c_a397c40e54b955da5f2c0a75a77b9b9f4}} 
+\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$ {\bfseries R\+G\+B\+\_\+\+B\+A\+C\+K\+UP}
+\item 
+\mbox{\Hypertarget{main_8c_a5f5fd09988f3d2e1d28804864a7cf79c}\label{main_8c_a5f5fd09988f3d2e1d28804864a7cf79c}} 
+int {\bfseries L\+O\+A\+D\+E\+D\+\_\+\+R\+GB} = 0
+\item 
+\mbox{\Hypertarget{main_8c_ad3a8a4498ae10fb0f8d8cc174e641c71}\label{main_8c_ad3a8a4498ae10fb0f8d8cc174e641c71}} 
+int {\bfseries R\+G\+B\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+S\+\_\+\+I\+N\+D\+EX}
+\item 
+\mbox{\Hypertarget{main_8c_a83e4cc8919000f3dc8dfea86c7710d2f}\label{main_8c_a83e4cc8919000f3dc8dfea86c7710d2f}} 
+char {\bfseries R\+G\+B\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+NS} \mbox{[}M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+NS\mbox{]}\mbox{[}S\+T\+R\+I\+N\+G\+\_\+\+L\+EN\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_af7bf311ba8e396813f670f8b0c00e988}\label{main_8c_af7bf311ba8e396813f670f8b0c00e988}} 
+\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$ {\bfseries G\+R\+A\+Y\+\_\+\+I\+M\+A\+GE}
+\item 
+\mbox{\Hypertarget{main_8c_abae0228dd61aba9105daa1a0ea1caae8}\label{main_8c_abae0228dd61aba9105daa1a0ea1caae8}} 
+\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$ {\bfseries G\+R\+A\+Y\+\_\+\+OG}
+\item 
+\mbox{\Hypertarget{main_8c_ad5b64ccb6cf9c96a84ab9ac9efbb4272}\label{main_8c_ad5b64ccb6cf9c96a84ab9ac9efbb4272}} 
+\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$ {\bfseries G\+R\+A\+Y\+\_\+\+B\+A\+C\+K\+UP}
+\item 
+\mbox{\Hypertarget{main_8c_a81c37b0065d364c952743639b8cddf51}\label{main_8c_a81c37b0065d364c952743639b8cddf51}} 
+int {\bfseries L\+O\+A\+D\+E\+D\+\_\+\+G\+R\+AY} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a9166d4e9e1928866cbb7b55966e3d8d8}\label{main_8c_a9166d4e9e1928866cbb7b55966e3d8d8}} 
+int {\bfseries G\+R\+A\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+S\+\_\+\+I\+N\+D\+EX}
+\item 
+\mbox{\Hypertarget{main_8c_aaee54f43a49348d620e78b9b729c7aeb}\label{main_8c_aaee54f43a49348d620e78b9b729c7aeb}} 
+char {\bfseries G\+R\+A\+Y\+S\+C\+A\+L\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+NS} \mbox{[}M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+NS\mbox{]}\mbox{[}S\+T\+R\+I\+N\+G\+\_\+\+L\+EN\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_a68f5d90aab107ca9b6e58cc286e4926c}\label{main_8c_a68f5d90aab107ca9b6e58cc286e4926c}} 
+\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$ {\bfseries R\+G\+B\+\_\+\+T\+O\+\_\+\+G\+R\+A\+Y\+\_\+\+I\+M\+A\+GE}
+\item 
+\mbox{\Hypertarget{main_8c_ab36b8e0ac8d4cd8dd67c849ce6fc73f0}\label{main_8c_ab36b8e0ac8d4cd8dd67c849ce6fc73f0}} 
+\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$$\ast$ {\bfseries R\+G\+B\+\_\+\+T\+O\+\_\+\+G\+R\+A\+Y\+\_\+\+I\+M\+A\+G\+ES}
+\item 
+\mbox{\Hypertarget{main_8c_a9e3d109cea4c9715bf0d520b9971df04}\label{main_8c_a9e3d109cea4c9715bf0d520b9971df04}} 
+\hyperlink{structBinaryImage}{Binary\+Image} $\ast$ {\bfseries B\+I\+N\+\_\+\+I\+M\+A\+GE}
+\item 
+\mbox{\Hypertarget{main_8c_a664547d71112334e579d2f3bc789f8dd}\label{main_8c_a664547d71112334e579d2f3bc789f8dd}} 
+\hyperlink{structBinaryImage}{Binary\+Image} $\ast$ {\bfseries B\+I\+N\+\_\+\+OG}
+\item 
+\mbox{\Hypertarget{main_8c_a8c5854e3fedfa26e1b9355f3bac76e8b}\label{main_8c_a8c5854e3fedfa26e1b9355f3bac76e8b}} 
+\hyperlink{structBinaryImage}{Binary\+Image} $\ast$ {\bfseries B\+I\+N\+\_\+\+B\+A\+C\+K\+UP}
+\item 
+\mbox{\Hypertarget{main_8c_abbe047f0caeb141a776d80f29780e6a2}\label{main_8c_abbe047f0caeb141a776d80f29780e6a2}} 
+int {\bfseries L\+O\+A\+D\+E\+D\+\_\+\+B\+IN} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a1f80728be30e6d7ddd94c97526549571}\label{main_8c_a1f80728be30e6d7ddd94c97526549571}} 
+int {\bfseries B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+S\+\_\+\+I\+N\+D\+EX}
+\item 
+\mbox{\Hypertarget{main_8c_a91ffb44f8cc4e89d276b9574d0c87bdc}\label{main_8c_a91ffb44f8cc4e89d276b9574d0c87bdc}} 
+char {\bfseries B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+NS} \mbox{[}M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+NS\mbox{]}\mbox{[}S\+T\+R\+I\+N\+G\+\_\+\+L\+EN\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_a77f0cc5f2cea42ea098961b219ca1c6a}\label{main_8c_a77f0cc5f2cea42ea098961b219ca1c6a}} 
+\hyperlink{structBinaryImage}{Binary\+Image} $\ast$ {\bfseries G\+R\+A\+Y\+\_\+\+T\+O\+\_\+\+B\+I\+N\+\_\+\+I\+MG}
+\item 
+\mbox{\Hypertarget{main_8c_a541ffca96c9f4a15aed02e9fcee8a2ea}\label{main_8c_a541ffca96c9f4a15aed02e9fcee8a2ea}} 
+\hyperlink{structBinaryImage}{Binary\+Image} $\ast$ {\bfseries G\+R\+A\+Y\+\_\+\+T\+O\+\_\+\+B\+I\+N\+\_\+\+O\+T\+SU}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing a Text-\/based Test interface for all of our modules\textquotesingle{} operations. 
+

@@ -1,0 +1,33 @@
+\hypertarget{structBinaryImage}{}\section{Binary\+Image Struct Reference}
+\label{structBinaryImage}\index{Binary\+Image@{Binary\+Image}}
+
+
+Structure used to represent Binary images.  
+
+
+
+
+{\ttfamily \#include $<$process\+\_\+binary.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structBinaryImage_a042b6bf1e87ee45018a389fb7f87e799}\label{structBinaryImage_a042b6bf1e87ee45018a389fb7f87e799}} 
+int {\bfseries height}
+\item 
+\mbox{\Hypertarget{structBinaryImage_a3eb878acd5c384ee3a75eb513c773727}\label{structBinaryImage_a3eb878acd5c384ee3a75eb513c773727}} 
+int {\bfseries width}
+\item 
+\mbox{\Hypertarget{structBinaryImage_ad32926fc56f17faec21ed17b27e460a4}\label{structBinaryImage_ad32926fc56f17faec21ed17b27e460a4}} 
+unsigned char $\ast$ {\bfseries bin\+\_\+array}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure used to represent Binary images. 
+
+The way we chose to represent our bits was through the use of an array of chars (1 byte structures). Instead of thinking of the image as a bidimensional array, we simply used a linear array noting that the image position can be given by the formula\+: position = line$\ast$no\+Of\+Columns+column 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{process__binary_8h}{process\+\_\+binary.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,37 @@
+\hypertarget{structGrayscaleImage}{}\section{Grayscale\+Image Struct Reference}
+\label{structGrayscaleImage}\index{Grayscale\+Image@{Grayscale\+Image}}
+
+
+Structure used to represent \hyperlink{structGrayscale}{Grayscale} images.  
+
+
+
+
+{\ttfamily \#include $<$process\+\_\+grayscale.\+h$>$}
+
+
+
+Collaboration diagram for Grayscale\+Image\+:
+% FIG 0
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structGrayscaleImage_a207daf0ba15ac56e0af116a72b37845b}\label{structGrayscaleImage_a207daf0ba15ac56e0af116a72b37845b}} 
+int {\bfseries width}
+\item 
+\mbox{\Hypertarget{structGrayscaleImage_a3fe79bb945c72434ae3ceac2c22c8abb}\label{structGrayscaleImage_a3fe79bb945c72434ae3ceac2c22c8abb}} 
+int {\bfseries height}
+\item 
+\mbox{\Hypertarget{structGrayscaleImage_a348b736ba303130fa52dc092b5f761c7}\label{structGrayscaleImage_a348b736ba303130fa52dc092b5f761c7}} 
+\hyperlink{structGrayscale}{Grayscale} $\ast$ {\bfseries pixel\+\_\+array}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure used to represent \hyperlink{structGrayscale}{Grayscale} images. 
+
+The way we chose to represent our pixels was through the use of an array of chars (1 byte structures). Instead of thinking of the image as a bidimensional array, we simply used a linear array noting that the image position can be given by the formula\+: position = line$\ast$no\+Of\+Columns+column 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{process__grayscale_8h}{process\+\_\+grayscale.\+h}\end{DoxyCompactItemize}

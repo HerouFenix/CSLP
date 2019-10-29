@@ -1,0 +1,99 @@
+\hypertarget{image__processing_8c}{}\section{src/image\+\_\+processing.c File Reference}
+\label{image__processing_8c}\index{src/image\+\_\+processing.\+c@{src/image\+\_\+processing.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}process\+\_\+rgb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}process\+\_\+grayscale.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}process\+\_\+binary.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}image\+\_\+processing.\+h\char`\"{}}\newline
+Include dependency graph for image\+\_\+processing.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structBinaryImage}{Binary\+Image} $\ast$ \hyperlink{image__processing_8c_afa54ff6c84a44e6266b426a8f194fc50}{convert\+\_\+gray\+\_\+to\+\_\+bin} (\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$image, unsigned char threshold)
+\item 
+\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$ \hyperlink{image__processing_8c_ae7b47fed0ec6e42da141500de3e3b551}{convert\+\_\+rgb\+\_\+to\+\_\+grayscale} (\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$rgb\+\_\+image)
+\item 
+\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$$\ast$ \hyperlink{image__processing_8c_a87e6347e86448c2947415209ed244403}{convert\+\_\+rgb\+\_\+to\+\_\+three\+\_\+grayscale} (\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$rgb\+\_\+image)
+\item 
+void \hyperlink{image__processing_8c_aaacc8547a4467e1ca5dadc59e219efba}{add\+\_\+logo\+\_\+to\+\_\+image} (\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$rgb\+\_\+image, \hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$logo, int $\ast$pixel, float intensity)
+\item 
+\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$ \hyperlink{image__processing_8c_a05419c58e563da91699e1aa4a51a0d95}{reduce\+\_\+image} (\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$image, int new\+\_\+height, int new\+\_\+width)
+\item 
+\hyperlink{structBinaryImage}{Binary\+Image} $\ast$ \hyperlink{image__processing_8c_a19c43011da354a83331712d66d3f3e30}{convert\+\_\+gray\+\_\+to\+\_\+bin\+\_\+otsu} (\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$image)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{image__processing_8c_aaacc8547a4467e1ca5dadc59e219efba}\label{image__processing_8c_aaacc8547a4467e1ca5dadc59e219efba}} 
+\index{image\+\_\+processing.\+c@{image\+\_\+processing.\+c}!add\+\_\+logo\+\_\+to\+\_\+image@{add\+\_\+logo\+\_\+to\+\_\+image}}
+\index{add\+\_\+logo\+\_\+to\+\_\+image@{add\+\_\+logo\+\_\+to\+\_\+image}!image\+\_\+processing.\+c@{image\+\_\+processing.\+c}}
+\subsubsection{\texorpdfstring{add\+\_\+logo\+\_\+to\+\_\+image()}{add\_logo\_to\_image()}}
+{\footnotesize\ttfamily void add\+\_\+logo\+\_\+to\+\_\+image (\begin{DoxyParamCaption}\item[{\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$}]{rgb\+\_\+image,  }\item[{\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$}]{logo,  }\item[{int $\ast$}]{pixel,  }\item[{float}]{intensity }\end{DoxyParamCaption})}
+
+Function used to add an rgb logo to an rgb image
+
+
+\begin{DoxyParams}{Parameters}
+{\em rgb\+\_\+image} & The R\+GB image we want to add our logo to \\
+\hline
+{\em logo} & The R\+GB logo we want to add to our image \\
+\hline
+{\em pixel} & The pixel we want our logo to start in \\
+\hline
+{\em intensity} & The intensity of the logo to add to image \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{image__processing_8c_afa54ff6c84a44e6266b426a8f194fc50}\label{image__processing_8c_afa54ff6c84a44e6266b426a8f194fc50}} 
+\index{image\+\_\+processing.\+c@{image\+\_\+processing.\+c}!convert\+\_\+gray\+\_\+to\+\_\+bin@{convert\+\_\+gray\+\_\+to\+\_\+bin}}
+\index{convert\+\_\+gray\+\_\+to\+\_\+bin@{convert\+\_\+gray\+\_\+to\+\_\+bin}!image\+\_\+processing.\+c@{image\+\_\+processing.\+c}}
+\subsubsection{\texorpdfstring{convert\+\_\+gray\+\_\+to\+\_\+bin()}{convert\_gray\_to\_bin()}}
+{\footnotesize\ttfamily \hyperlink{structBinaryImage}{Binary\+Image}$\ast$ convert\+\_\+gray\+\_\+to\+\_\+bin (\begin{DoxyParamCaption}\item[{\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$}]{image,  }\item[{unsigned char}]{threshold }\end{DoxyParamCaption})}
+
+F\+U\+N\+C\+T\+I\+ON D\+E\+F\+I\+N\+I\+T\+I\+O\+NS \mbox{\Hypertarget{image__processing_8c_a19c43011da354a83331712d66d3f3e30}\label{image__processing_8c_a19c43011da354a83331712d66d3f3e30}} 
+\index{image\+\_\+processing.\+c@{image\+\_\+processing.\+c}!convert\+\_\+gray\+\_\+to\+\_\+bin\+\_\+otsu@{convert\+\_\+gray\+\_\+to\+\_\+bin\+\_\+otsu}}
+\index{convert\+\_\+gray\+\_\+to\+\_\+bin\+\_\+otsu@{convert\+\_\+gray\+\_\+to\+\_\+bin\+\_\+otsu}!image\+\_\+processing.\+c@{image\+\_\+processing.\+c}}
+\subsubsection{\texorpdfstring{convert\+\_\+gray\+\_\+to\+\_\+bin\+\_\+otsu()}{convert\_gray\_to\_bin\_otsu()}}
+{\footnotesize\ttfamily \hyperlink{structBinaryImage}{Binary\+Image}$\ast$ convert\+\_\+gray\+\_\+to\+\_\+bin\+\_\+otsu (\begin{DoxyParamCaption}\item[{\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$}]{image }\end{DoxyParamCaption})}
+
+Function used to create a binary image out of a grayscale image automatically creating an appropriate threshold for the image using the Otsu Algorithm
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & The \hyperlink{structGrayscale}{Grayscale} image to be converted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{image__processing_8c_ae7b47fed0ec6e42da141500de3e3b551}\label{image__processing_8c_ae7b47fed0ec6e42da141500de3e3b551}} 
+\index{image\+\_\+processing.\+c@{image\+\_\+processing.\+c}!convert\+\_\+rgb\+\_\+to\+\_\+grayscale@{convert\+\_\+rgb\+\_\+to\+\_\+grayscale}}
+\index{convert\+\_\+rgb\+\_\+to\+\_\+grayscale@{convert\+\_\+rgb\+\_\+to\+\_\+grayscale}!image\+\_\+processing.\+c@{image\+\_\+processing.\+c}}
+\subsubsection{\texorpdfstring{convert\+\_\+rgb\+\_\+to\+\_\+grayscale()}{convert\_rgb\_to\_grayscale()}}
+{\footnotesize\ttfamily \hyperlink{structGrayscaleImage}{Grayscale\+Image}$\ast$ convert\+\_\+rgb\+\_\+to\+\_\+grayscale (\begin{DoxyParamCaption}\item[{\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$}]{rgb\+\_\+image }\end{DoxyParamCaption})}
+
+F\+U\+N\+C\+T\+I\+ON D\+E\+C\+L\+A\+R\+A\+T\+I\+O\+NS Function used to create a grayscale image out of an rgb one by computing all of its r, g and b parameters
+
+
+\begin{DoxyParams}{Parameters}
+{\em rgb\+\_\+image} & The R\+GB Image we want to convert \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{image__processing_8c_a87e6347e86448c2947415209ed244403}\label{image__processing_8c_a87e6347e86448c2947415209ed244403}} 
+\index{image\+\_\+processing.\+c@{image\+\_\+processing.\+c}!convert\+\_\+rgb\+\_\+to\+\_\+three\+\_\+grayscale@{convert\+\_\+rgb\+\_\+to\+\_\+three\+\_\+grayscale}}
+\index{convert\+\_\+rgb\+\_\+to\+\_\+three\+\_\+grayscale@{convert\+\_\+rgb\+\_\+to\+\_\+three\+\_\+grayscale}!image\+\_\+processing.\+c@{image\+\_\+processing.\+c}}
+\subsubsection{\texorpdfstring{convert\+\_\+rgb\+\_\+to\+\_\+three\+\_\+grayscale()}{convert\_rgb\_to\_three\_grayscale()}}
+{\footnotesize\ttfamily \hyperlink{structGrayscaleImage}{Grayscale\+Image}$\ast$$\ast$ convert\+\_\+rgb\+\_\+to\+\_\+three\+\_\+grayscale (\begin{DoxyParamCaption}\item[{\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$}]{rgb\+\_\+image }\end{DoxyParamCaption})}
+
+Function used to create a grayscale image out of a single parameter of an R\+GB one (R, G or B). Returns an array of Gray\+Scale\+Images where it\textquotesingle{}s positions correspond to the Red \hyperlink{structGrayscale}{Grayscale}, Green \hyperlink{structGrayscale}{Grayscale} and Blue \hyperlink{structGrayscale}{Grayscale} (in this order)
+
+
+\begin{DoxyParams}{Parameters}
+{\em rgb\+\_\+image} & The R\+GB image we want to convert into 3 Grayscales \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{image__processing_8c_a05419c58e563da91699e1aa4a51a0d95}\label{image__processing_8c_a05419c58e563da91699e1aa4a51a0d95}} 
+\index{image\+\_\+processing.\+c@{image\+\_\+processing.\+c}!reduce\+\_\+image@{reduce\+\_\+image}}
+\index{reduce\+\_\+image@{reduce\+\_\+image}!image\+\_\+processing.\+c@{image\+\_\+processing.\+c}}
+\subsubsection{\texorpdfstring{reduce\+\_\+image()}{reduce\_image()}}
+{\footnotesize\ttfamily \hyperlink{structRGBImage}{R\+G\+B\+Image}$\ast$ reduce\+\_\+image (\begin{DoxyParamCaption}\item[{\hyperlink{structRGBImage}{R\+G\+B\+Image} $\ast$}]{image,  }\item[{int}]{new\+\_\+height,  }\item[{int}]{new\+\_\+width }\end{DoxyParamCaption})}
+

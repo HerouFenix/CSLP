@@ -1,0 +1,114 @@
+\hypertarget{process__grayscale_8h}{}\section{src/process\+\_\+grayscale.h File Reference}
+\label{process__grayscale_8h}\index{src/process\+\_\+grayscale.\+h@{src/process\+\_\+grayscale.\+h}}
+
+
+File containing \hyperlink{structGrayscale}{Grayscale} related methods and structures.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structGrayscale}{Grayscale}
+\begin{DoxyCompactList}\small\item\em Structure used to represent \hyperlink{structGrayscale}{Grayscale} pixels. \end{DoxyCompactList}\item 
+struct \hyperlink{structGrayscaleImage}{Grayscale\+Image}
+\begin{DoxyCompactList}\small\item\em Structure used to represent \hyperlink{structGrayscale}{Grayscale} images. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{process__grayscale_8h_a041c7b05f82c9551ffda652a13ade608}{save\+\_\+grayscale\+\_\+to\+\_\+file} (char $\ast$file\+\_\+name, \hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$image)
+\item 
+\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$ \hyperlink{process__grayscale_8h_a3e516ee95222016198adc288da018377}{load\+\_\+grayscale\+\_\+file} (char $\ast$file\+\_\+name)
+\item 
+\hyperlink{structGrayscale}{Grayscale} \hyperlink{process__grayscale_8h_a1cc8aea8fc23e2e51e2fe99b49354e54}{get\+\_\+grayscale\+\_\+pixel} (\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$image, int line, int col)
+\item 
+\mbox{\Hypertarget{process__grayscale_8h_a06ea8a385997ed23f63e426c85d04c3d}\label{process__grayscale_8h_a06ea8a385997ed23f63e426c85d04c3d}} 
+\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$ {\bfseries get\+\_\+grayscale\+\_\+subsection} (\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$image, int pos\+\_\+start\mbox{[}2\mbox{]}, int pos\+\_\+end\mbox{[}2\mbox{]})
+\item 
+\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$ \hyperlink{process__grayscale_8h_a24548f31e46c0cbd2806086c7f4c17b6}{copy\+\_\+grayscale\+\_\+image} (\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$image)
+\item 
+void \hyperlink{process__grayscale_8h_af95a01aeee4d01334a9276fdac90b72c}{change\+\_\+gray\+\_\+intensity} (\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$image, int pixel\+\_\+intensity)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing \hyperlink{structGrayscale}{Grayscale} related methods and structures. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{process__grayscale_8h_af95a01aeee4d01334a9276fdac90b72c}\label{process__grayscale_8h_af95a01aeee4d01334a9276fdac90b72c}} 
+\index{process\+\_\+grayscale.\+h@{process\+\_\+grayscale.\+h}!change\+\_\+gray\+\_\+intensity@{change\+\_\+gray\+\_\+intensity}}
+\index{change\+\_\+gray\+\_\+intensity@{change\+\_\+gray\+\_\+intensity}!process\+\_\+grayscale.\+h@{process\+\_\+grayscale.\+h}}
+\subsubsection{\texorpdfstring{change\+\_\+gray\+\_\+intensity()}{change\_gray\_intensity()}}
+{\footnotesize\ttfamily void change\+\_\+gray\+\_\+intensity (\begin{DoxyParamCaption}\item[{\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$}]{image,  }\item[{int}]{pixel\+\_\+intensity }\end{DoxyParamCaption})}
+
+Function used to change a \hyperlink{structGrayscale}{Grayscale} Image\textquotesingle{}s intensity
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & The Image we want to change the intensity of \\
+\hline
+{\em pixel\+\_\+intensity} & Our intensity modifier \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{process__grayscale_8h_a24548f31e46c0cbd2806086c7f4c17b6}\label{process__grayscale_8h_a24548f31e46c0cbd2806086c7f4c17b6}} 
+\index{process\+\_\+grayscale.\+h@{process\+\_\+grayscale.\+h}!copy\+\_\+grayscale\+\_\+image@{copy\+\_\+grayscale\+\_\+image}}
+\index{copy\+\_\+grayscale\+\_\+image@{copy\+\_\+grayscale\+\_\+image}!process\+\_\+grayscale.\+h@{process\+\_\+grayscale.\+h}}
+\subsubsection{\texorpdfstring{copy\+\_\+grayscale\+\_\+image()}{copy\_grayscale\_image()}}
+{\footnotesize\ttfamily \hyperlink{structGrayscaleImage}{Grayscale\+Image}$\ast$ copy\+\_\+grayscale\+\_\+image (\begin{DoxyParamCaption}\item[{\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$}]{image }\end{DoxyParamCaption})}
+
+Function used to clone an image
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & The Image we want to clone \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{process__grayscale_8h_a1cc8aea8fc23e2e51e2fe99b49354e54}\label{process__grayscale_8h_a1cc8aea8fc23e2e51e2fe99b49354e54}} 
+\index{process\+\_\+grayscale.\+h@{process\+\_\+grayscale.\+h}!get\+\_\+grayscale\+\_\+pixel@{get\+\_\+grayscale\+\_\+pixel}}
+\index{get\+\_\+grayscale\+\_\+pixel@{get\+\_\+grayscale\+\_\+pixel}!process\+\_\+grayscale.\+h@{process\+\_\+grayscale.\+h}}
+\subsubsection{\texorpdfstring{get\+\_\+grayscale\+\_\+pixel()}{get\_grayscale\_pixel()}}
+{\footnotesize\ttfamily \hyperlink{structGrayscale}{Grayscale} get\+\_\+grayscale\+\_\+pixel (\begin{DoxyParamCaption}\item[{\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$}]{image,  }\item[{int}]{line,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+Function used to acess a specific pixel within a \hyperlink{structGrayscale}{Grayscale} Image If a row or col that goes outside the image\textquotesingle{}s bounds is given, the function returns a Null\+\_\+\+Pixel (a \hyperlink{structGrayscale}{Grayscale} Pxel with it\textquotesingle{}s gray value set to 0)
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & The \hyperlink{structGrayscale}{Grayscale} image we want to subsect \\
+\hline
+{\em row} & The pixel\textquotesingle{}s row \\
+\hline
+{\em col} & The pixel\textquotesingle{}s column \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{process__grayscale_8h_a3e516ee95222016198adc288da018377}\label{process__grayscale_8h_a3e516ee95222016198adc288da018377}} 
+\index{process\+\_\+grayscale.\+h@{process\+\_\+grayscale.\+h}!load\+\_\+grayscale\+\_\+file@{load\+\_\+grayscale\+\_\+file}}
+\index{load\+\_\+grayscale\+\_\+file@{load\+\_\+grayscale\+\_\+file}!process\+\_\+grayscale.\+h@{process\+\_\+grayscale.\+h}}
+\subsubsection{\texorpdfstring{load\+\_\+grayscale\+\_\+file()}{load\_grayscale\_file()}}
+{\footnotesize\ttfamily \hyperlink{structGrayscaleImage}{Grayscale\+Image}$\ast$ load\+\_\+grayscale\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+Function used to load a \hyperlink{structGrayscale}{Grayscale} image
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The File\textquotesingle{}s path containing a \hyperlink{structGrayscale}{Grayscale} Image (P\+GM -\/ P5) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{process__grayscale_8h_a041c7b05f82c9551ffda652a13ade608}\label{process__grayscale_8h_a041c7b05f82c9551ffda652a13ade608}} 
+\index{process\+\_\+grayscale.\+h@{process\+\_\+grayscale.\+h}!save\+\_\+grayscale\+\_\+to\+\_\+file@{save\+\_\+grayscale\+\_\+to\+\_\+file}}
+\index{save\+\_\+grayscale\+\_\+to\+\_\+file@{save\+\_\+grayscale\+\_\+to\+\_\+file}!process\+\_\+grayscale.\+h@{process\+\_\+grayscale.\+h}}
+\subsubsection{\texorpdfstring{save\+\_\+grayscale\+\_\+to\+\_\+file()}{save\_grayscale\_to\_file()}}
+{\footnotesize\ttfamily int save\+\_\+grayscale\+\_\+to\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+\_\+name,  }\item[{\hyperlink{structGrayscaleImage}{Grayscale\+Image} $\ast$}]{image }\end{DoxyParamCaption})}
+
+Function used to save a \hyperlink{structGrayscale}{Grayscale} image to a file
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The File\textquotesingle{}s path on which we\textquotesingle{}ll be saving the image \\
+\hline
+{\em image} & The \hyperlink{structGrayscale}{Grayscale} Image we want to save\\
+\hline
+\end{DoxyParams}
+F\+U\+N\+C\+T\+I\+ON D\+E\+F\+I\+N\+I\+T\+I\+O\+NS 

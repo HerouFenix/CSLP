@@ -1,0 +1,37 @@
+\hypertarget{structRGBImage}{}\section{R\+G\+B\+Image Struct Reference}
+\label{structRGBImage}\index{R\+G\+B\+Image@{R\+G\+B\+Image}}
+
+
+Structure used to represent an R\+GB image.  
+
+
+
+
+{\ttfamily \#include $<$process\+\_\+rgb.\+h$>$}
+
+
+
+Collaboration diagram for R\+G\+B\+Image\+:
+% FIG 0
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structRGBImage_a9dfbf4e8564ddc40f933633e81a3305a}\label{structRGBImage_a9dfbf4e8564ddc40f933633e81a3305a}} 
+int {\bfseries width}
+\item 
+\mbox{\Hypertarget{structRGBImage_a5c8d29a71b54a7bece6c2c0759ac4425}\label{structRGBImage_a5c8d29a71b54a7bece6c2c0759ac4425}} 
+int {\bfseries height}
+\item 
+\mbox{\Hypertarget{structRGBImage_a27f9fdf29314557d28a81de72e262a3d}\label{structRGBImage_a27f9fdf29314557d28a81de72e262a3d}} 
+\hyperlink{structColour}{Colour} $\ast$ {\bfseries pixel\+\_\+array}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure used to represent an R\+GB image. 
+
+The way we chose to represent our pixels was through the use of an array of chars (1 byte structures). Instead of thinking of the image as a bidimensional array, we simply used a linear array noting that the image position can be given by the formula\+: position = line$\ast$no\+Of\+Columns+column 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{process__rgb_8h}{process\+\_\+rgb.\+h}\end{DoxyCompactItemize}
