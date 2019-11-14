@@ -907,6 +907,8 @@ int main()
                 exit(1);
             }
 
+            printf("%c\n", option);
+
             if (option == 'S')
             {
                 fflush(stdin);
@@ -957,7 +959,8 @@ int main()
                     printf("\nSuccessfully converted one of the RGB Image's colours to a Grayscale image and saved it to %s\n", file_path);
                 }
                 
-            } else if (option == 'G'){
+            } 
+            else if (option == 'G'){
                 fflush(stdin);
 
                 if (LOADED_GRAY == 0)
@@ -1001,7 +1004,7 @@ int main()
                     exit(1);
                 }
                 GRAY_TO_BIN_OTSU = convert_gray_to_bin_otsu(GRAY_IMAGE);
-                save_to_bin_file(file_path, GRAY_TO_BIN_IMG);
+                save_to_bin_file(file_path, GRAY_TO_BIN_OTSU);
                 increment_binary_operations(" AdaptedO ");
                 printf("\nSuccessfully converted grayimage to binary with the Otsu algorithm and saved it to %s\n", file_path);
                 
